@@ -27,13 +27,13 @@ B - Merchant :
 
 	10 - Consult orders (list clickable -> 11)
 
-	11 - Consult an order
+	11 - Consult an order (list clickable -> 6)
 
 C - Customers :
 
 	1 (cf.A1) - Register (+ first_name + last_name + interests)
 
-	2 - Menu (button to -> 3/5(interest products)/6/9/10)
+	2 - Menu (button to -> 3/4(interest products)/6/9/10)
 
 	3 - Find products (list clickable -> 5/Add product to our basket)
 
@@ -51,4 +51,4 @@ C - Customers :
 
 	10 - Consult our orders (list clickable -> 11)
 
-	11 - Consult an order
+	11 - Consult an order (list clickable -> 5)
