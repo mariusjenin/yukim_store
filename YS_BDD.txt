@@ -1,0 +1,90 @@
+###### USER PACKAGE #####
+
+User
+	id_user (PK)
+	mail
+	hash_pwd
+	is_merchant
+
+Customer
+	id_user (PK/FK)
+	first_name
+	last_name
+
+Merchant
+	id_user (PK/FK)
+	id_store (FK)
+
+
+###### STORE PACKAGE #####
+
+TemplateStore
+	id_template (PK)
+	name
+	[all the attributes needed for customizability]
+
+Store
+	id_store (PK)
+	name
+	img_store
+	[all the attributes needed for customizability]
+
+
+###### PRODUCT PACKAGE #####
+
+Category
+	id_category (PK)
+	id_store (FK)
+	name
+
+Product
+	id_product (PK)
+	id_category (FK)
+	name
+	details
+	price
+	img
+
+Offer
+	id_product (PK/FK)
+	price (PK)
+	date_start
+	date_end
+
+
+###### INTEREST PACKAGE #####
+
+Interest
+	id_interest (PK)
+	name
+
+UserHasInterest
+	id_uhi (PK)
+	id_interest (FK)
+	if_user (FK)
+
+InterestForCategory
+	id_ifc (PK)
+	id_category (FK)
+	id_interest (FK)
+
+
+###### BASKET/ORDER PACKAGE #####
+
+ProductInBasket
+	id_pib (PK)
+	id_product (FK)
+	id_user (FK)
+	quantity
+
+Order
+	id_order (PK)
+	id_user (FK)
+	id_store (FK)
+	date_order
+
+ProductInOrder
+	id_pio (PK)
+	id_product (FK)
+	id_order (FK)
+	quantity

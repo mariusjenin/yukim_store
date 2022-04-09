@@ -1,0 +1,54 @@
+A - All :
+	1 - Register(mail + password + password2 + is_merchant)
+
+	2 - Login (mail + password)
+
+B - Merchant :
+
+	1 - Create his store (only possibility if has no store)
+		a - Choose a template
+		b - Customize the chosen template
+
+	2 - Menu with (button to -> 3/5/10)
+
+	3 - Consult categories of his store (list clickable -> 4/8 | buttons to -> 7)
+
+	4 - Consult products of a categorie of his store (list clickable -> 6 | button to -> 8)
+
+	5 - Consult products of his store (list clickable -> 6)
+
+	6 - Consult a product with the details (button to -> 9)
+
+	7 - Add categories to his store
+
+	8 - Add products to a categorie in his store (categorie can be pre-filled)
+
+	9 - Add special offers (tmp modification of a product)
+
+	10 - Consult orders (list clickable -> 11)
+
+	11 - Consult an order
+
+C - Customers :
+
+	1 (cf.A1) - Register (+ first_name + last_name + interests)
+
+	2 - Menu (button to -> 3/5(interest products)/6/9/10)
+
+	3 - Find products (list clickable -> 5/Add product to our basket)
+
+	4 - Consult a list of products (list clickable -> 5/Add product to our basket)
+
+	5 - Consult a product with the details (button to -> 7/Add product to our basket)
+
+	6 - Find a store (list clickable -> 7)
+
+	7 - Consult a store (button to -> 8/4)
+
+	8 - Consult categories of a store (list clickable -> 4)
+
+	9 - Consult our basket (list clickable -> 5/Change quantity of a product/Remove product | button to -> Clear basket/Validate)
+
+	10 - Consult our orders (list clickable -> 11)
+
+	11 - Consult an order
