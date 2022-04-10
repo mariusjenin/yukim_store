@@ -5,9 +5,22 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/a2_login_tv_title_text"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/constraintLayout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
@@ -17,51 +30,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/a2_login_tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/a2_login_tv_title_text"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/a2_login_et_mail"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <EditText
-            android:id="@+id/a2_login_et_mail"
+            android:id="@+id/mail"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:autofillHints=""
             android:hint="@string/a2_login_et_mail_hint"
             android:inputType="textEmailAddress"
-            app:layout_constraintBottom_toTopOf="@+id/a2_login_et_password"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/a2_login_tv_title" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/a2_login_et_password"
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="48dp"
+            android:layout_marginTop="20dp"
             android:autofillHints=""
             android:hint="@string/a2_login_et_password_hint"
             android:inputType="textPassword"
-            app:layout_constraintBottom_toTopOf="@+id/a2_login_b_validate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/a2_login_et_mail"
+            app:layout_constraintTop_toBottomOf="@+id/mail"
             tools:ignore="TextContrastCheck" />
 
-        <Button
-            android:id="@+id/a2_login_b_validate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/a2_login_b_validate_text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/a2_login_et_password" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/a2_login_b_validate_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
