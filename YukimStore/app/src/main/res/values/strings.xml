@@ -7,21 +7,9 @@
     <string name="validate">validate</string>
     <string name="password">password</string>
     <string name="login">Login</string>
-    <string name="a2_login_et_mail_hint">mail</string>
-    <string name="a2_login_et_password_hint">password</string>
-    <string name="a2_login_b_validate_text">Validate</string>
-    <string name="b1a_create_store_choose_template_b_template1_description">template1</string>
-    <string name="b1a_create_store_choose_template_b_template2_description">template2</string>
-    <string name="b1a_create_store_choose_template_tv_title_text">Choose template</string>
-    <string name="b1a_create_store_choose_template_b_template3_description">template3</string>
-    <string name="string_b1a_create_store_choose_template_b_template3_description">template3</string>
-    <string name="b1a_create_store_choose_template_b_template4_description">template4</string>
-    <string name="b1a_create_store_choose_template_b_template5_description">template5</string>
-    <string name="b1a_create_store_choose_template_b_template6_description">template6</string>
-    <string name="b1a_create_store_choose_template_b_validate_text">Validate</string>
-    <string name="b1b_create_store_custom_template_tv_title_text">Customize template</string>
-    <string name="b1b_create_store_custom_template_iv_template">template</string>
-    <string name="b1b_create_store_custom_template_b_validate">Validate</string>
+    <string name="create_store">Create a store</string>
+    <string name="choose_template">Choose a template</string>
+    <string name="customize_template">Customize the chosen template</string>
     <string-array name="settings">
         <item>Choice 1</item>
         <item>Choice 2</item>
