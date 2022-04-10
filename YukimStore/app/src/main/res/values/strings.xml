@@ -10,6 +10,7 @@
     <string name="create_store">Create a store</string>
     <string name="choose_template">Choose a template</string>
     <string name="customize_template">Customize the chosen template</string>
+    <string name="menu">Menu</string>
     <string-array name="settings">
         <item>Choice 1</item>
         <item>Choice 2</item>
