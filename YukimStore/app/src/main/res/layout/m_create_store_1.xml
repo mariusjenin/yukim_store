@@ -36,13 +36,11 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/b1a_create_store_choose_template_b_template1_description"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/b1a_create_store_choose_template_b_template2_description"
                 tools:srcCompat="@tools:sample/avatars" />
 
         </TableRow>
@@ -54,14 +52,12 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/string_b1a_create_store_choose_template_b_template3_description"
                 tools:ignore="ImageContrastCheck"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/b1a_create_store_choose_template_b_template4_description"
                 tools:srcCompat="@tools:sample/avatars" />
         </TableRow>
 
@@ -72,13 +68,11 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/b1a_create_store_choose_template_b_template5_description"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/b1a_create_store_choose_template_b_template6_description"
                 tools:ignore="ImageContrastCheck"
                 tools:srcCompat="@tools:sample/avatars" />
         </TableRow>
