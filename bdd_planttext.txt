@@ -1,0 +1,134 @@
+@startuml
+title YukimStore
+
+package User{
+  object User{
+    **id_user**
+    mail
+    hash_pwd
+    is_merchant
+  }
+  
+  object Customer{
+    //**id_user**//
+    first_name
+    last_name
+  }
+  
+  object Merchant{
+    //**id_user**//
+    //id_store//
+  }
+}
+
+
+package Basket{
+  object ProductInBasket{
+    **id_pib**
+    //id_product//
+    //id_user//
+    quantity
+  }
+  
+  object Order{
+    **id_order**
+    //id_user//
+    //id_store//
+    date_order
+  }
+  
+  object ProductInOrder{
+    **id_pio**
+    //id_product//
+    //id_order//
+    quantity
+  }
+}
+
+package Store{
+  object TemplateStore{
+    **id_template**
+    name
+    [all the attributes needed for customizability]
+  }
+  
+  object Store{
+    **id_store**
+    name
+    [all the attributes needed for customizability]
+  }
+}
+
+package Product{
+  object Category{
+    **id_category**
+    //id_store//
+    name
+  }
+  
+  object Product{
+    **id_product**
+    //id_category//
+    name
+    details
+    price
+    img
+  }
+  
+  object Offer{
+    //**id_product**//
+    price
+    date_start
+    date_end
+  }
+}
+
+package Interest{
+  object Interest{
+    **id_interest**
+    name
+    name
+  }
+  
+  object UserHasInterest{
+    **id_uhi**
+    //id_interest//
+    //if_user//
+  }
+  
+  object InterestForCategory{
+    **id_ifc**
+    //id_category//
+    //id_interest//
+  }
+}
+
+User "1" -up-- "1" Customer
+User "1" -left-- "1" Merchant
+User "1" --- "*" UserHasInterest
+User "1" --- "*" ProductInBasket
+User "1" --- "*" Order
+
+
+Store "1" --- "*" Order
+Store "1" --- "*" Category
+Store "1" -down-- "1" Merchant
+
+
+Category "1" --- "*" Product
+Category "1" --- "*" InterestForCategory
+
+
+Interest "1" -up-- "*" InterestForCategory
+Interest "1" -up-- "*" UserHasInterest
+
+
+Product "1" --right- "*" Offer
+
+
+Product "1" --- "*" ProductInBasket
+Product "1" --- "*" ProductInOrder
+Order "1" --- "*" ProductInOrder
+
+
+@enduml

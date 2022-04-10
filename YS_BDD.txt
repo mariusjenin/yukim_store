@@ -47,7 +47,7 @@ Product
 
 Offer
 	id_product (PK/FK)
-	price (PK)
+	price
 	date_start
 	date_end
 
@@ -61,7 +61,7 @@ Interest
 UserHasInterest
 	id_uhi (PK)
 	id_interest (FK)
-	if_user (FK)
+	id_user (FK)
 
 InterestForCategory
 	id_ifc (PK)
