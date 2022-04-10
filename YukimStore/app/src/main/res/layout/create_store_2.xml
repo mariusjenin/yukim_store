@@ -14,22 +14,14 @@
             android:layout_marginTop="10dp" android:layout_marginEnd="10dp" android:layout_marginBottom="10dp"
     >
 
-        <TextView
-                android:id="@+id/b1b_create_store_custom_template_tv_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/b1b_create_store_custom_template_tv_title_text"
-                android:textSize="24sp" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-        />
         <ImageView
-                android:id="@+id/b1b_create_store_custom_template_iv_template"
+                android:id="@+id/img_store"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/b1b_create_store_custom_template_iv_template"
                 tools:srcCompat="@tools:sample/avatars"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/b1b_create_store_custom_template_tv_title"
+                app:layout_constraintTop_toBottomOf="@+id/title"
                 android:layout_marginTop="20dp"/>
         <LinearLayout
                 android:layout_width="0dp"
@@ -38,7 +30,7 @@
                 android:id="@+id/linearLayout"
                 app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/b1b_create_store_custom_template_iv_template"
+                app:layout_constraintTop_toBottomOf="@+id/img_store"
                 android:layout_marginTop="20dp">
 
             <Spinner
@@ -60,13 +52,28 @@
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <Button
-            android:id="@+id/b1b_create_store_custom_template_b_validate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/b1b_create_store_custom_template_b_validate"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp" android:layout_marginBottom="5dp"/>
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/b1b_create_store_custom_template_b_validate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/b1b_create_store_custom_template_tv_title_text"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

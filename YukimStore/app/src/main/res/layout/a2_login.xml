@@ -19,7 +19,7 @@
             android:id="@+id/a2_login_tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/a2_login_tv_title_text"
+            android:text="@string/login"
             android:textSize="24sp" />
 
         <Space
