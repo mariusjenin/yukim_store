@@ -3,24 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/layout/a1_register.xml" value="0.33" />
-        <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/layout/a2_login.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/layout/b1a_create_store_choose_template.xml" value="0.2453125" />
-        <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/layout/b1b_create_store_custom_template.xml" value="0.33" />
-        <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/layout/create_store_1.xml" value="0.33" />
-        <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/layout/login.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/layout/m_consult_product.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/layout/m_menu.xml" value="0.358695652173913" />
         <entry key="app/src/main/res/layout/a1_register.xml" value="0.25" />
         <entry key="app/src/main/res/layout/a2_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/b1a_create_store_choose_template.xml" value="0.25" />
         <entry key="app/src/main/res/layout/b1b_create_store_custom_template.xml" value="0.25" />
         <entry key="app/src/main/res/layout/b2_menu.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/m_consult_categories.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/m_consult_products1.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/m_consult_products2.xml" value="0.15070921985815602" />
       </map>
     </option>
   </component>
-  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
