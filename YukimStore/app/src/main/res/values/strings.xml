@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">YukimStore</string>
-    <string name="a1_register_tv_title_text">Register</string>
-    <string name="a1_register_et_mail_hint">mail</string>
-    <string name="a1_register_et_password2_hint">password2</string>
-    <string name="a1_register_cb_is_merchant_text">is_merchant</string>
-    <string name="a1_register_b_validate_text">validate</string>
-    <string name="a1_register_et_password_hint">password</string>
-    <string name="a2_login_tv_title_text">Login</string>
+    <string name="register">Register</string>
+    <string name="mail">mail</string>
+    <string name="password2">password2</string>
+    <string name="is_merchant">is_merchant</string>
+    <string name="validate">validate</string>
+    <string name="password">password</string>
+    <string name="login">Login</string>
     <string name="a2_login_et_mail_hint">mail</string>
     <string name="a2_login_et_password_hint">password</string>
     <string name="a2_login_b_validate_text">Validate</string>
