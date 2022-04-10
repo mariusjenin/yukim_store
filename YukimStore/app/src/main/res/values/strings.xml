@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">YukimStore</string>
+    <string name="a1_register_tv_title_text">Register</string>
+    <string name="a1_register_et_mail_hint">mail</string>
+    <string name="a1_register_et_password2_hint">password2</string>
+    <string name="a1_register_cb_is_merchant_text">is_merchant</string>
+    <string name="a1_register_b_validate_text">validate</string>
+    <string name="a1_register_et_password_hint">password</string>
+    <string name="a2_login_tv_title_text">Login</string>
+    <string name="a2_login_et_mail_hint">mail</string>
+    <string name="a2_login_et_password_hint">password</string>
+    <string name="a2_login_b_validate_text">Validate</string>
+    <string name="b1a_create_store_choose_template_b_template1_description">template1</string>
+    <string name="b1a_create_store_choose_template_b_template2_description">template2</string>
+    <string name="b1a_create_store_choose_template_tv_title_text">Choose template</string>
+    <string name="b1a_create_store_choose_template_b_template3_description">template3</string>
+    <string name="string_b1a_create_store_choose_template_b_template3_description">template3</string>
+    <string name="b1a_create_store_choose_template_b_template4_description">template4</string>
+    <string name="b1a_create_store_choose_template_b_template5_description">template5</string>
+    <string name="b1a_create_store_choose_template_b_template6_description">template6</string>
+    <string name="b1a_create_store_choose_template_b_validate_text">Validate</string>
+    <string name="b1b_create_store_custom_template_tv_title_text">Customize template</string>
+    <string name="b1b_create_store_custom_template_iv_template">template</string>
+    <string name="b1b_create_store_custom_template_b_validate">Validate</string>
+    <string-array name="settings">
+        <item>Choice 1</item>
+        <item>Choice 2</item>
+        <item>Choice 3</item>
+        <item>Choice 4</item>
+        <item>Choice 5</item>
+    </string-array>
+</resources>
