@@ -7,53 +7,60 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp" android:layout_marginEnd="10dp" android:layout_marginBottom="10dp"
-    >
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
 
         <ImageView
-                android:id="@+id/img_store"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/b1b_create_store_custom_template_iv_template"
-                tools:srcCompat="@tools:sample/avatars"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title"
-                android:layout_marginTop="20dp"/>
+            android:id="@+id/img_store"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/b1b_create_store_custom_template_iv_template"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:srcCompat="@tools:sample/avatars" />
+
         <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:id="@+id/linearLayout"
-                app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/img_store"
-                android:layout_marginTop="20dp">
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_store">
 
             <Spinner
-                    android:id="@+id/spinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:entries="@array/settings"/>
-            <Spinner
-                    android:id="@+id/spinner2"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:entries="@array/settings"/>
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:entries="@array/settings" />
 
             <Spinner
-                    android:id="@+id/spinner3"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:entries="@array/settings"/>
+                android:id="@+id/spinner2"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:entries="@array/settings" />
+
+            <Spinner
+                android:id="@+id/spinner3"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:entries="@array/settings" />
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
+        android:id="@+id/button5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
