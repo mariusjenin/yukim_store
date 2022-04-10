@@ -1,4 +1,4 @@
-package com.example.yukimstore;
+package com.yukimstore;
 
 import androidx.appcompat.app.AppCompatActivity;
 
