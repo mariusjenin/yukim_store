@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -19,49 +19,48 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/my_orders"
+            android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:background="#e1ffb1"
-            android:text="@string/my_orders"
+            android:text="@string/basket"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:onClick="merchantOrders"
+            android:onClick="goBasket"
             tools:ignore="UsingOnClickInXml" />
 
         <Button
-            android:id="@+id/my_categories"
-            android:layout_width="match_parent"
+            android:id="@+id/my_orders2"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_weight="1"
             android:background="#e1ffb1"
-            android:text="@string/my_categories"
+            android:onClick="goMyOrders"
+            android:text="@string/my_orders2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/my_orders"
-            android:onClick="merchantCategories"
+            app:layout_constraintTop_toBottomOf="@+id/button"
             tools:ignore="UsingOnClickInXml" />
 
         <Button
-            android:id="@+id/my_products"
-            android:layout_width="match_parent"
+            android:id="@+id/button2"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:layout_weight="1"
             android:background="#e1ffb1"
-            android:text="@string/my_products"
+            android:text="@string/all_products"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/my_categories"
-            android:onClick="merchantProducts"
+            app:layout_constraintTop_toBottomOf="@+id/my_orders2"
+            android:onClick="goProducts"
             tools:ignore="UsingOnClickInXml" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

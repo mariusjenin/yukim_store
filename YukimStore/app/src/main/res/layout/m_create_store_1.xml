@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="20dp"
         android:text="@string/create_store"
         android:textSize="24sp"
@@ -34,14 +34,24 @@
             android:layout_height="match_parent">
 
             <ImageButton
+                android:id="@+id/template1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:layout_height="match_parent"
+                android:background="#00AC2626"
+                android:contentDescription="@string/template1"
+                android:onClick="template1Click"
+                tools:ignore="ImageContrastCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,UsingOnClickInXml"
+                tools:srcCompat="@drawable/ic_baseline_filter_1_24" />
 
             <ImageButton
+                android:id="@+id/template2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:background="#00FFFFFF"
+                android:contentDescription="@string/template2"
+                tools:ignore="ImageContrastCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,UsingOnClickInXml"
+                tools:srcCompat="@drawable/ic_baseline_filter_2_24"
+                android:onClick="template2Click" />
 
         </TableRow>
 
@@ -50,15 +60,24 @@
             android:layout_height="match_parent">
 
             <ImageButton
+                android:id="@+id/template3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:ignore="ImageContrastCheck"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:background="#00FFFFFF"
+                android:contentDescription="@string/template3"
+                tools:ignore="ImageContrastCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,UsingOnClickInXml"
+                tools:srcCompat="@drawable/ic_baseline_filter_3_24"
+                android:onClick="template3Click" />
 
             <ImageButton
+                android:id="@+id/template4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:background="#00FFFFFF"
+                android:contentDescription="@string/template4"
+                tools:ignore="ImageContrastCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,UsingOnClickInXml"
+                tools:srcCompat="@drawable/ic_baseline_filter_4_24"
+                android:onClick="template4Click" />
         </TableRow>
 
         <TableRow
@@ -66,15 +85,24 @@
             android:layout_height="match_parent">
 
             <ImageButton
+                android:id="@+id/template5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:background="#00FFFFFF"
+                android:contentDescription="@string/template5"
+                tools:ignore="ImageContrastCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,UsingOnClickInXml"
+                tools:srcCompat="@drawable/ic_baseline_filter_5_24"
+                android:onClick="template5Click" />
 
             <ImageButton
+                android:id="@+id/template6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:ignore="ImageContrastCheck"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:background="#00FFFFFF"
+                android:contentDescription="@string/template6"
+                tools:ignore="ImageContrastCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,UsingOnClickInXml"
+                tools:srcCompat="@drawable/ic_baseline_filter_6_24"
+                android:onClick="template6Click" />
         </TableRow>
 
     </TableLayout>
@@ -83,9 +111,7 @@
         android:id="@+id/button4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/validate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

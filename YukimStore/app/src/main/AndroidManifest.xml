@@ -10,10 +10,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
+            android:name=".ViewProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MerchantMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ClientMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateStoreActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
