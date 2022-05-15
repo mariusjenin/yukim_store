@@ -1,4 +1,4 @@
-package com.yukimstore.dao;
+package com.yukimstore.db.dao;
 
 import static androidx.room.OnConflictStrategy.ABORT;
 
@@ -6,11 +6,11 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
-import com.yukimstore.db_entity.Product;
+import com.yukimstore.db.entity.Product;
 
 @Dao
 public interface ProductDAO {
-    @Query("SELECT * FROM Product WHERE Product.id_product = :id")
+    @Query("SELECT * FROM Product WHERE Product.id_product = :id LIMIT 1")
     Product get(int id);
 
     @Insert(onConflict = ABORT)

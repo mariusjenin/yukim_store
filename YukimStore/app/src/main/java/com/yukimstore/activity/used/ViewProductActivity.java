@@ -1,13 +1,15 @@
-package com.yukimstore;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.yukimstore.activity.used;
 
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.yukimstore.db_entity.Product;
+import com.yukimstore.R;
+import com.yukimstore.activity.ConnectedActivity;
+import com.yukimstore.activity.YukimActivity;
+import com.yukimstore.db.AppDatabase;
+import com.yukimstore.db.entity.Product;
 
-public class ViewProductActivity extends AppCompatActivity {
+public class ViewProductActivity extends ConnectedActivity {
 
     private AppDatabase db;
 

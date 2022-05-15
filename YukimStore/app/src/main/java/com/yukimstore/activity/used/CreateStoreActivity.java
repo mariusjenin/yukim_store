@@ -1,6 +1,4 @@
-package com.yukimstore;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.yukimstore.activity.used;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,9 +6,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.yukimstore.db_entity.Product;
+import com.yukimstore.R;
+import com.yukimstore.activity.ConnectedActivity;
+import com.yukimstore.activity.YukimActivity;
+import com.yukimstore.db.AppDatabase;
+import com.yukimstore.db.entity.Product;
 
-public class CreateStoreActivity extends AppCompatActivity {
+public class CreateStoreActivity extends ConnectedActivity {
     private AppDatabase db;
 
     @Override
@@ -34,7 +36,7 @@ public class CreateStoreActivity extends AppCompatActivity {
             return;
         }
 
-        Product product = new Product(pname,pdetails,pprice);
+        Product product = new Product(pname,pdetails,pprice,0,""); //TODO
 
         db.productDAO().insert(product);
 

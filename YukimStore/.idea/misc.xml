@@ -3,24 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/drawable/button_submit_identification.xml" value="0.2985" />
+        <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/drawable/gradient_background.xml" value="0.2985" />
+        <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/drawable/ic_baseline_filter_1_24.xml" value="0.2655" />
+        <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/drawable/input_field_identification.xml" value="0.2985" />
+        <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/layout/identification.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/layout/login.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/layout/m_consult_product.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/layout/progress_bar.xml" value="0.26666666666666666" />
+        <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/layout/register.xml" value="0.26666666666666666" />
         <entry key="app/src/main/res/layout/a1_register.xml" value="0.25" />
         <entry key="app/src/main/res/layout/a2_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3098958333333333" />
-        <entry key="app/src/main/res/layout/activity_register.xml" value="0.11956521739130435" />
         <entry key="app/src/main/res/layout/b1a_create_store_choose_template.xml" value="0.25" />
         <entry key="app/src/main/res/layout/b1b_create_store_custom_template.xml" value="0.25" />
         <entry key="app/src/main/res/layout/b2_menu.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/c_menu.xml" value="0.25517241379310346" />
-        <entry key="app/src/main/res/layout/login.xml" value="0.2364425659179688" />
         <entry key="app/src/main/res/layout/m_consult_categories.xml" value="0.25" />
         <entry key="app/src/main/res/layout/m_consult_products1.xml" value="0.25" />
         <entry key="app/src/main/res/layout/m_consult_products2.xml" value="0.15070921985815602" />
-        <entry key="app/src/main/res/layout/m_create_store_1.xml" value="0.2826086956521739" />
-        <entry key="app/src/main/res/layout/m_create_store_2.xml" value="0.2848074871560802" />
-        <entry key="app/src/main/res/layout/m_menu.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/register.xml" value="0.2541531285495622" />
-        <entry key="app/src/main/res/layout/view_product.xml" value="0.21009337513159354" />
       </map>
     </option>
   </component>

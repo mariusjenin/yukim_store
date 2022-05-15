@@ -1,12 +1,17 @@
 <resources>
     <string name="app_name">YukimStore</string>
     <string name="register">Register</string>
-    <string name="mail">mail</string>
-    <string name="password2">password2</string>
-    <string name="is_merchant">I want to sell products</string>
+    <string name="mail">Email</string>
     <string name="validate">validate</string>
     <string name="create">create</string>
-    <string name="password">password</string>
+    <string name="password">Password</string>
+    <string name="password2">Confirm your password</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last Name</string>
+    <string name="is_merchant">Are you a merchant?</string>
+    <string name="toggle_identification_from_signup">Already have an account?</string>
+    <string name="toggle_identification_from_signin">Don\'t have an account?</string>
+    <string name="stay_connected">Stay connected?</string>
     <string name="login">Login</string>
     <string name="create_store">Create a store</string>
     <string name="choose_template">Choose a template</string>
@@ -43,6 +48,7 @@
     <string name="msc2_productprice">Price</string>
     <string name="sample">Sample</string>
     <string name="all_products">All products</string>
+    <string name="DBCLEAR">dbclear</string>
     <string-array name="settings">
         <item>Choice 1</item>
         <item>Choice 2</item>

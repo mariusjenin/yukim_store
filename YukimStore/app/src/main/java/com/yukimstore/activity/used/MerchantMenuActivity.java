@@ -1,29 +1,31 @@
-package com.yukimstore;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.yukimstore.activity.used;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-public class ClientMenuActivity extends AppCompatActivity {
+import com.yukimstore.R;
+import com.yukimstore.activity.ConnectedActivity;
+import com.yukimstore.activity.YukimActivity;
+
+public class MerchantMenuActivity extends ConnectedActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.c_menu);
+        setContentView(R.layout.m_menu);
     }
 
-    public void goBasket(View view) {
+    public void merchantOrders(View view) {
         Toast.makeText(this,"Not yet implemented",Toast.LENGTH_SHORT).show();
     }
 
-    public void goMyOrders(View view) {
+    public void merchantCategories(View view) {
         Toast.makeText(this,"Not yet implemented",Toast.LENGTH_SHORT).show();
     }
 
-    public void goProducts(View view) {
+    public void merchantProducts(View view) {
         startActivity(new Intent(this,ViewProductActivity.class));
     }
 }
