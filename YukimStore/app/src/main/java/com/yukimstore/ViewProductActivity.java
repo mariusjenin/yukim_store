@@ -3,8 +3,9 @@ package com.yukimstore;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.widget.EditText;
 import android.widget.TextView;
+
+import com.yukimstore.db_entity.Product;
 
 public class ViewProductActivity extends AppCompatActivity {
 

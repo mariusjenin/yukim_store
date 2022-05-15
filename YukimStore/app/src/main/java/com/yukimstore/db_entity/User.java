@@ -1,4 +1,4 @@
-package com.yukimstore;
+package com.yukimstore.db_entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

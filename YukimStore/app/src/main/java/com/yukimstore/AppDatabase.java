@@ -6,6 +6,14 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.yukimstore.dao.ProductDAO;
+import com.yukimstore.dao.UserDAO;
+import com.yukimstore.db_entity.Product;
+import com.yukimstore.db_entity.User;
+
+/**
+ * Singleton class that manage the database in the whole app
+ */
 @Database(entities = {User.class, Product.class},version = 2)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase INSTANCE = null;

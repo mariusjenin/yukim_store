@@ -1,4 +1,4 @@
-package com.yukimstore;
+package com.yukimstore.dao;
 
 import static androidx.room.OnConflictStrategy.ABORT;
 import static androidx.room.OnConflictStrategy.REPLACE;
@@ -7,6 +7,8 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+
+import com.yukimstore.db_entity.User;
 
 @Dao
 public interface UserDAO {

@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.yukimstore.db_entity.Product;
+
 public class CreateStoreActivity extends AppCompatActivity {
     private AppDatabase db;
 
