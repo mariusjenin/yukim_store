@@ -1,6 +1,7 @@
 package com.yukimstore.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
@@ -19,6 +20,8 @@ import com.yukimstore.R;
 
 import java.util.List;
 
+import com.yukimstore.activity.used.client.ConsultStoreActivity;
+import com.yukimstore.activity.used.client.FindProductActivity;
 import com.yukimstore.db.entity.Store;
 
 public class StoreListAdapter extends ArrayAdapter<Store> {
@@ -53,7 +56,11 @@ public class StoreListAdapter extends ArrayAdapter<Store> {
             btn_store.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getContext(),"Not implemented Yet",Toast.LENGTH_SHORT).show();
+                    Intent intent;
+                    Context context = getContext();
+                    intent = new Intent(context, ConsultStoreActivity.class);
+                    intent.putExtra("store",s);
+                    context.startActivity(intent);
                 }
             });
 
@@ -63,7 +70,6 @@ public class StoreListAdapter extends ArrayAdapter<Store> {
                     bmp = BitmapFactory.decodeByteArray(s.img_store, 0, s.img_store.length);
                 } else {
                     bmp = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.store);
-                    Log.i("test",bmp.toString());
                 }
                 image_store.setImageBitmap(bmp);
             }

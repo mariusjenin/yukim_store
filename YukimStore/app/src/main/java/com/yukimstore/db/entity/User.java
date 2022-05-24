@@ -6,8 +6,10 @@ import androidx.room.PrimaryKey;
 
 import com.yukimstore.utils.HashUtil;
 
+import java.io.Serializable;
+
 @Entity(tableName = "User")
-public class User {
+public class User implements Serializable {
     @PrimaryKey
     public int id_user;
 

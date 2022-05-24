@@ -5,6 +5,7 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity(tableName = "OrderTable",
@@ -16,7 +17,7 @@ import java.util.Date;
                         parentColumns = "id_user",
                         childColumns = "id_user")
         })
-public class Order {
+public class Order implements Serializable {
     @PrimaryKey
     public int id_order;
 

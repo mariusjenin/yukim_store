@@ -5,6 +5,8 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "InterestForCategory",
         foreignKeys = {
                 @ForeignKey(entity = Interest.class,
@@ -14,7 +16,7 @@ import androidx.room.PrimaryKey;
                         parentColumns = "id_category",
                         childColumns = "id_category")
         })
-public class InterestForCategory {
+public class InterestForCategory implements Serializable {
     @PrimaryKey
     public int id_ifc;
 

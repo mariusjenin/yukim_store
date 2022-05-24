@@ -5,11 +5,13 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "Category",
         foreignKeys = @ForeignKey(entity = Store.class,
                 parentColumns = "id_user_store",
                 childColumns = "id_store"))
-public class Category {
+public class Category implements Serializable {
     @PrimaryKey
     public int id_category;
 

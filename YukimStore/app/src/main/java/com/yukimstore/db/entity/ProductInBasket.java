@@ -5,6 +5,8 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "ProductInBasket",
         foreignKeys = {
                 @ForeignKey(entity = Product.class,
@@ -14,7 +16,7 @@ import androidx.room.PrimaryKey;
                         parentColumns = "id_user",
                         childColumns = "id_user")
         })
-public class ProductInBasket {
+public class ProductInBasket implements Serializable {
     @PrimaryKey
     public int id_pib;
 

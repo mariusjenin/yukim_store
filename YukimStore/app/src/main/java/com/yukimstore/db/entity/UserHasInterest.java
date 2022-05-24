@@ -5,6 +5,8 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 
 @Entity(tableName = "UserHasInterest",
         foreignKeys = {
@@ -15,7 +17,7 @@ import androidx.room.PrimaryKey;
                         parentColumns = "id_user",
                         childColumns = "id_user")
         })
-public class UserHasInterest {
+public class UserHasInterest implements Serializable {
     @PrimaryKey
     public int id_uhi;
 

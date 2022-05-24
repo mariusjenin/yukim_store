@@ -5,6 +5,8 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "ProductInOrder",
         foreignKeys = {
                 @ForeignKey(entity = Product.class,
@@ -14,7 +16,7 @@ import androidx.room.PrimaryKey;
                         parentColumns = "id_order",
                         childColumns = "id_order")
         })
-public class ProductInOrder {
+public class ProductInOrder implements Serializable {
     @PrimaryKey
     public int id_pio;
 
