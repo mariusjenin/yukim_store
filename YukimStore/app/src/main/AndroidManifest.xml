@@ -48,6 +48,11 @@
         <activity
             android:name=".activity.used.client.ConsultStoreActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".activity.used.client.ConsultCategoriesStoreActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

@@ -11,6 +11,18 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/no_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_result"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/list_products"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/list_products"
+            tools:ignore="TextContrastCheck"
+            tools:visibility="gone" />
+
+        <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,7 +66,6 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
             android:layout_weight="0"
             android:dividerHeight="0dp"
             app:layout_constraintBottom_toBottomOf="parent"

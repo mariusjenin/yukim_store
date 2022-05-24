@@ -40,7 +40,10 @@ public class ConsultStoreActivity extends ConnectedActivity {
         consult_categories.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ConsultStoreActivity.this,"Not yet implemented",Toast.LENGTH_SHORT).show();
+                Intent intent;
+                intent = new Intent(ConsultStoreActivity.this, ConsultCategoriesStoreActivity.class);
+                intent.putExtra("store",store);
+                ConsultStoreActivity.this.startActivity(intent);
             }
         });
 

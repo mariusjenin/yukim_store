@@ -3,22 +3,24 @@ package com.yukimstore.activity.used.client;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.yukimstore.R;
 import com.yukimstore.activity.ConnectedActivity;
-import com.yukimstore.adapter.ClientProductListAdapter;
-import com.yukimstore.adapter.StoreListAdapter;
+import com.yukimstore.adapter.client.ClientCategoryListAdapter;
+import com.yukimstore.adapter.client.ClientProductListAdapter;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Product;
-import com.yukimstore.db.entity.Store;
 
 import java.util.List;
 
 public class FindProductActivity extends ConnectedActivity {
 
     private ListView list_products;
+    private TextView no_result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,9 @@ public class FindProductActivity extends ConnectedActivity {
 
 
         list_products = findViewById(R.id.list_products);
-        updateListStores("");
+        no_result  = findViewById(R.id.no_result);
+
+        updateListProducts("");
 
         EditText product_name = findViewById(R.id.find_products);
         product_name.addTextChangedListener(new TextWatcher() {
@@ -43,14 +47,19 @@ public class FindProductActivity extends ConnectedActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                updateListStores(editable.toString());
+                updateListProducts(editable.toString());
             }
         });
     }
 
-    public void updateListStores(String str){
+    public void updateListProducts(String str){
         List<Product> products = AppDatabase.getInstance(FindProductActivity.this).productDAO().getProductsLike(str);
         ClientProductListAdapter customAdapter = new ClientProductListAdapter(this, R.layout.c_product_item, products);
         list_products.setAdapter(customAdapter);
+        if(products.size()>0){
+            no_result.setVisibility(View.GONE);
+        } else {
+            no_result.setVisibility(View.VISIBLE);
+        }
     }
 }

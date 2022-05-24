@@ -1,27 +1,21 @@
-package com.yukimstore.adapter;
+package com.yukimstore.adapter.client;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
 
 import com.yukimstore.R;
 
 import java.util.List;
 
 import com.yukimstore.db.entity.Product;
-import com.yukimstore.db.entity.Store;
 
 public class ClientProductListAdapter extends ArrayAdapter<Product> {
     private int resourceLayout;
@@ -54,7 +48,7 @@ public class ClientProductListAdapter extends ArrayAdapter<Product> {
             TextView price_product = v.findViewById(R.id.product_price);
             Button add_to_basket = v.findViewById(R.id.add_to_basket);
 
-            ConstraintLayout btn_store = v.findViewById(R.id.btn_store);
+            ConstraintLayout btn_store = v.findViewById(R.id.btn_item);
             btn_store.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
