@@ -1,4 +1,4 @@
-package com.yukimstore.activity.used;
+package com.yukimstore.activity.used.merchant;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +8,6 @@ import android.widget.Toast;
 
 import com.yukimstore.R;
 import com.yukimstore.activity.ConnectedActivity;
-import com.yukimstore.activity.YukimActivity;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Product;
 

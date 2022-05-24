@@ -16,13 +16,11 @@ public class Store {
     @ColumnInfo(name = "name")
     public String name;
 
-    @ColumnInfo(name = "img_store")
-    public String img_store;
+    @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
+    public byte[] img_store;
 
-    private static int idCount = 0;
-
-    public Store(String name, String img_store) {
-        this.id_user_store = idCount++;
+    public Store(int id_user_store, String name, byte[] img_store) {
+        this.id_user_store = id_user_store;
         this.name = name;
         this.img_store = img_store;
     }

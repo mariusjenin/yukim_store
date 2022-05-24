@@ -1,4 +1,4 @@
-package com.yukimstore.activity.used;
+package com.yukimstore.activity.used.client;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.yukimstore.R;
 import com.yukimstore.activity.ConnectedActivity;
 import com.yukimstore.activity.YukimActivity;
+import com.yukimstore.activity.used.merchant.MerchantMenuActivity;
 
 public class ClientMenuActivity extends ConnectedActivity {
 
@@ -17,15 +18,25 @@ public class ClientMenuActivity extends ConnectedActivity {
         setContentView(R.layout.c_menu);
     }
 
-    public void goBasket(View view) {
+    public void findProduct(View view) {
         Toast.makeText(this,"Not yet implemented",Toast.LENGTH_SHORT).show();
     }
 
-    public void goMyOrders(View view) {
+    public void prodInteresting(View view) {
         Toast.makeText(this,"Not yet implemented",Toast.LENGTH_SHORT).show();
     }
 
-    public void goProducts(View view) {
-        startActivity(new Intent(this,ViewProductActivity.class));
+    public void findStore(View view) {
+        Intent intent;
+        intent = new Intent(this, FindStoreActivity.class);
+        this.startActivity(intent);
+    }
+
+    public void seeBasket(View view) {
+        Toast.makeText(this,"Not yet implemented",Toast.LENGTH_SHORT).show();
+    }
+
+    public void myOrders(View view) {
+        Toast.makeText(this,"Not yet implemented",Toast.LENGTH_SHORT).show();
     }
 }

@@ -3,65 +3,120 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/lightSalmonColor">
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="@string/menu"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/button"
+        <TextView
+            android:id="@+id/textView3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#e1ffb1"
+            android:layout_height="0dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/menu"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/find_product"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_round_white"
+            android:elevation="10dp"
+            android:fontFamily="sans-serif"
+            android:onClick="findProduct"
+            android:text="@string/find_a_product"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            tools:ignore="UsingOnClickInXml,TouchTargetSizeCheck" />
+
+        <Button
+            android:id="@+id/prod_interesting"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_round_white"
+            android:elevation="10dp"
+            android:fontFamily="sans-serif"
+            android:onClick="prodInteresting"
+            android:text="@string/prod_interesting"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            tools:ignore="UsingOnClickInXml,TouchTargetSizeCheck" />
+
+        <Button
+            android:id="@+id/find_store"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_round_white"
+            android:elevation="10dp"
+            android:fontFamily="sans-serif"
+            android:onClick="findStore"
+            android:text="@string/find_a_store"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            tools:ignore="UsingOnClickInXml,TouchTargetSizeCheck" />
+
+        <Button
+            android:id="@+id/basket"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_round_white"
+            android:elevation="10dp"
+            android:fontFamily="sans-serif"
+            android:onClick="seeBasket"
             android:text="@string/basket"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:onClick="goBasket"
-            tools:ignore="UsingOnClickInXml" />
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            tools:ignore="UsingOnClickInXml,TouchTargetSizeCheck" />
 
         <Button
-            android:id="@+id/my_orders2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="#e1ffb1"
-            android:onClick="goMyOrders"
+            android:id="@+id/orders"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_round_white"
+            android:elevation="10dp"
+            android:fontFamily="sans-serif"
+            android:onClick="myOrders"
             android:text="@string/my_orders2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button"
-            tools:ignore="UsingOnClickInXml" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="#e1ffb1"
-            android:text="@string/all_products"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/my_orders2"
-            android:onClick="goProducts"
-            tools:ignore="UsingOnClickInXml" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            tools:ignore="UsingOnClickInXml,TouchTargetSizeCheck" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

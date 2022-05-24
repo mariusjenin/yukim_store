@@ -1,4 +1,4 @@
-package com.yukimstore.activity.used;
+package com.yukimstore.activity.used.merchant;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.yukimstore.R;
 import com.yukimstore.activity.ConnectedActivity;
 import com.yukimstore.activity.YukimActivity;
+import com.yukimstore.activity.used.ViewProductActivity;
 
 public class MerchantMenuActivity extends ConnectedActivity {
 
@@ -26,6 +27,6 @@ public class MerchantMenuActivity extends ConnectedActivity {
     }
 
     public void merchantProducts(View view) {
-        startActivity(new Intent(this,ViewProductActivity.class));
+        startActivity(new Intent(this, ViewProductActivity.class));
     }
 }

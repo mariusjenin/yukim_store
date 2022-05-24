@@ -26,15 +26,19 @@
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.MerchantMenuActivity"
+            android:name=".activity.used.merchant.MerchantMenuActivity"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.ClientMenuActivity"
+            android:name=".activity.used.client.ClientMenuActivity"
             android:exported="false" />
-        
+
         <activity
-            android:name=".activity.used.CreateStoreActivity"
+            android:name=".activity.used.merchant.CreateStoreActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".activity.used.client.FindStoreActivity"
             android:exported="false" />
     </application>
 

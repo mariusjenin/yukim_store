@@ -10,10 +10,18 @@ import androidx.room.Query;
 
 import com.yukimstore.db.entity.Store;
 
+import java.util.List;
+
 @Dao
 public interface StoreDAO {
     @Query("SELECT * FROM Store where Store.id_user_store = :id LIMIT 1")
     Store get(String id);
+
+    @Query("SELECT * FROM Store where Store.name like '%' || :name_store || '%'")
+    List<Store> getStoresLike(String name_store);
+
+    @Query("SELECT * FROM Store")
+    List<Store> getStores();
 
     @Query("DELETE FROM Store")
     void clear();

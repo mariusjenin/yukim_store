@@ -3,9 +3,8 @@ package com.yukimstore.middleware;
 import android.app.Activity;
 import android.content.Intent;
 
-import com.yukimstore.activity.used.ClientMenuActivity;
-import com.yukimstore.activity.used.IdentificationActivity;
-import com.yukimstore.activity.used.MerchantMenuActivity;
+import com.yukimstore.activity.used.client.ClientMenuActivity;
+import com.yukimstore.activity.used.merchant.MerchantMenuActivity;
 import com.yukimstore.db.entity.User;
 import com.yukimstore.manager.ConnectionManager;
 

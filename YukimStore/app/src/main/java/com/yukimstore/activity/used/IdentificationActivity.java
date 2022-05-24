@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.yukimstore.activity.NotConnectedActivity;
 import com.yukimstore.R;
+import com.yukimstore.activity.used.client.ClientMenuActivity;
+import com.yukimstore.activity.used.merchant.CreateStoreActivity;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.dao.UserDAO;
 import com.yukimstore.db.entity.User;
@@ -63,7 +65,7 @@ public class IdentificationActivity extends NotConnectedActivity {
         et_pwd = findViewById(R.id.input_pwd_identification);
         et_pwd_confirm = findViewById(R.id.input_pwd_confirm_identification);
         et_first_name = findViewById(R.id.input_first_name);
-        et_last_name = findViewById(R.id.input_last_name);
+        et_last_name = findViewById(R.id.find_stores);
         but_submit = findViewById(R.id.submit_identification);
         but_toggle_identification = findViewById(R.id.toggle_identification);
         but_db_clear_identification = findViewById(R.id.db_clear_identification);
@@ -88,7 +90,7 @@ public class IdentificationActivity extends NotConnectedActivity {
             et_pwd.setText("");
             et_pwd_confirm.setVisibility(View.GONE);
         }
-        if(is_merchant){
+        if(is_merchant || !is_sign_up){
             et_first_name.setVisibility(View.GONE);
             et_last_name.setVisibility(View.GONE);
         } else {
@@ -115,8 +117,8 @@ public class IdentificationActivity extends NotConnectedActivity {
         });
 
         but_db_clear_identification.setOnClickListener(v -> {
-            AppDatabase.getInstance(this).clear();
-            Toast.makeText(this,"Database is now empty",Toast.LENGTH_SHORT).show();
+            AppDatabase.getInstance(this).init();
+            Toast.makeText(this,"Database is now initialized with datas",Toast.LENGTH_SHORT).show();
         });
 
         but_submit.setOnClickListener(v -> submit());
@@ -194,10 +196,10 @@ public class IdentificationActivity extends NotConnectedActivity {
                 cm.removeTokenUserFromPrefs(this);
             }
             if(is_merchant) {
-                startActivity(new Intent(this,CreateStoreActivity.class));
+                startActivity(new Intent(this, CreateStoreActivity.class));
             }
             else {
-                startActivity(new Intent(this,ClientMenuActivity.class));
+                startActivity(new Intent(this, ClientMenuActivity.class));
             }
         }
 

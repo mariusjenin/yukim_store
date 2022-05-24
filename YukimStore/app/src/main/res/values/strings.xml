@@ -49,6 +49,12 @@
     <string name="sample">Sample</string>
     <string name="all_products">All products</string>
     <string name="DBCLEAR">dbclear</string>
+    <string name="prod_interesting">Products that may be interesting for you</string>
+    <string name="find_a_store">Find a store</string>
+    <string name="your_orders">Your orders</string>
+    <string name="find_a_product">Find a product</string>
+    <string name="search_a_store">Search a store</string>
+    <string name="content_description">content_description</string>
     <string-array name="settings">
         <item>Choice 1</item>
         <item>Choice 2</item>

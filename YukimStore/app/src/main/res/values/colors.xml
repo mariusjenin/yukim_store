@@ -9,10 +9,13 @@
     <color name="white">#FFFFFFFF</color>
     <color name="salmonColor">#FA8072</color>
     <color name="vibrantSalmonColor">#FD6A59</color>
+    <color name="vibrant2SalmonColor">#FD5946</color>
+    <color name="lightSalmonColor">#FFB8B0</color>
     <color name="darkSalmonColor">#B1574C</color>
     <color name="lightGrey">#959595</color>
+    <color name="light2Grey">#CCCCCC</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="gradient_1">@color/salmonColor</color>
-    <color name="gradient_2">#F3BBB5</color>
+    <color name="gradient_2">@color/lightSalmonColor</color>
     <color name="gradient_3">#5AF4EF</color>
 </resources>
