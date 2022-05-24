@@ -53,6 +53,10 @@
             android:name=".activity.used.client.ConsultCategoriesStoreActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".activity.used.client.ConsultListProducts"
+            android:exported="false" />
+
     </application>
 
 </manifest>

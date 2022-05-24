@@ -20,9 +20,9 @@ import com.yukimstore.db.entity.Product;
 public class ClientProductListAdapter extends ArrayAdapter<Product> {
     private int resourceLayout;
 
-    public ClientProductListAdapter(Context c, int resource,  List<Product> products) {
-        super(c, resource, products);
-        this.resourceLayout = resource;
+    public ClientProductListAdapter(Context c, List<Product> products) {
+        super(c, R.layout.c_product_item, products);
+        this.resourceLayout = R.layout.c_product_item;
     }
 
     @Override

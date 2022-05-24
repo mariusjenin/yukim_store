@@ -39,7 +39,7 @@ public class ConsultCategoriesStoreActivity extends ConnectedActivity {
         List<Category> categories = AppDatabase.getInstance(ConsultCategoriesStoreActivity.this).categoryDAO().getCategoriesWithStore(store.id_user_store);
 
         if(categories.size()>0){
-            ClientCategoryListAdapter customAdapter = new ClientCategoryListAdapter(this, R.layout.c_category_item, categories);
+            ClientCategoryListAdapter customAdapter = new ClientCategoryListAdapter(this, categories);
             list_categories.setAdapter(customAdapter);
             no_result.setVisibility(View.GONE);
         } else {

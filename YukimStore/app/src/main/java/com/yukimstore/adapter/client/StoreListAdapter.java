@@ -23,9 +23,9 @@ import com.yukimstore.db.entity.Store;
 public class StoreListAdapter extends ArrayAdapter<Store> {
     private int resourceLayout;
 
-    public StoreListAdapter(Context c, int resource,  List<Store> stores) {
-        super(c, resource, stores);
-        this.resourceLayout = resource;
+    public StoreListAdapter(Context c, List<Store> stores) {
+        super(c, R.layout.store_item, stores);
+        this.resourceLayout = R.layout.store_item;
     }
 
     @Override

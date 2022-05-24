@@ -9,6 +9,10 @@ import com.yukimstore.R;
 import com.yukimstore.activity.ConnectedActivity;
 import com.yukimstore.activity.YukimActivity;
 import com.yukimstore.activity.used.merchant.MerchantMenuActivity;
+import com.yukimstore.db.AppDatabase;
+import com.yukimstore.db.entity.Product;
+
+import java.util.ArrayList;
 
 public class ClientMenuActivity extends ConnectedActivity {
 
@@ -25,7 +29,13 @@ public class ClientMenuActivity extends ConnectedActivity {
     }
 
     public void prodInteresting(View view) {
-        Toast.makeText(this,"Not yet implemented",Toast.LENGTH_SHORT).show();
+        //TODO remplace getAll by all interesting for user connected
+        Intent intent;
+        intent = new Intent(this, ConsultListProducts.class);
+        intent.putExtra("title","All products");
+        ArrayList<Product> products = (ArrayList<Product>) AppDatabase.getInstance(ClientMenuActivity.this).productDAO().getAll();
+        intent.putExtra("products",products );
+        this.startActivity(intent);
     }
 
     public void findStore(View view) {

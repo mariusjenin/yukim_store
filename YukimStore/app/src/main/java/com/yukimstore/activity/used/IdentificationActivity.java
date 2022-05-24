@@ -40,7 +40,6 @@ public class IdentificationActivity extends NotConnectedActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.i("","test");
         ConnectionManager cm =ConnectionManager.getInstance();
         if(!cm.isConnected()){
             String token = cm.getTokenUserFromPrefs(this);

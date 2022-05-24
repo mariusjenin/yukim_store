@@ -59,6 +59,8 @@
     <string name="consult_categories">Consult categories of this store</string>
     <string name="consult_products">Consult products of this store</string>
     <string name="categories_of">Categories of\ </string>
+    <string name="products_of">Products of\ </string>
+    <string name="space_of_space">\ of\ </string>
     <string name="no_result">No result</string>
     <string-array name="settings">
         <item>Choice 1</item>

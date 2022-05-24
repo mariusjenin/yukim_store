@@ -54,7 +54,7 @@ public class FindProductActivity extends ConnectedActivity {
 
     public void updateListProducts(String str){
         List<Product> products = AppDatabase.getInstance(FindProductActivity.this).productDAO().getProductsLike(str);
-        ClientProductListAdapter customAdapter = new ClientProductListAdapter(this, R.layout.c_product_item, products);
+        ClientProductListAdapter customAdapter = new ClientProductListAdapter(this, products);
         list_products.setAdapter(customAdapter);
         if(products.size()>0){
             no_result.setVisibility(View.GONE);

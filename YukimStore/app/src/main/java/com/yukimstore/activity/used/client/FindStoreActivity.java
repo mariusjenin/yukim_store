@@ -55,7 +55,7 @@ public class FindStoreActivity extends ConnectedActivity {
 
     public void updateListStores(String str){
         List<Store> stores = AppDatabase.getInstance(FindStoreActivity.this).storeDAO().getStoresLike(str);
-        StoreListAdapter customAdapter = new StoreListAdapter(this, R.layout.store_item, stores);
+        StoreListAdapter customAdapter = new StoreListAdapter(this, stores);
         list_stores.setAdapter(customAdapter);
         if(stores.size()>0){
             no_result.setVisibility(View.GONE);

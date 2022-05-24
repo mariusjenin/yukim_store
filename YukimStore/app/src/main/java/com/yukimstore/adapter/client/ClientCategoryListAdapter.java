@@ -1,6 +1,8 @@
 package com.yukimstore.adapter.client;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,16 +13,22 @@ import android.widget.Toast;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.yukimstore.R;
+import com.yukimstore.activity.used.client.ConsultListProducts;
+import com.yukimstore.activity.used.client.ConsultStoreActivity;
+import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Category;
+import com.yukimstore.db.entity.Product;
+import com.yukimstore.db.entity.Store;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ClientCategoryListAdapter extends ArrayAdapter<Category> {
     private int resourceLayout;
 
-    public ClientCategoryListAdapter(Context c, int resource, List<Category> categories) {
-        super(c, resource, categories);
-        this.resourceLayout = resource;
+    public ClientCategoryListAdapter(Context c, List<Category> categories) {
+        super(c, R.layout.c_category_item, categories);
+        this.resourceLayout = R.layout.c_category_item;
     }
 
     @Override
@@ -48,7 +56,15 @@ public class ClientCategoryListAdapter extends ArrayAdapter<Category> {
             btn_store.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getContext(),"Not implemented Yet",Toast.LENGTH_SHORT).show();
+                    Intent intent;
+                    Context context = getContext();
+                    Resources resources = context.getResources();
+                    intent = new Intent(context, ConsultListProducts.class);
+                    Store store =  AppDatabase.getInstance(context).storeDAO().get(c.id_store);
+                    intent.putExtra("title",resources.getString(R.string.products_of)+c.name+resources.getString(R.string.space_of_space)+store.name);
+                    ArrayList<Product> products = (ArrayList<Product>) AppDatabase.getInstance(context).categoryDAO().getProductsOfCategory(c.id_category);
+                    intent.putExtra("products",products);
+                    context.startActivity(intent);
                 }
             });
 

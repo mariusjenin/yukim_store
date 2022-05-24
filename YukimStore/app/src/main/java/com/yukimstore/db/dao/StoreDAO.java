@@ -15,7 +15,7 @@ import java.util.List;
 @Dao
 public interface StoreDAO {
     @Query("SELECT * FROM Store where Store.id_user_store = :id LIMIT 1")
-    Store get(String id);
+    Store get(int id);
 
     @Query("SELECT * FROM Store where Store.name like '%' || :name_store || '%'")
     List<Store> getStoresLike(String name_store);

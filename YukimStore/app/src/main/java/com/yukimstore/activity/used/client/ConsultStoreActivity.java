@@ -14,7 +14,11 @@ import com.yukimstore.R;
 import com.yukimstore.activity.ConnectedActivity;
 import com.yukimstore.activity.YukimActivity;
 import com.yukimstore.activity.used.merchant.MerchantMenuActivity;
+import com.yukimstore.db.AppDatabase;
+import com.yukimstore.db.entity.Product;
 import com.yukimstore.db.entity.Store;
+
+import java.util.ArrayList;
 
 public class ConsultStoreActivity extends ConnectedActivity {
     Store store;
@@ -50,7 +54,12 @@ public class ConsultStoreActivity extends ConnectedActivity {
         consult_products.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ConsultStoreActivity.this,"Not yet implemented",Toast.LENGTH_SHORT).show();
+                Intent intent;
+                intent = new Intent(ConsultStoreActivity.this, ConsultListProducts.class);
+                intent.putExtra("title",getResources().getString(R.string.products_of)+store.name);
+                ArrayList<Product> products = (ArrayList<Product>) AppDatabase.getInstance(ConsultStoreActivity.this).categoryDAO().getProductsOfCategoriesofStore(store.id_user_store);
+                intent.putExtra("products",products);
+                ConsultStoreActivity.this.startActivity(intent);
             }
         });
 
