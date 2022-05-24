@@ -13,6 +13,10 @@ public interface CategoryDAO {
     @Query("SELECT * FROM Category WHERE Category.id_category = :id LIMIT 1")
     Category get(int id);
 
+
+    @Query("SELECT * FROM Category WHERE Category.id_store = :id_store and Category.name = :name LIMIT 1")
+    Category getWithStoreAndName(int id_store, String name);
+
     @Insert(onConflict = ABORT)
     void insert(Category category);
 

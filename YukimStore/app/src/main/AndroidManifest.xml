@@ -40,6 +40,10 @@
         <activity
             android:name=".activity.used.client.FindStoreActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".activity.used.client.FindProductActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

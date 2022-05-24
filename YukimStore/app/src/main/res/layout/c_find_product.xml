@@ -17,7 +17,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
-            android:text="@string/find_a_store"
+            android:text="@string/find_a_product"
             android:textColor="@color/vibrant2SalmonColor"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -26,7 +26,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/find_stores"
+            android:id="@+id/find_products"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -35,7 +35,7 @@
             android:background="@drawable/round_white"
             android:elevation="10dp"
             android:fontFamily="sans-serif"
-            android:hint="@string/search_a_store"
+            android:hint="@string/search_a_product"
             android:maxLines="1"
             android:minHeight="48dp"
             android:paddingLeft="20dp"
@@ -49,7 +49,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <ListView
-            android:id="@+id/list_stores"
+            android:id="@+id/list_products"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
@@ -59,7 +59,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/find_stores" />
+            app:layout_constraintTop_toBottomOf="@+id/find_products" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

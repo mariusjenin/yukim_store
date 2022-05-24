@@ -4,15 +4,19 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/drawable/button_round_salmon.xml" value="0.2655" />
+        <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/drawable/button_round_salmon_2.xml" value="0.1665" />
         <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/drawable/button_round_white.xml" value="0.2655" />
         <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/drawable/button_submit_identification.xml" value="0.2985" />
         <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/drawable/gradient_background.xml" value="0.2985" />
         <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/drawable/ic_baseline_filter_1_24.xml" value="0.2655" />
         <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/drawable/input_field_identification.xml" value="0.2985" />
+        <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/drawable/light_gradient_background.xml" value="0.2655" />
         <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/drawable/round_salmon.xml" value="0.2655" />
         <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/drawable/round_white.xml" value="0.2655" />
+        <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/layout/c_find_product.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/layout/c_find_store.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/layout/c_menu.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/layout/c_product_item.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/layout/identification.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/layout/login.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Marius/OneDrive/Documents/Etudes/Master/GIT/yukim_store/YukimStore/app/src/main/res/layout/m_consult_product.xml" value="0.358695652173913" />

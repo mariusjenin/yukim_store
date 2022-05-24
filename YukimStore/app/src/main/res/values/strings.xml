@@ -55,6 +55,7 @@
     <string name="find_a_product">Find a product</string>
     <string name="search_a_store">Search a store</string>
     <string name="content_description">content_description</string>
+    <string name="search_a_product">Search a product</string>
     <string-array name="settings">
         <item>Choice 1</item>
         <item>Choice 2</item>

@@ -23,14 +23,14 @@ public class Product {
     public String details;
 
     @ColumnInfo(name = "price")
-    public int price;
+    public float price;
 
     @ColumnInfo(name = "img")
     public String img;
 
     private static int idCount = 0;
 
-    public Product(String name, String details, int price, int id_category, String img) {
+    public Product(String name, String details, float price, int id_category, String img) {
         this.id_product = idCount++;
         this.id_category = id_category;
         this.name = name;

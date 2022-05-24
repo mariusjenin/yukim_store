@@ -20,9 +20,6 @@ public interface StoreDAO {
     @Query("SELECT * FROM Store where Store.name like '%' || :name_store || '%'")
     List<Store> getStoresLike(String name_store);
 
-    @Query("SELECT * FROM Store")
-    List<Store> getStores();
-
     @Query("DELETE FROM Store")
     void clear();
 

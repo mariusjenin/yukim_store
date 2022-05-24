@@ -51,7 +51,7 @@ import java.util.List;
         ProductInBasket.class,
         Order.class,
         ProductInOrder.class
-},version = 3, exportSchema = false)
+},version = 4, exportSchema = false)
 @TypeConverters({DateConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase INSTANCE = null;
@@ -75,17 +75,18 @@ public abstract class AppDatabase extends RoomDatabase {
     }
 
     public void clear(){
-        storeDAO().clear();
-        userDAO().clear();
         productDAO().clear();
         categoryDAO().clear();
-        offerDAO().clear();
-        interestDAO().clear();
-        userHasInterestDAO().clear();
-        interestForCategoryDAO().clear();
-        productInBasketDAO().clear();
-        orderDAO().clear();
-        productInOrderDAO().clear();
+        storeDAO().clear();
+        userDAO().clear();
+
+//        offerDAO().clear();
+//        interestDAO().clear();
+//        userHasInterestDAO().clear();
+//        interestForCategoryDAO().clear();
+//        productInBasketDAO().clear();
+//        orderDAO().clear();
+//        productInOrderDAO().clear();
     }
 
     public void fillUsers(){
@@ -145,9 +146,53 @@ public abstract class AppDatabase extends RoomDatabase {
         }
     }
 
+    public void fillCategories(){
+        CategoryDAO categoryDAO = categoryDAO();
+        ArrayList<Category> categories = new ArrayList<>();
+        categories.add(new Category("Cat 1", userDAO().get("m0@m0.m0").id_user));
+        categories.add(new Category("Cat 2", userDAO().get("m0@m0.m0").id_user));
+        categories.add(new Category("Cat 3", userDAO().get("m0@m0.m0").id_user));
+        categories.add(new Category("Cat 4", userDAO().get("m0@m0.m0").id_user));
+        categories.add(new Category("Cat 5", userDAO().get("m0@m0.m0").id_user));
+        categories.add(new Category("Cat 6", userDAO().get("m1@m1.m1").id_user));
+        categories.add(new Category("Cat 7", userDAO().get("m1@m1.m1").id_user));
+        categories.add(new Category("Cat 8", userDAO().get("m1@m1.m1").id_user));
+        categories.add(new Category("Cat 9", userDAO().get("m1@m1.m1").id_user));
+        categories.add(new Category("Cat 10", userDAO().get("m1@m1.m1").id_user));
+        int size_categories = categories.size();
+        Log.i("","CATEGORIES INITILIZATION");
+        for(int i = 0 ; i < size_categories; i++){
+            categoryDAO.insert(categories.get(i));
+            Log.i("",categories.get(i).name);
+        }
+    }
+
+    public void fillProducts(){
+        ProductDAO productDAO = productDAO();
+        ArrayList<Product> products = new ArrayList<>();
+        products.add(new Product("Prod 1","details prod 1", 0.99f, categoryDAO().getWithStoreAndName(userDAO().get("m0@m0.m0").id_user,"Cat 1").id_category,null));
+        products.add(new Product("Prod 2","details prod 2", 9.99f, categoryDAO().getWithStoreAndName(userDAO().get("m0@m0.m0").id_user,"Cat 1").id_category,null));
+        products.add(new Product("Prod 3","details prod 3", 19.99f, categoryDAO().getWithStoreAndName(userDAO().get("m0@m0.m0").id_user,"Cat 1").id_category,null));
+        products.add(new Product("Prod 4","details prod 4", 29.99f, categoryDAO().getWithStoreAndName(userDAO().get("m0@m0.m0").id_user,"Cat 1").id_category,null));
+        products.add(new Product("Prod 5","details prod 5", 39.99f, categoryDAO().getWithStoreAndName(userDAO().get("m0@m0.m0").id_user,"Cat 1").id_category,null));
+        products.add(new Product("Prod 6","details prod 6", 49.99f, categoryDAO().getWithStoreAndName(userDAO().get("m1@m1.m1").id_user,"Cat 6").id_category,null));
+        products.add(new Product("Prod 7","details prod 7", 59.99f, categoryDAO().getWithStoreAndName(userDAO().get("m1@m1.m1").id_user,"Cat 6").id_category,null));
+        products.add(new Product("Prod 8","details prod 8", 69.99f, categoryDAO().getWithStoreAndName(userDAO().get("m1@m1.m1").id_user,"Cat 6").id_category,null));
+        products.add(new Product("Prod 9","details prod 9", 79.99f, categoryDAO().getWithStoreAndName(userDAO().get("m1@m1.m1").id_user,"Cat 6").id_category,null));
+        products.add(new Product("Prod 10","details prod 10", 89.99f, categoryDAO().getWithStoreAndName(userDAO().get("m1@m1.m1").id_user,"Cat 6").id_category,null));
+        int size_products = products.size();
+        Log.i("","PRODUCTS INITILIZATION");
+        for(int i = 0 ; i < size_products; i++){
+            productDAO.insert(products.get(i));
+            Log.i("",products.get(i).name);
+        }
+    }
+
     public void init(){
         clear();
         fillUsers();
         fillStores();
+        fillCategories();
+        fillProducts();
     }
 }

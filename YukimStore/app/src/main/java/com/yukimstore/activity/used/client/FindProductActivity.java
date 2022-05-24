@@ -1,37 +1,36 @@
 package com.yukimstore.activity.used.client;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.widget.EditText;
 import android.widget.ListView;
 
 import com.yukimstore.R;
 import com.yukimstore.activity.ConnectedActivity;
+import com.yukimstore.adapter.ClientProductListAdapter;
 import com.yukimstore.adapter.StoreListAdapter;
 import com.yukimstore.db.AppDatabase;
+import com.yukimstore.db.entity.Product;
 import com.yukimstore.db.entity.Store;
 
 import java.util.List;
 
-public class FindStoreActivity extends ConnectedActivity {
+public class FindProductActivity extends ConnectedActivity {
 
-    private ListView list_stores;
+    private ListView list_products;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setContentView(R.layout.c_find_store);
+        this.setContentView(R.layout.c_find_product);
 
 
-        list_stores = findViewById(R.id.list_stores);
+        list_products = findViewById(R.id.list_products);
         updateListStores("");
 
-        EditText store_name = findViewById(R.id.find_stores);
-        store_name.addTextChangedListener(new TextWatcher() {
+        EditText product_name = findViewById(R.id.find_products);
+        product_name.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 //Nothing
@@ -50,8 +49,8 @@ public class FindStoreActivity extends ConnectedActivity {
     }
 
     public void updateListStores(String str){
-        List<Store> stores = AppDatabase.getInstance(FindStoreActivity.this).storeDAO().getStoresLike(str);
-        StoreListAdapter customAdapter = new StoreListAdapter(this, R.layout.store_item, stores);
-        list_stores.setAdapter(customAdapter);
+        List<Product> products = AppDatabase.getInstance(FindProductActivity.this).productDAO().getProductsLike(str);
+        ClientProductListAdapter customAdapter = new ClientProductListAdapter(this, R.layout.c_product_item, products);
+        list_products.setAdapter(customAdapter);
     }
 }

@@ -19,7 +19,9 @@ public class ClientMenuActivity extends ConnectedActivity {
     }
 
     public void findProduct(View view) {
-        Toast.makeText(this,"Not yet implemented",Toast.LENGTH_SHORT).show();
+        Intent intent;
+        intent = new Intent(this, FindProductActivity.class);
+        this.startActivity(intent);;
     }
 
     public void prodInteresting(View view) {
