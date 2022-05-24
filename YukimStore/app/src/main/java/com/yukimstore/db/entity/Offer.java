@@ -25,10 +25,8 @@ public class Offer implements Serializable {
     @ColumnInfo(name = "date_end")
     public Date date_end;
 
-    private static int idCount = 0;
-
-    public Offer(int price, Date date_start, Date date_end) {
-        this.id_product_offer = idCount++;
+    public Offer(int id_product_offer, int price, Date date_start, Date date_end) {
+        this.id_product_offer = id_product_offer;
         this.price = price;
         this.date_start = date_start;
         this.date_end = date_end;

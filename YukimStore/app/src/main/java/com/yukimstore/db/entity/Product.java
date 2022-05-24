@@ -15,7 +15,7 @@ import java.io.Serializable;
                 parentColumns = "id_category",
                 childColumns = "id_category"))
 public class Product implements Serializable {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int id_product;
 
     @ColumnInfo(name = "id_category", index = true)
@@ -33,10 +33,7 @@ public class Product implements Serializable {
     @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
     public byte[] img;
 
-    private static int idCount = 0;
-
     public Product(String name, String details, float price, int id_category, byte[] img) {
-        this.id_product = idCount++;
         this.id_category = id_category;
         this.name = name;
         this.details = details;

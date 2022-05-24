@@ -17,7 +17,7 @@ import java.io.Serializable;
                         childColumns = "id_category")
         })
 public class InterestForCategory implements Serializable {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int id_ifc;
 
     @ColumnInfo(name = "id_interest", index = true)
@@ -26,10 +26,7 @@ public class InterestForCategory implements Serializable {
     @ColumnInfo(name = "id_category", index = true)
     public int id_category;
 
-    private static int idCount = 0;
-
     public InterestForCategory(int id_interest, int id_category) {
-        this.id_ifc = idCount++;
         this.id_interest = id_interest;
         this.id_category = id_category;
     }

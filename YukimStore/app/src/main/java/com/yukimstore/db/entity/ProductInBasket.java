@@ -17,7 +17,7 @@ import java.io.Serializable;
                         childColumns = "id_user")
         })
 public class ProductInBasket implements Serializable {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int id_pib;
 
     @ColumnInfo(name = "id_product", index = true)
@@ -26,11 +26,13 @@ public class ProductInBasket implements Serializable {
     @ColumnInfo(name = "id_user", index = true)
     public int id_user;
 
-    private static int idCount = 0;
 
-    public ProductInBasket(int id_product, int id_user) {
-        this.id_pib = idCount++;
+    @ColumnInfo(name = "quantity")
+    public int quantity;
+
+    public ProductInBasket(int id_product, int id_user, int quantity) {
         this.id_product = id_product;
         this.id_user = id_user;
+        this.quantity = quantity;
     }
 }

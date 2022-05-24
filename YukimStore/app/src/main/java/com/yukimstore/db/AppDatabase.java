@@ -51,7 +51,7 @@ import java.util.List;
         ProductInBasket.class,
         Order.class,
         ProductInOrder.class
-},version = 5, exportSchema = false)
+},version = 1, exportSchema = false)
 @TypeConverters({DateConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase INSTANCE = null;
@@ -75,6 +75,7 @@ public abstract class AppDatabase extends RoomDatabase {
     }
 
     public void clear(){
+        productInBasketDAO().clear();
         productDAO().clear();
         categoryDAO().clear();
         storeDAO().clear();
@@ -84,7 +85,6 @@ public abstract class AppDatabase extends RoomDatabase {
 //        interestDAO().clear();
 //        userHasInterestDAO().clear();
 //        interestForCategoryDAO().clear();
-//        productInBasketDAO().clear();
 //        orderDAO().clear();
 //        productInOrderDAO().clear();
     }
@@ -188,11 +188,28 @@ public abstract class AppDatabase extends RoomDatabase {
         }
     }
 
+    public void fillProductsInBaskets(){
+        ProductInBasketDAO productInBasketDAO = productInBasketDAO();
+        ArrayList<ProductInBasket> pibs = new ArrayList<>();
+        pibs.add(new ProductInBasket(productDAO().getProductsLike("Prod 1").get(0).id_product,userDAO().get("c@c.c").id_user,1));
+        pibs.add(new ProductInBasket(productDAO().getProductsLike("Prod 2").get(0).id_product,userDAO().get("c@c.c").id_user,4));
+        pibs.add(new ProductInBasket(productDAO().getProductsLike("Prod 4").get(0).id_product,userDAO().get("c@c.c").id_user,2));
+        pibs.add(new ProductInBasket(productDAO().getProductsLike("Prod 5").get(0).id_product,userDAO().get("c@c.c").id_user,1));
+        pibs.add(new ProductInBasket(productDAO().getProductsLike("Prod 6").get(0).id_product,userDAO().get("c@c.c").id_user,3));
+        int size_pibs = pibs.size();
+        Log.i("","PRODUCTS IN BASKET INITILIZATION");
+        for(int i = 0 ; i < size_pibs; i++){
+            productInBasketDAO.insert(pibs.get(i));
+            Log.i("",pibs.get(i).id_product+ " " + pibs.get(i).id_user+ " " + pibs.get(i).quantity);
+        }
+    }
+
     public void init(){
         clear();
         fillUsers();
         fillStores();
         fillCategories();
         fillProducts();
+        fillProductsInBaskets();
     }
 }

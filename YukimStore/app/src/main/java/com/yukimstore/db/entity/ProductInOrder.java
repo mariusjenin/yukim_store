@@ -17,7 +17,7 @@ import java.io.Serializable;
                         childColumns = "id_order")
         })
 public class ProductInOrder implements Serializable {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int id_pio;
 
     @ColumnInfo(name = "id_order", index = true)
@@ -29,10 +29,7 @@ public class ProductInOrder implements Serializable {
     @ColumnInfo(name = "quantity")
     public int quantity;
 
-    private static int idCount = 0;
-
     public ProductInOrder(int id_order, int id_product, int quantity) {
-        this.id_pio = idCount++;
         this.id_order = id_order;
         this.id_product = id_product;
         this.quantity = quantity;

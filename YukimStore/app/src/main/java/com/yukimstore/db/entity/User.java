@@ -10,7 +10,7 @@ import java.io.Serializable;
 
 @Entity(tableName = "User")
 public class User implements Serializable {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int id_user;
 
     @ColumnInfo(name = "mail")
@@ -32,10 +32,7 @@ public class User implements Serializable {
     @ColumnInfo(name = "last_name")
     public String last_name;
 
-    private static int idCount = 0;
-
     public User(String mail,String hash_pwd,boolean is_merchant, String first_name, String last_name) {
-        this.id_user = idCount++;
         this.mail = mail;
         this.hash_pwd = hash_pwd;
         this.is_merchant = is_merchant;

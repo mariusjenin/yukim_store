@@ -12,7 +12,7 @@ import java.io.Serializable;
                 parentColumns = "id_user_store",
                 childColumns = "id_store"))
 public class Category implements Serializable {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int id_category;
 
     @ColumnInfo(name = "id_store", index = true)
@@ -21,10 +21,7 @@ public class Category implements Serializable {
     @ColumnInfo(name = "name")
     public String name;
 
-    private static int idCount = 0;
-
     public Category(String name, int id_store) {
-        this.id_category = idCount++;
         this.name = name;
         this.id_store = id_store;
     }

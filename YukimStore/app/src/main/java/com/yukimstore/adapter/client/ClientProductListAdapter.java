@@ -53,8 +53,8 @@ public class ClientProductListAdapter extends ArrayAdapter<Product> {
             TextView price_product = v.findViewById(R.id.product_price);
             Button add_to_basket = v.findViewById(R.id.add_to_basket);
 
-            ConstraintLayout btn_store = v.findViewById(R.id.btn_item);
-            btn_store.setOnClickListener(new View.OnClickListener() {
+            ConstraintLayout btn_item = v.findViewById(R.id.btn_item);
+            btn_item.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent;

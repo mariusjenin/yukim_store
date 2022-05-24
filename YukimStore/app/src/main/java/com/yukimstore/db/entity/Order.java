@@ -18,7 +18,7 @@ import java.util.Date;
                         childColumns = "id_user")
         })
 public class Order implements Serializable {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int id_order;
 
     @ColumnInfo(name = "id_store", index = true)
@@ -30,10 +30,7 @@ public class Order implements Serializable {
     @ColumnInfo(name = "date_order")
     public Date date_order;
 
-    private static int idCount = 0;
-
     public Order(int id_store, int id_user, Date date_order) {
-        this.id_order = idCount++;
         this.id_store = id_store;
         this.id_user = id_user;
         this.date_order = date_order;

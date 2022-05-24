@@ -1,0 +1,115 @@
+package com.yukimstore.adapter.client;
+
+        import android.annotation.SuppressLint;
+        import android.content.Context;
+        import android.content.Intent;
+        import android.graphics.Bitmap;
+        import android.graphics.BitmapFactory;
+        import android.text.Editable;
+        import android.text.TextWatcher;
+        import android.util.Log;
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.view.ViewGroup;
+        import android.widget.ArrayAdapter;
+        import android.widget.Button;
+        import android.widget.ImageButton;
+        import android.widget.ImageView;
+        import android.widget.TextView;
+
+        import androidx.constraintlayout.widget.ConstraintLayout;
+
+        import com.yukimstore.R;
+
+        import java.util.List;
+
+        import com.yukimstore.activity.used.client.ConsultBasketActivity;
+        import com.yukimstore.activity.used.client.ConsultProductActivity;
+        import com.yukimstore.activity.used.client.ConsultStoreActivity;
+        import com.yukimstore.db.AppDatabase;
+        import com.yukimstore.db.entity.Product;
+        import com.yukimstore.db.entity.ProductInBasket;
+        import com.yukimstore.db.entity.Store;
+
+public class ProductInBasketAdapter extends ArrayAdapter<ProductInBasket> {
+    private final int resourceLayout;
+    private final ConsultBasketActivity activity;
+
+    public ProductInBasketAdapter(ConsultBasketActivity cba, List<ProductInBasket> pibs) {
+        super(cba, R.layout.c_product_item_basket, pibs);
+        this.resourceLayout = R.layout.c_product_item_basket;
+        activity = cba;
+    }
+
+    @Override
+    public boolean isEnabled(int position) {
+        return false;
+    }
+
+    @SuppressLint("SetTextI18n")
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View v = convertView;
+
+        if (v == null) {
+            LayoutInflater vi;
+            vi = LayoutInflater.from(getContext());
+            v = vi.inflate(resourceLayout, null);
+        }
+
+        ProductInBasket pib = getItem(position);
+
+        if (pib != null) {
+            Product p = AppDatabase.getInstance(getContext()).productDAO().get(pib.id_product);
+
+            TextView name_product = v.findViewById(R.id.product_name);
+            TextView total_price = v.findViewById(R.id.total_price_product);
+            TextView quantity = v.findViewById(R.id.quantity);
+            ImageButton change_quantity = v.findViewById(R.id.validate_quantity);
+            Button remove_from_basket = v.findViewById(R.id.remove_from_basket);
+
+            ConstraintLayout btn_item = v.findViewById(R.id.btn_item);
+
+            change_quantity.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    AppDatabase.getInstance(getContext()).productInBasketDAO().changeQuantity(pib.id_pib,Integer.parseInt(quantity.getText().toString()));
+                    activity.updateBasket();
+                }
+            });
+
+            remove_from_basket.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    AppDatabase.getInstance(getContext()).productInBasketDAO().clear(pib.id_pib);
+                    activity.updateBasket();
+                }
+            });
+
+            btn_item.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent;
+                    intent = new Intent(getContext(), ConsultProductActivity.class);
+                    intent.putExtra("product",p);
+                    getContext().startActivity(intent);
+                }
+            });
+
+            if (name_product != null) {
+                name_product.setText(p.name);
+            }
+
+            if (total_price != null) {
+                float total_price_product = Math.round(p.price * pib.quantity *100.0f)/100.0f;
+                total_price.setText(String.valueOf(total_price_product) + getContext().getResources().getString(R.string.euro));
+            }
+
+            if (quantity != null) {
+                quantity.setText(String.valueOf(pib.quantity));
+            }
+        }
+
+        return v;
+    }
+}

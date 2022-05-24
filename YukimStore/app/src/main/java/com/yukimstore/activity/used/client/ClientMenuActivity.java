@@ -6,10 +6,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.yukimstore.R;
-import com.yukimstore.activity.ConnectedActivity;
 import com.yukimstore.activity.ConnectedClientActivity;
-import com.yukimstore.activity.YukimActivity;
-import com.yukimstore.activity.used.merchant.MerchantMenuActivity;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Product;
 import com.yukimstore.manager.ConnectionManager;
@@ -47,7 +44,9 @@ public class ClientMenuActivity extends ConnectedClientActivity {
     }
 
     public void seeBasket(View view) {
-        Toast.makeText(this,"Not yet implemented",Toast.LENGTH_SHORT).show();
+        Intent intent;
+        intent = new Intent(this, ConsultBasketActivity.class);
+        this.startActivity(intent);;
     }
 
     public void myOrders(View view) {

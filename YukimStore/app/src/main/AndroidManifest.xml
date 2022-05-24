@@ -57,6 +57,10 @@
             android:name=".activity.used.client.ConsultProductActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".activity.used.client.ConsultBasketActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

@@ -2,8 +2,8 @@
     <string name="app_name">YukimStore</string>
     <string name="register">Register</string>
     <string name="mail">Email</string>
-    <string name="validate">validate</string>
-    <string name="create">create</string>
+    <string name="validate">Validate</string>
+    <string name="create">Create</string>
     <string name="password">Password</string>
     <string name="password2">Confirm your password</string>
     <string name="first_name">First name</string>
@@ -66,6 +66,8 @@
     <string name="quantity">Quantity</string>
     <string name="quantity_1">1</string>
     <string name="euro">€</string>
+    <string name="clear_basket">Clear the basket</string>
+    <string name="remove">Remove</string>
     <string-array name="settings">
         <item>Choice 1</item>
         <item>Choice 2</item>
