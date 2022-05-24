@@ -5,17 +5,17 @@ import android.content.Intent;
 import android.widget.Toast;
 
 import com.yukimstore.activity.used.IdentificationActivity;
+import com.yukimstore.activity.used.client.ClientMenuActivity;
 import com.yukimstore.manager.ConnectionManager;
 
 /**
  * Middleware permettant de rediriger l'application sur l'ecran d'identification
- * si l'utilisateur n'est pas connecté
+ * si l'utilisateur n'est pas un client
  */
-public class ConnectedMiddleware extends ConnectionMiddleware {
+public class ClientMiddleware extends TypeUserMiddleware {
     public boolean verify_and_redirect(Activity activity){
         ConnectionManager cm = ConnectionManager.getInstance();
-        boolean isConnected = cm.isConnected();
-        if(!isConnected){
+        if(cm.getUtilisateur().is_merchant){
             redirect(activity);
             return true;
         }
@@ -23,7 +23,7 @@ public class ConnectedMiddleware extends ConnectionMiddleware {
     }
     public void redirect(Activity activity){
         activity.finish();
-        Intent intent = new Intent(activity, IdentificationActivity.class);
+        Intent intent = new Intent(activity, ClientMenuActivity.class);
         activity.startActivity(intent);
     }
 }

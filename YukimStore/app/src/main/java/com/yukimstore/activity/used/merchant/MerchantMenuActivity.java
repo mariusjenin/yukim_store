@@ -7,10 +7,9 @@ import android.widget.Toast;
 
 import com.yukimstore.R;
 import com.yukimstore.activity.ConnectedActivity;
-import com.yukimstore.activity.YukimActivity;
-import com.yukimstore.activity.used.ViewProductActivity;
+import com.yukimstore.activity.ConnectedMerchantActivity;
 
-public class MerchantMenuActivity extends ConnectedActivity {
+public class MerchantMenuActivity extends ConnectedMerchantActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +26,6 @@ public class MerchantMenuActivity extends ConnectedActivity {
     }
 
     public void merchantProducts(View view) {
-        startActivity(new Intent(this, ViewProductActivity.class));
+        Toast.makeText(this,"Not yet implemented",Toast.LENGTH_SHORT).show();
     }
 }

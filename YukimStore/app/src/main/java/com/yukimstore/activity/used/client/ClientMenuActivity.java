@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.yukimstore.R;
 import com.yukimstore.activity.ConnectedActivity;
+import com.yukimstore.activity.ConnectedClientActivity;
 import com.yukimstore.activity.YukimActivity;
 import com.yukimstore.activity.used.merchant.MerchantMenuActivity;
 import com.yukimstore.db.AppDatabase;
@@ -14,7 +15,7 @@ import com.yukimstore.db.entity.Product;
 
 import java.util.ArrayList;
 
-public class ClientMenuActivity extends ConnectedActivity {
+public class ClientMenuActivity extends ConnectedClientActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

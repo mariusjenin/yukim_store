@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.yukimstore.R;
 import com.yukimstore.activity.ConnectedActivity;
+import com.yukimstore.activity.ConnectedClientActivity;
 import com.yukimstore.adapter.client.ClientCategoryListAdapter;
 import com.yukimstore.adapter.client.ClientProductListAdapter;
 import com.yukimstore.db.AppDatabase;
@@ -17,7 +18,7 @@ import com.yukimstore.db.entity.Product;
 
 import java.util.List;
 
-public class FindProductActivity extends ConnectedActivity {
+public class FindProductActivity extends ConnectedClientActivity {
 
     private ListView list_products;
     private TextView no_result;

@@ -8,10 +8,11 @@ import android.widget.Toast;
 
 import com.yukimstore.R;
 import com.yukimstore.activity.ConnectedActivity;
+import com.yukimstore.activity.ConnectedMerchantActivity;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Product;
 
-public class CreateStoreActivity extends ConnectedActivity {
+public class CreateStoreActivity extends ConnectedMerchantActivity {
     private AppDatabase db;
 
     @Override

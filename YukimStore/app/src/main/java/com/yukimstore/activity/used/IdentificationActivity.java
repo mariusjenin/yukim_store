@@ -47,7 +47,7 @@ public class IdentificationActivity extends NotConnectedActivity {
                 User user = AppDatabase.getInstance(this).userDAO().getWithToken(token);
                 if(user != null){
                     cm.setConnected(user);
-                    middleware.redirect(this);
+                    connection_middleware.redirect(this);
                 }
             }
         }

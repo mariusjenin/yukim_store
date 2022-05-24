@@ -5,35 +5,24 @@ import android.content.Intent;
 
 import com.yukimstore.activity.used.client.ClientMenuActivity;
 import com.yukimstore.activity.used.merchant.MerchantMenuActivity;
-import com.yukimstore.db.entity.User;
 import com.yukimstore.manager.ConnectionManager;
 
 /**
- * Middleware permettant de rediriger l'application sur l'ecran d'accueil
- * si l'utilisateur est connecté
+ * Middleware permettant de rediriger l'application sur l'ecran d'identification
+ * si l'utilisateur est pas un client
  */
-public class NotConnectedMiddleware extends ConnectionMiddleware {
-
+public class MerchantMiddleware extends TypeUserMiddleware {
     public boolean verify_and_redirect(Activity activity){
         ConnectionManager cm = ConnectionManager.getInstance();
-        boolean isConnected = cm.isConnected();
-        if(isConnected){
+        if(!cm.getUtilisateur().is_merchant){
             redirect(activity);
             return true;
         }
         return false;
     }
-
     public void redirect(Activity activity){
-        ConnectionManager cm = ConnectionManager.getInstance();
-        User user = cm.getUtilisateur();
         activity.finish();
-        Intent intent;
-        if(user.is_merchant){
-            intent = new Intent(activity, MerchantMenuActivity.class);
-        } else {
-            intent = new Intent(activity, ClientMenuActivity.class);
-        }
+        Intent intent = new Intent(activity, MerchantMenuActivity.class);
         activity.startActivity(intent);
     }
 }

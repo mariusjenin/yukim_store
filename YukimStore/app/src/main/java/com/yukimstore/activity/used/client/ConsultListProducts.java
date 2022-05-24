@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.yukimstore.R;
 import com.yukimstore.activity.ConnectedActivity;
+import com.yukimstore.activity.ConnectedClientActivity;
 import com.yukimstore.activity.YukimActivity;
 import com.yukimstore.activity.used.merchant.MerchantMenuActivity;
 import com.yukimstore.adapter.client.ClientCategoryListAdapter;
@@ -25,7 +26,7 @@ import com.yukimstore.db.entity.Store;
 
 import java.util.List;
 
-public class ConsultListProducts extends ConnectedActivity {
+public class ConsultListProducts extends ConnectedClientActivity {
     List<Product> products;
 
     @SuppressLint("SetTextI18n")

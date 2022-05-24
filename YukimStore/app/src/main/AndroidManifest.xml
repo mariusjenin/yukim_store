@@ -22,10 +22,6 @@
         </activity>
 
         <activity
-            android:name=".activity.used.ViewProductActivity"
-            android:exported="false" />
-
-        <activity
             android:name=".activity.used.merchant.MerchantMenuActivity"
             android:exported="false" />
 
