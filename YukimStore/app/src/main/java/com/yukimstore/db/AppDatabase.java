@@ -51,7 +51,7 @@ import java.util.List;
         ProductInBasket.class,
         Order.class,
         ProductInOrder.class
-},version = 4, exportSchema = false)
+},version = 5, exportSchema = false)
 @TypeConverters({DateConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase INSTANCE = null;

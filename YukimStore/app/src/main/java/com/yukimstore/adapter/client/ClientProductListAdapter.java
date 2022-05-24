@@ -1,6 +1,8 @@
 package com.yukimstore.adapter.client;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,8 @@ import com.yukimstore.R;
 
 import java.util.List;
 
+import com.yukimstore.activity.used.client.ConsultProductActivity;
+import com.yukimstore.activity.used.client.ConsultStoreActivity;
 import com.yukimstore.db.entity.Product;
 
 public class ClientProductListAdapter extends ArrayAdapter<Product> {
@@ -30,6 +34,7 @@ public class ClientProductListAdapter extends ArrayAdapter<Product> {
         return false;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View v = convertView;
@@ -52,7 +57,10 @@ public class ClientProductListAdapter extends ArrayAdapter<Product> {
             btn_store.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getContext(),"Not implemented Yet",Toast.LENGTH_SHORT).show();
+                    Intent intent;
+                    intent = new Intent(getContext(), ConsultProductActivity.class);
+                    intent.putExtra("product",p);
+                    getContext().startActivity(intent);
                 }
             });
 
@@ -72,7 +80,7 @@ public class ClientProductListAdapter extends ArrayAdapter<Product> {
             }
 
             if (price_product != null ) {
-                price_product.setText(String.valueOf(p.price));
+                price_product.setText(String.valueOf(p.price)+getContext().getResources().getString(R.string.euro));
             }
         }
 

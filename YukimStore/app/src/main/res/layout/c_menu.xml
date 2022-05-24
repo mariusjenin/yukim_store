@@ -21,12 +21,13 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="40dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/menu"
             android:textColor="@color/black"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/find_product"
@@ -118,5 +119,19 @@
             android:textSize="16sp"
             tools:ignore="UsingOnClickInXml,TouchTargetSizeCheck" />
     </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/log_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:clickable="true"
+        android:focusable="auto"
+        android:onClick="logOut"
+        app:backgroundTint="@color/lightTeal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/log_out" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

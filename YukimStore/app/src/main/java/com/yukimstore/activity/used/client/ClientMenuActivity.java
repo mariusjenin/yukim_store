@@ -12,6 +12,7 @@ import com.yukimstore.activity.YukimActivity;
 import com.yukimstore.activity.used.merchant.MerchantMenuActivity;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Product;
+import com.yukimstore.manager.ConnectionManager;
 
 import java.util.ArrayList;
 
@@ -51,5 +52,12 @@ public class ClientMenuActivity extends ConnectedClientActivity {
 
     public void myOrders(View view) {
         Toast.makeText(this,"Not yet implemented",Toast.LENGTH_SHORT).show();
+    }
+
+    public void logOut(View view) {
+        ConnectionManager cm = ConnectionManager.getInstance();
+        cm.disconnect();
+        cm.removeTokenUserFromPrefs(this);
+        connection_middleware.redirect(this);
     }
 }

@@ -36,7 +36,7 @@ public class CreateStoreActivity extends ConnectedMerchantActivity {
             return;
         }
 
-        Product product = new Product(pname,pdetails,pprice,0,""); //TODO
+        Product product = new Product(pname,pdetails,pprice,0,null); //TODO
 
         db.productDAO().insert(product);
 

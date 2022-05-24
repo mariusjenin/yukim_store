@@ -19,8 +19,7 @@ public abstract class ConnectedActivity extends MiddlewareActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //ADD these 2 lines to prevent from auto login
-//        ConnectionManager cm =ConnectionManager.getInstance();
+//        ConnectionManager cm = ConnectionManager.getInstance();
 //        cm.removeTokenUserFromPrefs(this);
         if(!connection_middleware.verify_and_redirect(this)){
             type_user_middleware.verify_and_redirect(this);

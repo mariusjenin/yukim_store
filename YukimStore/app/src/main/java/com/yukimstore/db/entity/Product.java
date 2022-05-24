@@ -30,12 +30,12 @@ public class Product implements Serializable {
     @ColumnInfo(name = "price")
     public float price;
 
-    @ColumnInfo(name = "img")
-    public String img;
+    @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
+    public byte[] img;
 
     private static int idCount = 0;
 
-    public Product(String name, String details, float price, int id_category, String img) {
+    public Product(String name, String details, float price, int id_category, byte[] img) {
         this.id_product = idCount++;
         this.id_category = id_category;
         this.name = name;
