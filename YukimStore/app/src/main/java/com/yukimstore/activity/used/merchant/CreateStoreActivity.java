@@ -2,22 +2,19 @@ package com.yukimstore.activity.used.merchant;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.yukimstore.R;
-import com.yukimstore.activity.ConnectedActivity;
-import com.yukimstore.activity.ConnectedMerchantActivity;
+import com.yukimstore.activity.ConnectedMerchantWithoutStoreActivity;
 import com.yukimstore.db.AppDatabase;
-import com.yukimstore.db.entity.Product;
 import com.yukimstore.db.entity.Store;
 import com.yukimstore.db.entity.User;
 import com.yukimstore.manager.ConnectionManager;
 
-public class CreateStoreActivity extends ConnectedMerchantActivity {
+public class CreateStoreActivity extends ConnectedMerchantWithoutStoreActivity {
     private ImageView templateChoice;
     private String choice;
 
