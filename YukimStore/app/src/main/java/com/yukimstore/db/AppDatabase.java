@@ -52,7 +52,7 @@ import java.util.List;
         ProductInBasket.class,
         Order.class,
         ProductInOrder.class
-},version = 2, exportSchema = false)
+},version = 3, exportSchema = false)
 @TypeConverters({DateConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase INSTANCE = null;
@@ -76,6 +76,7 @@ public abstract class AppDatabase extends RoomDatabase {
     }
 
     public void clear(){
+        productInOrderDAO().clear();
         orderDAO().clear();
         productInBasketDAO().clear();
         productDAO().clear();
@@ -87,7 +88,6 @@ public abstract class AppDatabase extends RoomDatabase {
 //        interestDAO().clear();
 //        userHasInterestDAO().clear();
 //        interestForCategoryDAO().clear();
-//        productInOrderDAO().clear();
     }
 
     public void fillUsers(){
@@ -208,21 +208,46 @@ public abstract class AppDatabase extends RoomDatabase {
     public void fillOrders(){
         OrderDAO orderDAO = orderDAO();
         ArrayList<Order> orders = new ArrayList<>();
-        orders.add(new Order(userDAO().get("m1@m1.m1").id_user,userDAO().get("c@c.c").id_user,new Date(System.currentTimeMillis()-86400000*10)));
-        orders.add(new Order(userDAO().get("m1@m1.m1").id_user,userDAO().get("c@c.c").id_user,new Date(System.currentTimeMillis()-86400000*9)));
-        orders.add(new Order(userDAO().get("m1@m1.m1").id_user,userDAO().get("c@c.c").id_user,new Date(System.currentTimeMillis()-86400000*8)));
-        orders.add(new Order(userDAO().get("m1@m1.m1").id_user,userDAO().get("c@c.c").id_user,new Date(System.currentTimeMillis()-86400000*7)));
-        orders.add(new Order(userDAO().get("m1@m1.m1").id_user,userDAO().get("c@c.c").id_user,new Date(System.currentTimeMillis()-86400000*6)));
-        orders.add(new Order(userDAO().get("m0@m0.m0").id_user,userDAO().get("c@c.c").id_user,new Date(System.currentTimeMillis()-86400000*5)));
-        orders.add(new Order(userDAO().get("m0@m0.m0").id_user,userDAO().get("c@c.c").id_user,new Date(System.currentTimeMillis()-86400000*4)));
-        orders.add(new Order(userDAO().get("m0@m0.m0").id_user,userDAO().get("c@c.c").id_user,new Date(System.currentTimeMillis()-86400000*3)));
-        orders.add(new Order(userDAO().get("m0@m0.m0").id_user,userDAO().get("c@c.c").id_user,new Date(System.currentTimeMillis()-86400000*2)));
-        orders.add(new Order(userDAO().get("m0@m0.m0").id_user,userDAO().get("c@c.c").id_user,new Date(System.currentTimeMillis()-86400000)));
+        long time = System.currentTimeMillis();
+        long day_in_millis = 86400000;
+        orders.add(new Order(userDAO().get("m1@m1.m1").id_user,userDAO().get("c@c.c").id_user,new Date(time-day_in_millis*10)));
+        orders.add(new Order(userDAO().get("m1@m1.m1").id_user,userDAO().get("c@c.c").id_user,new Date(time-day_in_millis*9)));
+        orders.add(new Order(userDAO().get("m1@m1.m1").id_user,userDAO().get("c@c.c").id_user,new Date(time-day_in_millis*8)));
+        orders.add(new Order(userDAO().get("m1@m1.m1").id_user,userDAO().get("c@c.c").id_user,new Date(time-day_in_millis*7)));
+        orders.add(new Order(userDAO().get("m1@m1.m1").id_user,userDAO().get("c@c.c").id_user,new Date(time-day_in_millis*6)));
+        orders.add(new Order(userDAO().get("m0@m0.m0").id_user,userDAO().get("c@c.c").id_user,new Date(time-day_in_millis*5)));
+        orders.add(new Order(userDAO().get("m0@m0.m0").id_user,userDAO().get("c@c.c").id_user,new Date(time-day_in_millis*4)));
+        orders.add(new Order(userDAO().get("m0@m0.m0").id_user,userDAO().get("c@c.c").id_user,new Date(time-day_in_millis*3)));
+        orders.add(new Order(userDAO().get("m0@m0.m0").id_user,userDAO().get("c@c.c").id_user,new Date(time-day_in_millis*2)));
+        orders.add(new Order(userDAO().get("m0@m0.m0").id_user,userDAO().get("c@c.c").id_user,new Date(time-day_in_millis)));
         int size_orders = orders.size();
         Log.i("","ORDERS INITILIZATION");
         for(int i = 0 ; i < size_orders; i++){
             orderDAO.insert(orders.get(i));
-            Log.i("", String.valueOf(orders.get(i).id_order));
+            Log.i("", orders.get(i).id_order+ " " + orders.get(i).id_user+ " " + orders.get(i).id_store);
+        }
+    }
+
+    public void fillProductsInOrders(){
+        ProductInOrderDAO productInOrderDAO = productInOrderDAO();
+        ArrayList<ProductInOrder> pios = new ArrayList<>();
+//    public ProductInOrder(int id_order, int id_product, int quantity) {
+        Log.i("", String.valueOf(productDAO().getProductsLike("Prod 1").get(0).id_product));
+        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m0@m0.m0").id_user).get(0).id_order,productDAO().getProductsLike("Prod 1").get(0).id_product,1));
+        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m0@m0.m0").id_user).get(0).id_order,productDAO().getProductsLike("Prod 2").get(0).id_product,2));
+        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m0@m0.m0").id_user).get(0).id_order,productDAO().getProductsLike("Prod 3").get(0).id_product,3));
+        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m0@m0.m0").id_user).get(0).id_order,productDAO().getProductsLike("Prod 4").get(0).id_product,4));
+        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m0@m0.m0").id_user).get(0).id_order,productDAO().getProductsLike("Prod 5").get(0).id_product,5));
+        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m1@m1.m1").id_user).get(0).id_order,productDAO().getProductsLike("Prod 6").get(0).id_product,1));
+        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m1@m1.m1").id_user).get(0).id_order,productDAO().getProductsLike("Prod 7").get(0).id_product,2));
+        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m1@m1.m1").id_user).get(0).id_order,productDAO().getProductsLike("Prod 8").get(0).id_product,3));
+        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m1@m1.m1").id_user).get(0).id_order,productDAO().getProductsLike("Prod 9").get(0).id_product,4));
+        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m1@m1.m1").id_user).get(0).id_order,productDAO().getProductsLike("Prod 10").get(0).id_product,5));
+        int size_pios = pios.size();
+        Log.i("","PRODUCTS IN ORDER INITILIZATION");
+        for(int i = 0 ; i < size_pios; i++){
+            productInOrderDAO.insert(pios.get(i));
+            Log.i("", pios.get(i).id_pio+ " " + pios.get(i).id_order);
         }
     }
 
@@ -234,5 +259,6 @@ public abstract class AppDatabase extends RoomDatabase {
         fillProducts();
         fillProductsInBaskets();
         fillOrders();
+        fillProductsInOrders();
     }
 }

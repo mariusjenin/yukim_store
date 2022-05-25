@@ -85,9 +85,11 @@ public class ConsultProductActivity extends ConnectedClientActivity {
                 int quantity_int = Integer.parseInt(quantity.getText().toString());
                 if(pib != null){
                     apd.productInBasketDAO().changeQuantity(pib.id_pib,quantity_int);
+                    Toast.makeText(ConsultProductActivity.this,"La quantité a été modifiée",Toast.LENGTH_SHORT).show();
                 } else {
                     ProductInBasket new_pib = new ProductInBasket(product.id_product,user.id_user,quantity_int);
                     apd.productInBasketDAO().insert(new_pib);
+                    Toast.makeText(ConsultProductActivity.this,"Le produit a été ajouté en "+quantity_int+"exemplaire"+(quantity_int>1?"s":""),Toast.LENGTH_SHORT).show();
                 }
             }
         });

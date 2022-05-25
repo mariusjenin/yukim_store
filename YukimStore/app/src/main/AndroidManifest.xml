@@ -65,6 +65,10 @@
             android:name=".activity.used.client.ConsultOrdersActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".activity.used.client.ConsultOrderActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

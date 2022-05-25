@@ -2,21 +2,15 @@ package com.yukimstore.activity.used.client;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.yukimstore.R;
-import com.yukimstore.activity.ConnectedActivity;
 import com.yukimstore.activity.ConnectedClientActivity;
-import com.yukimstore.adapter.client.ClientCategoryListAdapter;
-import com.yukimstore.adapter.client.ClientProductListAdapter;
+import com.yukimstore.adapter.client.CategoryListAdapter;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Category;
-import com.yukimstore.db.entity.Product;
 import com.yukimstore.db.entity.Store;
 
 import java.util.List;
@@ -40,7 +34,7 @@ public class ConsultCategoriesStoreActivity extends ConnectedClientActivity {
         List<Category> categories = AppDatabase.getInstance(ConsultCategoriesStoreActivity.this).categoryDAO().getCategoriesWithStore(store.id_user_store);
 
         if(categories.size()>0){
-            ClientCategoryListAdapter customAdapter = new ClientCategoryListAdapter(this, categories);
+            CategoryListAdapter customAdapter = new CategoryListAdapter(this, categories);
             list_categories.setAdapter(customAdapter);
             no_result.setVisibility(View.GONE);
         } else {

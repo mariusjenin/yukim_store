@@ -9,12 +9,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.yukimstore.R;
-import com.yukimstore.activity.ConnectedActivity;
 import com.yukimstore.activity.ConnectedClientActivity;
-import com.yukimstore.adapter.client.ClientProductListAdapter;
 import com.yukimstore.adapter.client.StoreListAdapter;
 import com.yukimstore.db.AppDatabase;
-import com.yukimstore.db.entity.Product;
 import com.yukimstore.db.entity.Store;
 
 import java.util.List;

@@ -9,10 +9,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.yukimstore.R;
-import com.yukimstore.activity.ConnectedActivity;
 import com.yukimstore.activity.ConnectedClientActivity;
-import com.yukimstore.adapter.client.ClientCategoryListAdapter;
-import com.yukimstore.adapter.client.ClientProductListAdapter;
+import com.yukimstore.adapter.client.ProductListAdapter;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Product;
 
@@ -62,7 +60,7 @@ public class FindProductActivity extends ConnectedClientActivity {
 
     public void updateListProducts(String str){
         List<Product> products = AppDatabase.getInstance(FindProductActivity.this).productDAO().getProductsLike(str);
-        ClientProductListAdapter customAdapter = new ClientProductListAdapter(this, products);
+        ProductListAdapter customAdapter = new ProductListAdapter(this, products);
         list_products.setAdapter(customAdapter);
         if(products.size()>0){
             no_result.setVisibility(View.GONE);

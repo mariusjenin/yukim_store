@@ -21,10 +21,10 @@ import com.yukimstore.db.entity.Store;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClientCategoryListAdapter extends ArrayAdapter<Category> {
+public class CategoryListAdapter extends ArrayAdapter<Category> {
     private int resourceLayout;
 
-    public ClientCategoryListAdapter(Context c, List<Category> categories) {
+    public CategoryListAdapter(Context c, List<Category> categories) {
         super(c, R.layout.c_category_item, categories);
         this.resourceLayout = R.layout.c_category_item;
     }

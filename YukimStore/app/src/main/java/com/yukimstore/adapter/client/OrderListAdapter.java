@@ -14,6 +14,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.yukimstore.R;
 import com.yukimstore.activity.used.client.ConsultListProductsActivity;
+import com.yukimstore.activity.used.client.ConsultOrderActivity;
+import com.yukimstore.activity.used.client.ConsultProductActivity;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Category;
 import com.yukimstore.db.entity.Order;
@@ -25,10 +27,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClientOrderListAdapter extends ArrayAdapter<Order> {
+public class OrderListAdapter extends ArrayAdapter<Order> {
     private int resourceLayout;
 
-    public ClientOrderListAdapter(Context c, List<Order> orders) {
+    public OrderListAdapter(Context c, List<Order> orders) {
         super(c, R.layout.c_order_item, orders);
         this.resourceLayout = R.layout.c_order_item;
     }
@@ -60,17 +62,10 @@ public class ClientOrderListAdapter extends ArrayAdapter<Order> {
             btn_store.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-//                    Intent intent;
-//                    Context context = getContext();
-//                    Resources resources = context.getResources();
-//                    intent = new Intent(context, ConsultListProductsActivity.class);
-//                    Store store =  AppDatabase.getInstance(context).storeDAO().get(c.id_store);
-//                    intent.putExtra("title",resources.getString(R.string.products_of)+c.name+resources.getString(R.string.space_of_space)+store.name);
-//                    ArrayList<Product> products = (ArrayList<Product>) AppDatabase.getInstance(context).categoryDAO().getProductsOfCategory(c.id_category);
-//                    intent.putExtra("products",products);
-//                    context.startActivity(intent);
-                    Toast.makeText(getContext(),"Not yet implemented",Toast.LENGTH_SHORT).show();
-                    //TODO go to order page
+                    Intent intent;
+                    intent = new Intent(getContext(), ConsultOrderActivity.class);
+                    intent.putExtra("order",o);
+                    getContext().startActivity(intent);
                 }
             });
 

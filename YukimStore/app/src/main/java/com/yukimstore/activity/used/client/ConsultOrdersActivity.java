@@ -8,11 +8,9 @@ import android.widget.TextView;
 
 import com.yukimstore.R;
 import com.yukimstore.activity.ConnectedClientActivity;
-import com.yukimstore.adapter.client.ClientOrderListAdapter;
-import com.yukimstore.adapter.client.ClientProductListAdapter;
+import com.yukimstore.adapter.client.OrderListAdapter;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Order;
-import com.yukimstore.db.entity.Product;
 import com.yukimstore.manager.ConnectionManager;
 
 import java.util.List;
@@ -35,7 +33,7 @@ public class ConsultOrdersActivity extends ConnectedClientActivity {
         orders = AppDatabase.getInstance(this).orderDAO().getWithUser(ConnectionManager.getInstance().getUtilisateur().id_user);
 
         if(orders.size()>0){
-            ClientOrderListAdapter customAdapter = new ClientOrderListAdapter(this, orders);
+            OrderListAdapter customAdapter = new OrderListAdapter(this, orders);
             list_products.setAdapter(customAdapter);
             no_result.setVisibility(View.GONE);
         } else {

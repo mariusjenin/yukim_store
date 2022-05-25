@@ -1,7 +1,10 @@
 package com.yukimstore.activity.used.client;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -11,10 +14,16 @@ import com.yukimstore.R;
 import com.yukimstore.activity.ConnectedClientActivity;
 import com.yukimstore.adapter.client.ProductInBasketAdapter;
 import com.yukimstore.db.AppDatabase;
+import com.yukimstore.db.entity.Order;
 import com.yukimstore.db.entity.ProductInBasket;
+import com.yukimstore.db.entity.ProductInOrder;
+import com.yukimstore.db.entity.Store;
 import com.yukimstore.db.entity.User;
 import com.yukimstore.manager.ConnectionManager;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class ConsultBasketActivity extends ConnectedClientActivity {
@@ -48,12 +57,37 @@ public class ConsultBasketActivity extends ConnectedClientActivity {
         validate_basket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO validate basket
+                AppDatabase apd = AppDatabase.getInstance(ConsultBasketActivity.this);
+                Date date = new Date();
+                //Get all stores concerned
+                List<Store> stores = apd.productInBasketDAO().getStoreWithProductsInBasket(user.id_user);
+                int size_stores = stores.size();
+                for(int i = 0; i < size_stores;i++){
+                    //One order by store
+                    Order o = new Order(stores.get(i).id_user_store,user.id_user,date);
+                    int id_order = (int) apd.orderDAO().insert(o);
+                    //Get all products of this store
+                    List<ProductInBasket> pibs = apd.productInBasketDAO().getWithStoreAndUser(stores.get(i).id_user_store,user.id_user);
+
+                    int size_pibs = pibs.size();
+                    for(int j = 0; j < size_pibs;j++){
+                        ProductInOrder pio = new ProductInOrder(id_order,pibs.get(j).id_product,pibs.get(j).quantity);
+                        apd.productInOrderDAO().insert(pio);
+                    }
+                }
+                apd.productInBasketDAO().clearBasket(user.id_user);
+
+
+                Intent intent;
+                intent = new Intent(ConsultBasketActivity.this, ConsultOrdersActivity.class);
+                startActivity(intent);
             }
         });
 
         updateBasket();
     }
+
+
 
     @Override
     protected void onResume() {
@@ -71,6 +105,6 @@ public class ConsultBasketActivity extends ConnectedClientActivity {
         } else {
             no_result.setVisibility(View.VISIBLE);
         }
-        total_price.setText(String.valueOf(AppDatabase.getInstance(ConsultBasketActivity.this).productInBasketDAO().getSumBasket(user.id_user)) + getResources().getString(R.string.euro));
+        total_price.setText(AppDatabase.getInstance(ConsultBasketActivity.this).productInBasketDAO().getSumBasket(user.id_user) + getResources().getString(R.string.euro));
     }
 }

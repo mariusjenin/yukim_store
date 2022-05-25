@@ -19,12 +19,16 @@ import java.util.List;
 
 import com.yukimstore.activity.used.client.ConsultProductActivity;
 import com.yukimstore.activity.used.client.ConsultStoreActivity;
+import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Product;
+import com.yukimstore.db.entity.ProductInBasket;
+import com.yukimstore.db.entity.User;
+import com.yukimstore.manager.ConnectionManager;
 
-public class ClientProductListAdapter extends ArrayAdapter<Product> {
+public class ProductListAdapter extends ArrayAdapter<Product> {
     private int resourceLayout;
 
-    public ClientProductListAdapter(Context c, List<Product> products) {
+    public ProductListAdapter(Context c, List<Product> products) {
         super(c, R.layout.c_product_item, products);
         this.resourceLayout = R.layout.c_product_item;
     }
@@ -46,6 +50,7 @@ public class ClientProductListAdapter extends ArrayAdapter<Product> {
         }
 
         Product p = getItem(position);
+        User user = ConnectionManager.getInstance().getUtilisateur();
 
         if (p != null) {
             TextView name_product = v.findViewById(R.id.product_name);
@@ -64,12 +69,23 @@ public class ClientProductListAdapter extends ArrayAdapter<Product> {
                 }
             });
 
-            add_to_basket.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast.makeText(getContext(),"Not implemented Yet",Toast.LENGTH_SHORT).show();
-                }
-            });
+            ProductInBasket pib = AppDatabase.getInstance(getContext()).productInBasketDAO().getWithProductAndUser(p.id_product,user.id_user);
+
+            if(pib==null){
+                add_to_basket.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        ProductInBasket new_pib = new ProductInBasket(p.id_product,user.id_user,1);
+                        AppDatabase.getInstance(getContext()).productInBasketDAO().insert(new_pib);
+                        Toast.makeText(getContext(),"Le produit a été ajouté en 1 exemplaire",Toast.LENGTH_SHORT).show();
+                        add_to_basket.setEnabled(false);
+                        add_to_basket.setVisibility(View.INVISIBLE);
+                    }
+                });
+            } else {
+                add_to_basket.setEnabled(false);
+                add_to_basket.setVisibility(View.INVISIBLE);
+            }
 
             if (name_product != null ) {
                 name_product.setText(p.name);

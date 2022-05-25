@@ -68,7 +68,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:baselineAligned="false">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="0dp"
@@ -89,7 +90,8 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/check" />
+                        app:srcCompat="@drawable/check"
+                        tools:ignore="TouchTargetSizeCheck" />
 
                     <EditText
                         android:id="@+id/quantity"
@@ -111,7 +113,7 @@
                         app:layout_constraintEnd_toStartOf="@+id/validate_quantity"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+                        tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
