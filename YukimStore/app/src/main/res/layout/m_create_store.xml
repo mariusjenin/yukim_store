@@ -91,7 +91,7 @@
                 android:padding="15dp"
                 android:scaleType="fitXY"
                 app:srcCompat="@drawable/template_clothing"
-                tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck" />
+                tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck,UsingOnClickInXml" />
 
             <TextView
                 android:id="@+id/clothing"
@@ -123,7 +123,7 @@
                 android:padding="15dp"
                 android:scaleType="fitXY"
                 app:srcCompat="@drawable/template_sport"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck,UsingOnClickInXml" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -166,7 +166,7 @@
                 android:padding="15dp"
                 android:scaleType="fitXY"
                 app:srcCompat="@drawable/template_food"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck,UsingOnClickInXml" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -197,7 +197,7 @@
                 android:padding="15dp"
                 android:scaleType="fitXY"
                 app:srcCompat="@drawable/template_selfcare"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck,UsingOnClickInXml" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -240,7 +240,7 @@
                 android:padding="15dp"
                 android:scaleType="fitXY"
                 app:srcCompat="@drawable/template_music"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck,UsingOnClickInXml" />
 
             <TextView
                 android:id="@+id/textView17"
@@ -272,7 +272,7 @@
                 android:padding="15dp"
                 android:scaleType="fitXY"
                 app:srcCompat="@drawable/template_technology"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck,UsingOnClickInXml" />
 
             <TextView
                 android:id="@+id/textView18"
@@ -323,7 +323,8 @@
             android:text="@string/create_my_store"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            tools:ignore="TextContrastCheck" />
+            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck,DuplicateSpeakableTextCheck,UsingOnClickInXml" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
