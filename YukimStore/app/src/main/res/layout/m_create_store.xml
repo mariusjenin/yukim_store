@@ -54,8 +54,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="10dp"
-        android:text="What would you want to sell ?"
+        android:layout_marginEnd="10dp"
+        android:text="@string/sell_style_question"
         android:textColor="@color/vibrant2SalmonColor"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -77,7 +77,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
             android:orientation="vertical">
 
             <ImageButton
@@ -86,18 +86,20 @@
                 android:layout_height="90dp"
                 android:adjustViewBounds="true"
                 android:background="@drawable/button_round_white2"
+                android:contentDescription="@string/content_description"
                 android:onClick="setTemplateToClothing"
                 android:padding="15dp"
                 android:scaleType="fitXY"
-                app:srcCompat="@drawable/template_clothing" />
+                app:srcCompat="@drawable/template_clothing"
+                tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck" />
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/clothing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
-                android:text="Clothing"
+                android:text="@string/clothing"
                 android:textColor="@color/vibrant2SalmonColor"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -107,7 +109,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:orientation="vertical">
 
             <ImageButton
@@ -116,18 +118,19 @@
                 android:layout_height="90dp"
                 android:adjustViewBounds="true"
                 android:background="@drawable/button_round_white2"
+                android:contentDescription="@string/content_description"
                 android:onClick="setTemplateToSport"
                 android:padding="15dp"
                 android:scaleType="fitXY"
-                app:srcCompat="@drawable/template_sport" />
+                app:srcCompat="@drawable/template_sport"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
-                android:id="@+id/textView18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
-                android:text="Sport"
+                android:text="@string/sport"
                 android:textColor="@color/vibrant2SalmonColor"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -149,7 +152,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
             android:orientation="vertical">
 
             <ImageButton
@@ -158,18 +161,19 @@
                 android:layout_height="90dp"
                 android:adjustViewBounds="true"
                 android:background="@drawable/button_round_white2"
+                android:contentDescription="@string/content_description"
                 android:onClick="setTemplateToFood"
                 android:padding="15dp"
                 android:scaleType="fitXY"
-                app:srcCompat="@drawable/template_food" />
+                app:srcCompat="@drawable/template_food"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
-                android:id="@+id/textView17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
-                android:text="Food"
+                android:text="@string/food"
                 android:textColor="@color/vibrant2SalmonColor"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -179,7 +183,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:orientation="vertical">
 
             <ImageButton
@@ -188,18 +192,19 @@
                 android:layout_height="90dp"
                 android:adjustViewBounds="true"
                 android:background="@drawable/button_round_white2"
+                android:contentDescription="@string/content_description"
                 android:onClick="setTemplateToSelfcare"
                 android:padding="15dp"
                 android:scaleType="fitXY"
-                app:srcCompat="@drawable/template_selfcare" />
+                app:srcCompat="@drawable/template_selfcare"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
-                android:id="@+id/textView18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
-                android:text="Selfcare"
+                android:text="@string/selfcare"
                 android:textColor="@color/vibrant2SalmonColor"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -221,7 +226,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
             android:orientation="vertical">
 
             <ImageButton
@@ -230,10 +235,12 @@
                 android:layout_height="90dp"
                 android:adjustViewBounds="true"
                 android:background="@drawable/button_round_white2"
+                android:contentDescription="@string/content_description"
                 android:onClick="setTemplateToMusic"
                 android:padding="15dp"
                 android:scaleType="fitXY"
-                app:srcCompat="@drawable/template_music" />
+                app:srcCompat="@drawable/template_music"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
                 android:id="@+id/textView17"
@@ -241,7 +248,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
-                android:text="Music"
+                android:text="@string/music"
                 android:textColor="@color/vibrant2SalmonColor"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -251,7 +258,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:orientation="vertical">
 
             <ImageButton
@@ -260,10 +267,12 @@
                 android:layout_height="90dp"
                 android:adjustViewBounds="true"
                 android:background="@drawable/button_round_white2"
+                android:contentDescription="@string/content_description"
                 android:onClick="setTemplateToTechnology"
                 android:padding="15dp"
                 android:scaleType="fitXY"
-                app:srcCompat="@drawable/template_technology" />
+                app:srcCompat="@drawable/template_technology"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
                 android:id="@+id/textView18"
@@ -271,7 +280,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
-                android:text="Technology"
+                android:text="@string/technology"
                 android:textColor="@color/vibrant2SalmonColor"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -298,6 +307,7 @@
             android:layout_weight="1"
             android:adjustViewBounds="true"
             android:background="@color/transparent"
+            android:contentDescription="@string/content_description"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/template_clothing" />
 
@@ -305,12 +315,12 @@
             android:id="@+id/create_my_store"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:layout_weight="5"
             android:background="@drawable/button_round_salmon"
             android:onClick="createStore"
-            android:text="Create my store"
+            android:text="@string/create_my_store"
             android:textAllCaps="false"
             android:textColor="@color/white"
             tools:ignore="TextContrastCheck" />

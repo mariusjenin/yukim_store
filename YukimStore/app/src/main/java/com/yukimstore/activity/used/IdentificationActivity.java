@@ -83,7 +83,10 @@ public class IdentificationActivity extends NotConnectedActivity {
             et_pwd.setText("");
             et_pwd_confirm.setText("");
             et_pwd_confirm.setVisibility(View.VISIBLE);
+            checkbox_is_merchant.setVisibility(View.VISIBLE);
         } else {
+            checkbox_is_merchant.setChecked(false);
+            checkbox_is_merchant.setVisibility(View.GONE);
             tv_title.setText(R.string.login);
             but_toggle_identification.setText(R.string.toggle_identification_from_signin);
             et_pwd.setText("");
@@ -194,7 +197,7 @@ public class IdentificationActivity extends NotConnectedActivity {
             } else {
                 cm.removeTokenUserFromPrefs(this);
             }
-            if(is_merchant) {
+            if(user.is_merchant) {
                 startActivity(new Intent(this, CreateStoreActivity.class));
             }
             else {

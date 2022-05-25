@@ -70,6 +70,14 @@
     <string name="clear_basket">Clear the basket</string>
     <string name="remove">Remove</string>
     <string name="validate_quantity">Validate quantity</string>
+    <string name="sell_style_question">What would you want to sell ?</string>
+    <string name="food">Food</string>
+    <string name="clothing">Clothing</string>
+    <string name="technology">Technology</string>
+    <string name="create_my_store">Create my store</string>
+    <string name="sport">Sport</string>
+    <string name="selfcare">Selfcare</string>
+    <string name="music">Music</string>
     <string-array name="settings">
         <item>Choice 1</item>
         <item>Choice 2</item>
