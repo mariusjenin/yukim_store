@@ -30,7 +30,7 @@ public class ClientMenuActivity extends ConnectedClientActivity {
     public void prodInteresting(View view) {
         //TODO remplace getAll by all interesting for user connected
         Intent intent;
-        intent = new Intent(this, ConsultListProducts.class);
+        intent = new Intent(this, ConsultListProductsActivity.class);
         intent.putExtra("title","All products");
         ArrayList<Product> products = (ArrayList<Product>) AppDatabase.getInstance(ClientMenuActivity.this).productDAO().getAll();
         intent.putExtra("products",products );
@@ -46,11 +46,13 @@ public class ClientMenuActivity extends ConnectedClientActivity {
     public void seeBasket(View view) {
         Intent intent;
         intent = new Intent(this, ConsultBasketActivity.class);
-        this.startActivity(intent);;
+        this.startActivity(intent);
     }
 
     public void myOrders(View view) {
-        Toast.makeText(this,"Not yet implemented",Toast.LENGTH_SHORT).show();
+        Intent intent;
+        intent = new Intent(this, ConsultOrdersActivity.class);
+        this.startActivity(intent);
     }
 
     public void logOut(View view) {

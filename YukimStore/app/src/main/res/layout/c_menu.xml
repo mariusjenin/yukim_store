@@ -127,11 +127,13 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:clickable="true"
+        android:contentDescription="@string/content_description"
         android:focusable="auto"
         android:onClick="logOut"
         app:backgroundTint="@color/lightTeal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/log_out" />
+        app:srcCompat="@drawable/log_out"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
