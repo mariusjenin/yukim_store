@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.yukimstore.R;
 import com.yukimstore.activity.ConnectedMerchantWithoutStoreActivity;
 import com.yukimstore.db.AppDatabase;
@@ -24,6 +25,16 @@ public class CreateStoreActivityM extends ConnectedMerchantWithoutStoreActivity 
         setContentView(R.layout.m_create_store);
         templateChoice = findViewById(R.id.TemplateChoice);
         choice = "clothing";
+        FloatingActionButton leave_btn = findViewById(R.id.leave_btn);
+        leave_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ConnectionManager cm = ConnectionManager.getInstance();
+                cm.disconnect();
+                cm.removeTokenUserFromPrefs(CreateStoreActivityM.this);
+                connection_middleware.redirect(CreateStoreActivityM.this);
+            }
+        });
     }
 
     public void setTemplateToClothing(View view) {
