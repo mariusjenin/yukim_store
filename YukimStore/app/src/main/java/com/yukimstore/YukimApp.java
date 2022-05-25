@@ -7,7 +7,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 
-import com.yukimstore.activity.YukimActivity;
+import com.yukimstore.activity.unused.YukimActivity;
 
 public class YukimApp extends Application implements LifecycleObserver {
 

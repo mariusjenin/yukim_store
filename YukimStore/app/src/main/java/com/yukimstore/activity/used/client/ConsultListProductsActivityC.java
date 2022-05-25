@@ -8,12 +8,12 @@ import android.widget.TextView;
 
 import com.yukimstore.R;
 import com.yukimstore.activity.ConnectedClientActivity;
-import com.yukimstore.adapter.client.ProductListAdapter;
+import com.yukimstore.adapter.client.ProductListAdapterC;
 import com.yukimstore.db.entity.Product;
 
 import java.util.List;
 
-public class ConsultListProductsActivity extends ConnectedClientActivity {
+public class ConsultListProductsActivityC extends ConnectedClientActivity {
     List<Product> products;
 
     @SuppressLint("SetTextI18n")
@@ -31,7 +31,7 @@ public class ConsultListProductsActivity extends ConnectedClientActivity {
         title_consult_products.setText(title);
 
         if(products.size()>0){
-            ProductListAdapter customAdapter = new ProductListAdapter(this, products);
+            ProductListAdapterC customAdapter = new ProductListAdapterC(this, products);
             list_products.setAdapter(customAdapter);
             no_result.setVisibility(View.GONE);
         } else {

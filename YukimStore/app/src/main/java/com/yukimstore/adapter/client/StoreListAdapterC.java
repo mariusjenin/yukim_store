@@ -17,13 +17,13 @@ import com.yukimstore.R;
 
 import java.util.List;
 
-import com.yukimstore.activity.used.client.ConsultStoreActivity;
+import com.yukimstore.activity.used.client.ConsultStoreActivityC;
 import com.yukimstore.db.entity.Store;
 
-public class StoreListAdapter extends ArrayAdapter<Store> {
+public class StoreListAdapterC extends ArrayAdapter<Store> {
     private int resourceLayout;
 
-    public StoreListAdapter(Context c, List<Store> stores) {
+    public StoreListAdapterC(Context c, List<Store> stores) {
         super(c, R.layout.store_item, stores);
         this.resourceLayout = R.layout.store_item;
     }
@@ -54,7 +54,7 @@ public class StoreListAdapter extends ArrayAdapter<Store> {
                 public void onClick(View view) {
                     Intent intent;
                     Context context = getContext();
-                    intent = new Intent(context, ConsultStoreActivity.class);
+                    intent = new Intent(context, ConsultStoreActivityC.class);
                     intent.putExtra("store",s);
                     context.startActivity(intent);
                 }

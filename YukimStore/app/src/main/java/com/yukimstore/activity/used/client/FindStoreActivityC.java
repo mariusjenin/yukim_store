@@ -10,31 +10,31 @@ import android.widget.TextView;
 
 import com.yukimstore.R;
 import com.yukimstore.activity.ConnectedClientActivity;
-import com.yukimstore.adapter.client.ProductListAdapter;
+import com.yukimstore.adapter.client.StoreListAdapterC;
 import com.yukimstore.db.AppDatabase;
-import com.yukimstore.db.entity.Product;
+import com.yukimstore.db.entity.Store;
 
 import java.util.List;
 
-public class FindProductActivity extends ConnectedClientActivity {
+public class FindStoreActivityC extends ConnectedClientActivity {
 
-    private ListView list_products;
+    private ListView list_stores;
     private TextView no_result;
-    private EditText product_name;
+    private EditText store_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setContentView(R.layout.c_find_product);
+        this.setContentView(R.layout.c_find_store);
 
 
-        list_products = findViewById(R.id.list_products);
+        list_stores = findViewById(R.id.list_stores);
         no_result  = findViewById(R.id.no_result);
 
-        updateListProducts("");
+        updateListStores("");
 
-        product_name = findViewById(R.id.find_products);
-        product_name.addTextChangedListener(new TextWatcher() {
+        store_name = findViewById(R.id.find_stores);
+        store_name.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 //Nothing
@@ -47,7 +47,7 @@ public class FindProductActivity extends ConnectedClientActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                updateListProducts(editable.toString());
+                updateListStores(editable.toString());
             }
         });
     }
@@ -55,14 +55,14 @@ public class FindProductActivity extends ConnectedClientActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        updateListProducts(product_name.getText().toString());
+        updateListStores(store_name.getText().toString());
     }
 
-    public void updateListProducts(String str){
-        List<Product> products = AppDatabase.getInstance(FindProductActivity.this).productDAO().getProductsLike(str);
-        ProductListAdapter customAdapter = new ProductListAdapter(this, products);
-        list_products.setAdapter(customAdapter);
-        if(products.size()>0){
+    public void updateListStores(String str){
+        List<Store> stores = AppDatabase.getInstance(FindStoreActivityC.this).storeDAO().getStoresLike(str);
+        StoreListAdapterC customAdapter = new StoreListAdapterC(this, stores);
+        list_stores.setAdapter(customAdapter);
+        if(stores.size()>0){
             no_result.setVisibility(View.GONE);
         } else {
             no_result.setVisibility(View.VISIBLE);

@@ -7,28 +7,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.yukimstore.R;
-import com.yukimstore.activity.used.client.ConsultProductActivity;
+import com.yukimstore.activity.used.client.ConsultProductActivityC;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Category;
 import com.yukimstore.db.entity.Order;
 import com.yukimstore.db.entity.Product;
 import com.yukimstore.db.entity.ProductInOrder;
-import com.yukimstore.db.entity.Store;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
-public class ProductInOrderAdapter extends ArrayAdapter<Product> {
+public class ProductInOrderAdapterC extends ArrayAdapter<Product> {
     private int resourceLayout;
     private Order order;
 
-    public ProductInOrderAdapter(Context c, List<Product> products, Order o) {
+    public ProductInOrderAdapterC(Context c, List<Product> products, Order o) {
         super(c, R.layout.c_product_item_order, products);
         this.resourceLayout = R.layout.c_product_item_order;
         order = o;
@@ -64,7 +60,7 @@ public class ProductInOrderAdapter extends ArrayAdapter<Product> {
                 @Override
                 public void onClick(View view) {
                     Intent intent;
-                    intent = new Intent(getContext(), ConsultProductActivity.class);
+                    intent = new Intent(getContext(), ConsultProductActivityC.class);
                     intent.putExtra("product",p);
                     getContext().startActivity(intent);
                 }

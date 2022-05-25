@@ -7,8 +7,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.yukimstore.R;
-import com.yukimstore.activity.ConnectedMerchantActivity;
+import com.yukimstore.activity.ConnectedMerchantWithoutStoreActivity;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Category;
 import com.yukimstore.db.entity.Store;
@@ -17,7 +18,7 @@ import com.yukimstore.manager.ConnectionManager;
 
 import java.util.ArrayList;
 
-public class CreateStoreActivity extends ConnectedMerchantActivity {
+public class CreateStoreActivityM extends ConnectedMerchantWithoutStoreActivity {
     private ImageView templateChoice;
     private Choice choice;
 
@@ -29,6 +30,16 @@ public class CreateStoreActivity extends ConnectedMerchantActivity {
         setContentView(R.layout.m_create_store);
         templateChoice = findViewById(R.id.TemplateChoice);
         choice = Choice.CLOTHING;
+        FloatingActionButton leave_btn = findViewById(R.id.leave_btn);
+        leave_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ConnectionManager cm = ConnectionManager.getInstance();
+                cm.disconnect();
+                cm.removeTokenUserFromPrefs(CreateStoreActivityM.this);
+                connection_middleware.redirect(CreateStoreActivityM.this);
+            }
+        });
     }
 
     public void setTemplateToClothing(View view) {
@@ -107,7 +118,7 @@ public class CreateStoreActivity extends ConnectedMerchantActivity {
 
         Toast.makeText(this,"Your store is open !",Toast.LENGTH_SHORT).show();
 
-        startActivity(new Intent(this,MerchantMenuActivity.class));
+        startActivity(new Intent(this, MerchantMenuActivityM.class));
     }
 
     private void generateClothingTemplate(AppDatabase db,int user_id) {

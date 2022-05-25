@@ -3,8 +3,8 @@ package com.yukimstore.middleware;
 import android.app.Activity;
 import android.content.Intent;
 
-import com.yukimstore.activity.used.client.ClientMenuActivity;
-import com.yukimstore.activity.used.merchant.MerchantMenuActivity;
+import com.yukimstore.activity.used.client.MenuActivityClientC;
+import com.yukimstore.activity.used.merchant.MerchantMenuActivityM;
 import com.yukimstore.db.entity.User;
 import com.yukimstore.manager.ConnectionManager;
 
@@ -30,9 +30,9 @@ public class NotConnectedMiddleware extends ConnectionMiddleware {
         activity.finish();
         Intent intent;
         if(user.is_merchant){
-            intent = new Intent(activity, MerchantMenuActivity.class);
+            intent = new Intent(activity, MerchantMenuActivityM.class);
         } else {
-            intent = new Intent(activity, ClientMenuActivity.class);
+            intent = new Intent(activity, MenuActivityClientC.class);
         }
         activity.startActivity(intent);
     }

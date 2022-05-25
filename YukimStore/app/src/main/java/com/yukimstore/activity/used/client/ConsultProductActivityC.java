@@ -21,9 +21,7 @@ import com.yukimstore.db.entity.Store;
 import com.yukimstore.db.entity.User;
 import com.yukimstore.manager.ConnectionManager;
 
-import java.util.ArrayList;
-
-public class ConsultProductActivity extends ConnectedClientActivity {
+public class ConsultProductActivityC extends ConnectedClientActivity {
     Product product;
     Category category;
     Store store;
@@ -73,9 +71,9 @@ public class ConsultProductActivity extends ConnectedClientActivity {
             @Override
             public void onClick(View view) {
                 Intent intent;
-                intent = new Intent(ConsultProductActivity.this, ConsultStoreActivity.class);
+                intent = new Intent(ConsultProductActivityC.this, ConsultStoreActivityC.class);
                 intent.putExtra("store",store);
-                ConsultProductActivity.this.startActivity(intent);
+                ConsultProductActivityC.this.startActivity(intent);
             }
         });
 
@@ -85,11 +83,11 @@ public class ConsultProductActivity extends ConnectedClientActivity {
                 int quantity_int = Integer.parseInt(quantity.getText().toString());
                 if(pib != null){
                     apd.productInBasketDAO().changeQuantity(pib.id_pib,quantity_int);
-                    Toast.makeText(ConsultProductActivity.this,"La quantité a été modifiée",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ConsultProductActivityC.this,"La quantité a été modifiée",Toast.LENGTH_SHORT).show();
                 } else {
                     ProductInBasket new_pib = new ProductInBasket(product.id_product,user.id_user,quantity_int);
                     apd.productInBasketDAO().insert(new_pib);
-                    Toast.makeText(ConsultProductActivity.this,"Le produit a été ajouté en "+quantity_int+"exemplaire"+(quantity_int>1?"s":""),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ConsultProductActivityC.this,"Le produit a été ajouté en "+quantity_int+"exemplaire"+(quantity_int>1?"s":""),Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -1,15 +1,13 @@
 package com.yukimstore.activity.used.merchant;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
 import com.yukimstore.R;
-import com.yukimstore.activity.ConnectedActivity;
-import com.yukimstore.activity.ConnectedMerchantActivity;
+import com.yukimstore.activity.ConnectedMerchantWithStoreActivity;
 
-public class MerchantMenuActivity extends ConnectedMerchantActivity {
+public class MerchantMenuActivityM extends ConnectedMerchantWithStoreActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

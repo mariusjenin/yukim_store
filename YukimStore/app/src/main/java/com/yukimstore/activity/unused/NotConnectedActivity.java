@@ -1,4 +1,4 @@
-package com.yukimstore.activity;
+package com.yukimstore.activity.unused;
 
 import android.os.Bundle;
 

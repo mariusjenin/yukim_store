@@ -22,51 +22,51 @@
         </activity>
 
         <activity
-            android:name=".activity.used.merchant.MerchantMenuActivity"
+            android:name=".activity.used.merchant.MerchantMenuActivityM"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.client.ClientMenuActivity"
+            android:name=".activity.used.client.MenuActivityClientC"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.merchant.CreateStoreActivity"
+            android:name=".activity.used.merchant.CreateStoreActivityM"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.client.FindStoreActivity"
+            android:name=".activity.used.client.FindStoreActivityC"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.client.FindProductActivity"
+            android:name=".activity.used.client.FindProductActivityC"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.client.ConsultStoreActivity"
+            android:name=".activity.used.client.ConsultStoreActivityC"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.client.ConsultCategoriesStoreActivity"
+            android:name=".activity.used.client.ConsultCategoriesStoreActivityC"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.client.ConsultListProductsActivity"
+            android:name=".activity.used.client.ConsultListProductsActivityC"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.client.ConsultProductActivity"
+            android:name=".activity.used.client.ConsultProductActivityC"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.client.ConsultBasketActivity"
+            android:name=".activity.used.client.ConsultBasketActivityC"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.client.ConsultOrdersActivity"
+            android:name=".activity.used.client.ConsultOrdersActivityC"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.client.ConsultOrderActivity"
+            android:name=".activity.used.client.ConsultOrderActivityC"
             android:exported="false" />
 
     </application>
