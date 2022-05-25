@@ -1,6 +1,7 @@
 package com.yukimstore.db.dao;
 
 import static androidx.room.OnConflictStrategy.ABORT;
+import static androidx.room.OnConflictStrategy.REPLACE;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
@@ -10,6 +11,7 @@ import com.yukimstore.db.entity.Category;
 import com.yukimstore.db.entity.Product;
 import com.yukimstore.db.entity.Store;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Dao
@@ -32,6 +34,9 @@ public interface CategoryDAO {
 
     @Insert(onConflict = ABORT)
     void insert(Category category);
+
+    @Insert(onConflict = REPLACE)
+    void insertAll(ArrayList<Category> categories);
 
     @Query("DELETE FROM Category")
     void clear();
