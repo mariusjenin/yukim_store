@@ -23,6 +23,7 @@ public class FindStoreActivity extends ConnectedClientActivity {
 
     private ListView list_stores;
     private TextView no_result;
+    private EditText store_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class FindStoreActivity extends ConnectedClientActivity {
 
         updateListStores("");
 
-        EditText store_name = findViewById(R.id.find_stores);
+        store_name = findViewById(R.id.find_stores);
         store_name.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -52,6 +53,12 @@ public class FindStoreActivity extends ConnectedClientActivity {
                 updateListStores(editable.toString());
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateListStores(store_name.getText().toString());
     }
 
     public void updateListStores(String str){

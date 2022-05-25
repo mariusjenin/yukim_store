@@ -50,7 +50,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.client.ConsultListProducts"
+            android:name=".activity.used.client.ConsultListProductsActivity"
             android:exported="false" />
 
         <activity
@@ -59,6 +59,10 @@
 
         <activity
             android:name=".activity.used.client.ConsultBasketActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".activity.used.client.ConsultOrdersActivity"
             android:exported="false" />
 
     </application>

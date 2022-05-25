@@ -3,6 +3,7 @@ package com.yukimstore.activity.used.client;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -33,7 +34,30 @@ public class ConsultBasketActivity extends ConnectedClientActivity {
         list_products_basket = findViewById(R.id.list_products_basket);
         no_result  = findViewById(R.id.no_result);
         total_price = findViewById(R.id.total_price);
+        Button clear_basket = findViewById(R.id.clear_basket);
+        Button validate_basket = findViewById(R.id.validate_basket);
 
+        clear_basket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AppDatabase.getInstance(ConsultBasketActivity.this).productInBasketDAO().clearBasket(user.id_user);
+                updateBasket();
+            }
+        });
+
+        validate_basket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO validate basket
+            }
+        });
+
+        updateBasket();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         updateBasket();
     }
 

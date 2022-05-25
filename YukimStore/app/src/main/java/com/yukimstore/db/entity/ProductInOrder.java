@@ -14,7 +14,10 @@ import java.io.Serializable;
                         childColumns = "id_product"),
                 @ForeignKey(entity = Order.class,
                         parentColumns = "id_order",
-                        childColumns = "id_order")
+                        childColumns = "id_order"),
+                @ForeignKey(entity = User.class,
+                        parentColumns = "id_user",
+                        childColumns = "id_user")
         })
 public class ProductInOrder implements Serializable {
     @PrimaryKey(autoGenerate = true)
@@ -22,6 +25,9 @@ public class ProductInOrder implements Serializable {
 
     @ColumnInfo(name = "id_order", index = true)
     public int id_order;
+
+    @ColumnInfo(name = "id_user", index = true)
+    public int id_user;
 
     @ColumnInfo(name = "id_product", index = true)
     public int id_product;

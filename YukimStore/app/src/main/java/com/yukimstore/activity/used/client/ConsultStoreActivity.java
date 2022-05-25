@@ -8,13 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.yukimstore.R;
-import com.yukimstore.activity.ConnectedActivity;
 import com.yukimstore.activity.ConnectedClientActivity;
-import com.yukimstore.activity.YukimActivity;
-import com.yukimstore.activity.used.merchant.MerchantMenuActivity;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Product;
 import com.yukimstore.db.entity.Store;
@@ -56,7 +52,7 @@ public class ConsultStoreActivity extends ConnectedClientActivity {
             @Override
             public void onClick(View view) {
                 Intent intent;
-                intent = new Intent(ConsultStoreActivity.this, ConsultListProducts.class);
+                intent = new Intent(ConsultStoreActivity.this, ConsultListProductsActivity.class);
                 intent.putExtra("title",getResources().getString(R.string.products_of)+store.name);
                 ArrayList<Product> products = (ArrayList<Product>) AppDatabase.getInstance(ConsultStoreActivity.this).categoryDAO().getProductsOfCategoriesofStore(store.id_user_store);
                 intent.putExtra("products",products);

@@ -34,6 +34,7 @@ import com.yukimstore.db.entity.ProductInOrder;
 import com.yukimstore.utils.HashUtil;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -51,7 +52,7 @@ import java.util.List;
         ProductInBasket.class,
         Order.class,
         ProductInOrder.class
-},version = 1, exportSchema = false)
+},version = 2, exportSchema = false)
 @TypeConverters({DateConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase INSTANCE = null;
@@ -75,6 +76,7 @@ public abstract class AppDatabase extends RoomDatabase {
     }
 
     public void clear(){
+        orderDAO().clear();
         productInBasketDAO().clear();
         productDAO().clear();
         categoryDAO().clear();
@@ -85,7 +87,6 @@ public abstract class AppDatabase extends RoomDatabase {
 //        interestDAO().clear();
 //        userHasInterestDAO().clear();
 //        interestForCategoryDAO().clear();
-//        orderDAO().clear();
 //        productInOrderDAO().clear();
     }
 
@@ -204,6 +205,27 @@ public abstract class AppDatabase extends RoomDatabase {
         }
     }
 
+    public void fillOrders(){
+        OrderDAO orderDAO = orderDAO();
+        ArrayList<Order> orders = new ArrayList<>();
+        orders.add(new Order(userDAO().get("m1@m1.m1").id_user,userDAO().get("c@c.c").id_user,new Date(System.currentTimeMillis()-86400000*10)));
+        orders.add(new Order(userDAO().get("m1@m1.m1").id_user,userDAO().get("c@c.c").id_user,new Date(System.currentTimeMillis()-86400000*9)));
+        orders.add(new Order(userDAO().get("m1@m1.m1").id_user,userDAO().get("c@c.c").id_user,new Date(System.currentTimeMillis()-86400000*8)));
+        orders.add(new Order(userDAO().get("m1@m1.m1").id_user,userDAO().get("c@c.c").id_user,new Date(System.currentTimeMillis()-86400000*7)));
+        orders.add(new Order(userDAO().get("m1@m1.m1").id_user,userDAO().get("c@c.c").id_user,new Date(System.currentTimeMillis()-86400000*6)));
+        orders.add(new Order(userDAO().get("m0@m0.m0").id_user,userDAO().get("c@c.c").id_user,new Date(System.currentTimeMillis()-86400000*5)));
+        orders.add(new Order(userDAO().get("m0@m0.m0").id_user,userDAO().get("c@c.c").id_user,new Date(System.currentTimeMillis()-86400000*4)));
+        orders.add(new Order(userDAO().get("m0@m0.m0").id_user,userDAO().get("c@c.c").id_user,new Date(System.currentTimeMillis()-86400000*3)));
+        orders.add(new Order(userDAO().get("m0@m0.m0").id_user,userDAO().get("c@c.c").id_user,new Date(System.currentTimeMillis()-86400000*2)));
+        orders.add(new Order(userDAO().get("m0@m0.m0").id_user,userDAO().get("c@c.c").id_user,new Date(System.currentTimeMillis()-86400000)));
+        int size_orders = orders.size();
+        Log.i("","ORDERS INITILIZATION");
+        for(int i = 0 ; i < size_orders; i++){
+            orderDAO.insert(orders.get(i));
+            Log.i("", String.valueOf(orders.get(i).id_order));
+        }
+    }
+
     public void init(){
         clear();
         fillUsers();
@@ -211,5 +233,6 @@ public abstract class AppDatabase extends RoomDatabase {
         fillCategories();
         fillProducts();
         fillProductsInBaskets();
+        fillOrders();
     }
 }

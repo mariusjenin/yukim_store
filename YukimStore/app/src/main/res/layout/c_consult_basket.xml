@@ -87,7 +87,9 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/button_round_white"
-                android:gravity="center" />
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/validate_basket"

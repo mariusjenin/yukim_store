@@ -21,6 +21,9 @@ public interface ProductInBasketDAO {
     @Query("SELECT * FROM ProductInBasket WHERE ProductInBasket.id_product = :id_product")
     List<ProductInBasket> getWithProduct(int id_product);
 
+    @Query("SELECT * FROM ProductInBasket WHERE ProductInBasket.id_product = :id_product and ProductInBasket.id_user = :id_user")
+    ProductInBasket getWithProductAndUser(int id_product,int id_user);
+
     @Query("SELECT sum(total_price_product) FROM (SELECT ProductInBasket.quantity * Product.price as total_price_product FROM ProductInBasket inner join Product on ProductInBasket.id_product = Product.id_product " +
             "WHERE ProductInBasket.id_user = :id_user)")
     int getSumBasket(int id_user);
@@ -30,6 +33,9 @@ public interface ProductInBasketDAO {
 
     @Insert(onConflict = ABORT)
     void insert(ProductInBasket pib);
+
+    @Query("DELETE FROM ProductInBasket where ProductInBasket.id_user = :id_user")
+    void clearBasket(int id_user);
 
     @Query("DELETE FROM ProductInBasket where ProductInBasket.id_pib = :id_pib")
     void clear(int id_pib);

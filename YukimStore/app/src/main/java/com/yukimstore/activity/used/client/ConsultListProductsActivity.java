@@ -26,7 +26,7 @@ import com.yukimstore.db.entity.Store;
 
 import java.util.List;
 
-public class ConsultListProducts extends ConnectedClientActivity {
+public class ConsultListProductsActivity extends ConnectedClientActivity {
     List<Product> products;
 
     @SuppressLint("SetTextI18n")
