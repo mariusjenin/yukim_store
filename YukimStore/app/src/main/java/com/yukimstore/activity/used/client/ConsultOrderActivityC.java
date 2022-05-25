@@ -8,19 +8,17 @@ import android.widget.TextView;
 
 import com.yukimstore.R;
 import com.yukimstore.activity.ConnectedClientActivity;
-import com.yukimstore.adapter.client.ProductInOrderAdapter;
-import com.yukimstore.adapter.client.ProductListAdapter;
+import com.yukimstore.adapter.client.ProductInOrderAdapterC;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Order;
 import com.yukimstore.db.entity.Product;
-import com.yukimstore.db.entity.ProductInOrder;
 import com.yukimstore.db.entity.Store;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-public class ConsultOrderActivity extends ConnectedClientActivity {
+public class ConsultOrderActivityC extends ConnectedClientActivity {
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -47,7 +45,7 @@ public class ConsultOrderActivity extends ConnectedClientActivity {
         List<Product> products = AppDatabase.getInstance(this).productInOrderDAO().getProductsWithOrder(order.id_order);
 
         if(products.size()>0){
-            ProductInOrderAdapter customAdapter = new ProductInOrderAdapter(this, products,order);
+            ProductInOrderAdapterC customAdapter = new ProductInOrderAdapterC(this, products,order);
             list_products.setAdapter(customAdapter);
             no_result.setVisibility(View.GONE);
         } else {

@@ -12,7 +12,7 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.yukimstore.R;
-import com.yukimstore.activity.used.client.ConsultListProductsActivity;
+import com.yukimstore.activity.used.client.ConsultListProductsActivityC;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Category;
 import com.yukimstore.db.entity.Product;
@@ -21,10 +21,10 @@ import com.yukimstore.db.entity.Store;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoryListAdapter extends ArrayAdapter<Category> {
+public class CategoryListAdapterC extends ArrayAdapter<Category> {
     private int resourceLayout;
 
-    public CategoryListAdapter(Context c, List<Category> categories) {
+    public CategoryListAdapterC(Context c, List<Category> categories) {
         super(c, R.layout.c_category_item, categories);
         this.resourceLayout = R.layout.c_category_item;
     }
@@ -57,7 +57,7 @@ public class CategoryListAdapter extends ArrayAdapter<Category> {
                     Intent intent;
                     Context context = getContext();
                     Resources resources = context.getResources();
-                    intent = new Intent(context, ConsultListProductsActivity.class);
+                    intent = new Intent(context, ConsultListProductsActivityC.class);
                     Store store =  AppDatabase.getInstance(context).storeDAO().get(c.id_store);
                     intent.putExtra("title",resources.getString(R.string.products_of)+c.name+resources.getString(R.string.space_of_space)+store.name);
                     ArrayList<Product> products = (ArrayList<Product>) AppDatabase.getInstance(context).categoryDAO().getProductsOfCategory(c.id_category);

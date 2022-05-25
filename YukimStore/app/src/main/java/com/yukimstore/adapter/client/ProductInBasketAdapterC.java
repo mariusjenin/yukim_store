@@ -1,20 +1,13 @@
 package com.yukimstore.adapter.client;
 
         import android.annotation.SuppressLint;
-        import android.content.Context;
         import android.content.Intent;
-        import android.graphics.Bitmap;
-        import android.graphics.BitmapFactory;
-        import android.text.Editable;
-        import android.text.TextWatcher;
-        import android.util.Log;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
         import android.widget.ArrayAdapter;
         import android.widget.Button;
         import android.widget.ImageButton;
-        import android.widget.ImageView;
         import android.widget.TextView;
 
         import androidx.constraintlayout.widget.ConstraintLayout;
@@ -23,19 +16,17 @@ package com.yukimstore.adapter.client;
 
         import java.util.List;
 
-        import com.yukimstore.activity.used.client.ConsultBasketActivity;
-        import com.yukimstore.activity.used.client.ConsultProductActivity;
-        import com.yukimstore.activity.used.client.ConsultStoreActivity;
+        import com.yukimstore.activity.used.client.ConsultBasketActivityC;
+        import com.yukimstore.activity.used.client.ConsultProductActivityC;
         import com.yukimstore.db.AppDatabase;
         import com.yukimstore.db.entity.Product;
         import com.yukimstore.db.entity.ProductInBasket;
-        import com.yukimstore.db.entity.Store;
 
-public class ProductInBasketAdapter extends ArrayAdapter<ProductInBasket> {
+public class ProductInBasketAdapterC extends ArrayAdapter<ProductInBasket> {
     private final int resourceLayout;
-    private final ConsultBasketActivity activity;
+    private final ConsultBasketActivityC activity;
 
-    public ProductInBasketAdapter(ConsultBasketActivity cba, List<ProductInBasket> pibs) {
+    public ProductInBasketAdapterC(ConsultBasketActivityC cba, List<ProductInBasket> pibs) {
         super(cba, R.layout.c_product_item_basket, pibs);
         this.resourceLayout = R.layout.c_product_item_basket;
         activity = cba;
@@ -90,7 +81,7 @@ public class ProductInBasketAdapter extends ArrayAdapter<ProductInBasket> {
                 @Override
                 public void onClick(View view) {
                     Intent intent;
-                    intent = new Intent(getContext(), ConsultProductActivity.class);
+                    intent = new Intent(getContext(), ConsultProductActivityC.class);
                     intent.putExtra("product",p);
                     getContext().startActivity(intent);
                 }

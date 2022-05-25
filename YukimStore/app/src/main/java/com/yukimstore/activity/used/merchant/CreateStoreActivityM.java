@@ -14,7 +14,7 @@ import com.yukimstore.db.entity.Store;
 import com.yukimstore.db.entity.User;
 import com.yukimstore.manager.ConnectionManager;
 
-public class CreateStoreActivity extends ConnectedMerchantWithoutStoreActivity {
+public class CreateStoreActivityM extends ConnectedMerchantWithoutStoreActivity {
     private ImageView templateChoice;
     private String choice;
 
@@ -75,6 +75,6 @@ public class CreateStoreActivity extends ConnectedMerchantWithoutStoreActivity {
 
         // TODO : Gérer les templates
 
-        startActivity(new Intent(this,MerchantMenuActivity.class));
+        startActivity(new Intent(this, MerchantMenuActivityM.class));
     }
 }

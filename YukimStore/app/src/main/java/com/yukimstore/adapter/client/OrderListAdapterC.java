@@ -2,35 +2,28 @@ package com.yukimstore.adapter.client;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.yukimstore.R;
-import com.yukimstore.activity.used.client.ConsultListProductsActivity;
-import com.yukimstore.activity.used.client.ConsultOrderActivity;
-import com.yukimstore.activity.used.client.ConsultProductActivity;
+import com.yukimstore.activity.used.client.ConsultOrderActivityC;
 import com.yukimstore.db.AppDatabase;
-import com.yukimstore.db.entity.Category;
 import com.yukimstore.db.entity.Order;
-import com.yukimstore.db.entity.Product;
 import com.yukimstore.db.entity.Store;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 
-public class OrderListAdapter extends ArrayAdapter<Order> {
+public class OrderListAdapterC extends ArrayAdapter<Order> {
     private int resourceLayout;
 
-    public OrderListAdapter(Context c, List<Order> orders) {
+    public OrderListAdapterC(Context c, List<Order> orders) {
         super(c, R.layout.c_order_item, orders);
         this.resourceLayout = R.layout.c_order_item;
     }
@@ -63,7 +56,7 @@ public class OrderListAdapter extends ArrayAdapter<Order> {
                 @Override
                 public void onClick(View view) {
                     Intent intent;
-                    intent = new Intent(getContext(), ConsultOrderActivity.class);
+                    intent = new Intent(getContext(), ConsultOrderActivityC.class);
                     intent.putExtra("order",o);
                     getContext().startActivity(intent);
                 }

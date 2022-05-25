@@ -2,10 +2,8 @@ package com.yukimstore.middleware;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.widget.Toast;
 
-import com.yukimstore.activity.used.IdentificationActivity;
-import com.yukimstore.activity.used.client.ClientMenuActivity;
+import com.yukimstore.activity.used.client.MenuActivityClientC;
 import com.yukimstore.manager.ConnectionManager;
 
 /**
@@ -23,7 +21,7 @@ public class ClientMiddleware extends TypeUserMiddleware {
     }
     public void redirect(Activity activity){
         activity.finish();
-        Intent intent = new Intent(activity, ClientMenuActivity.class);
+        Intent intent = new Intent(activity, MenuActivityClientC.class);
         activity.startActivity(intent);
     }
 }

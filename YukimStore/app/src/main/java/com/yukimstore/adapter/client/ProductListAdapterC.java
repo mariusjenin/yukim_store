@@ -17,18 +17,17 @@ import com.yukimstore.R;
 
 import java.util.List;
 
-import com.yukimstore.activity.used.client.ConsultProductActivity;
-import com.yukimstore.activity.used.client.ConsultStoreActivity;
+import com.yukimstore.activity.used.client.ConsultProductActivityC;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Product;
 import com.yukimstore.db.entity.ProductInBasket;
 import com.yukimstore.db.entity.User;
 import com.yukimstore.manager.ConnectionManager;
 
-public class ProductListAdapter extends ArrayAdapter<Product> {
+public class ProductListAdapterC extends ArrayAdapter<Product> {
     private int resourceLayout;
 
-    public ProductListAdapter(Context c, List<Product> products) {
+    public ProductListAdapterC(Context c, List<Product> products) {
         super(c, R.layout.c_product_item, products);
         this.resourceLayout = R.layout.c_product_item;
     }
@@ -63,7 +62,7 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
                 @Override
                 public void onClick(View view) {
                     Intent intent;
-                    intent = new Intent(getContext(), ConsultProductActivity.class);
+                    intent = new Intent(getContext(), ConsultProductActivityC.class);
                     intent.putExtra("product",p);
                     getContext().startActivity(intent);
                 }

@@ -8,14 +8,14 @@ import android.widget.TextView;
 
 import com.yukimstore.R;
 import com.yukimstore.activity.ConnectedClientActivity;
-import com.yukimstore.adapter.client.CategoryListAdapter;
+import com.yukimstore.adapter.client.CategoryListAdapterC;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Category;
 import com.yukimstore.db.entity.Store;
 
 import java.util.List;
 
-public class ConsultCategoriesStoreActivity extends ConnectedClientActivity {
+public class ConsultCategoriesStoreActivityC extends ConnectedClientActivity {
     Store store;
 
     @SuppressLint("SetTextI18n")
@@ -31,10 +31,10 @@ public class ConsultCategoriesStoreActivity extends ConnectedClientActivity {
 
         title_consult_categories.setText(getResources().getString(R.string.categories_of) + store.name);
 
-        List<Category> categories = AppDatabase.getInstance(ConsultCategoriesStoreActivity.this).categoryDAO().getCategoriesWithStore(store.id_user_store);
+        List<Category> categories = AppDatabase.getInstance(ConsultCategoriesStoreActivityC.this).categoryDAO().getCategoriesWithStore(store.id_user_store);
 
         if(categories.size()>0){
-            CategoryListAdapter customAdapter = new CategoryListAdapter(this, categories);
+            CategoryListAdapterC customAdapter = new CategoryListAdapterC(this, categories);
             list_categories.setAdapter(customAdapter);
             no_result.setVisibility(View.GONE);
         } else {

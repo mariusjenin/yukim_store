@@ -17,7 +17,7 @@ import com.yukimstore.db.entity.Store;
 
 import java.util.ArrayList;
 
-public class ConsultStoreActivity extends ConnectedClientActivity {
+public class ConsultStoreActivityC extends ConnectedClientActivity {
     Store store;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +42,9 @@ public class ConsultStoreActivity extends ConnectedClientActivity {
             @Override
             public void onClick(View view) {
                 Intent intent;
-                intent = new Intent(ConsultStoreActivity.this, ConsultCategoriesStoreActivity.class);
+                intent = new Intent(ConsultStoreActivityC.this, ConsultCategoriesStoreActivityC.class);
                 intent.putExtra("store",store);
-                ConsultStoreActivity.this.startActivity(intent);
+                ConsultStoreActivityC.this.startActivity(intent);
             }
         });
 
@@ -52,11 +52,11 @@ public class ConsultStoreActivity extends ConnectedClientActivity {
             @Override
             public void onClick(View view) {
                 Intent intent;
-                intent = new Intent(ConsultStoreActivity.this, ConsultListProductsActivity.class);
+                intent = new Intent(ConsultStoreActivityC.this, ConsultListProductsActivityC.class);
                 intent.putExtra("title",getResources().getString(R.string.products_of)+store.name);
-                ArrayList<Product> products = (ArrayList<Product>) AppDatabase.getInstance(ConsultStoreActivity.this).categoryDAO().getProductsOfCategoriesofStore(store.id_user_store);
+                ArrayList<Product> products = (ArrayList<Product>) AppDatabase.getInstance(ConsultStoreActivityC.this).categoryDAO().getProductsOfCategoriesofStore(store.id_user_store);
                 intent.putExtra("products",products);
-                ConsultStoreActivity.this.startActivity(intent);
+                ConsultStoreActivityC.this.startActivity(intent);
             }
         });
 

@@ -1,10 +1,8 @@
 package com.yukimstore.activity.used.client;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -12,7 +10,7 @@ import android.widget.TextView;
 
 import com.yukimstore.R;
 import com.yukimstore.activity.ConnectedClientActivity;
-import com.yukimstore.adapter.client.ProductInBasketAdapter;
+import com.yukimstore.adapter.client.ProductInBasketAdapterC;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Order;
 import com.yukimstore.db.entity.ProductInBasket;
@@ -21,12 +19,10 @@ import com.yukimstore.db.entity.Store;
 import com.yukimstore.db.entity.User;
 import com.yukimstore.manager.ConnectionManager;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
-public class ConsultBasketActivity extends ConnectedClientActivity {
+public class ConsultBasketActivityC extends ConnectedClientActivity {
 
     private TextView no_result;
     private ListView list_products_basket;
@@ -49,7 +45,7 @@ public class ConsultBasketActivity extends ConnectedClientActivity {
         clear_basket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AppDatabase.getInstance(ConsultBasketActivity.this).productInBasketDAO().clearBasket(user.id_user);
+                AppDatabase.getInstance(ConsultBasketActivityC.this).productInBasketDAO().clearBasket(user.id_user);
                 updateBasket();
             }
         });
@@ -57,7 +53,7 @@ public class ConsultBasketActivity extends ConnectedClientActivity {
         validate_basket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AppDatabase apd = AppDatabase.getInstance(ConsultBasketActivity.this);
+                AppDatabase apd = AppDatabase.getInstance(ConsultBasketActivityC.this);
                 Date date = new Date();
                 //Get all stores concerned
                 List<Store> stores = apd.productInBasketDAO().getStoreWithProductsInBasket(user.id_user);
@@ -79,7 +75,7 @@ public class ConsultBasketActivity extends ConnectedClientActivity {
 
 
                 Intent intent;
-                intent = new Intent(ConsultBasketActivity.this, ConsultOrdersActivity.class);
+                intent = new Intent(ConsultBasketActivityC.this, ConsultOrdersActivityC.class);
                 startActivity(intent);
             }
         });
@@ -97,14 +93,14 @@ public class ConsultBasketActivity extends ConnectedClientActivity {
 
     @SuppressLint("SetTextI18n")
     public void updateBasket(){
-        List<ProductInBasket> pibs = AppDatabase.getInstance(ConsultBasketActivity.this).productInBasketDAO().getWithUser(user.id_user);
-        ProductInBasketAdapter customAdapter = new ProductInBasketAdapter(this, pibs);
+        List<ProductInBasket> pibs = AppDatabase.getInstance(ConsultBasketActivityC.this).productInBasketDAO().getWithUser(user.id_user);
+        ProductInBasketAdapterC customAdapter = new ProductInBasketAdapterC(this, pibs);
         list_products_basket.setAdapter(customAdapter);
         if(pibs.size()>0){
             no_result.setVisibility(View.GONE);
         } else {
             no_result.setVisibility(View.VISIBLE);
         }
-        total_price.setText(AppDatabase.getInstance(ConsultBasketActivity.this).productInBasketDAO().getSumBasket(user.id_user) + getResources().getString(R.string.euro));
+        total_price.setText(AppDatabase.getInstance(ConsultBasketActivityC.this).productInBasketDAO().getSumBasket(user.id_user) + getResources().getString(R.string.euro));
     }
 }

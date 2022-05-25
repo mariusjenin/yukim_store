@@ -3,8 +3,7 @@ package com.yukimstore.middleware;
 import android.app.Activity;
 import android.content.Intent;
 
-import com.yukimstore.activity.used.merchant.CreateStoreActivity;
-import com.yukimstore.activity.used.merchant.MerchantMenuActivity;
+import com.yukimstore.activity.used.merchant.CreateStoreActivityM;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Store;
 import com.yukimstore.db.entity.User;
@@ -28,7 +27,7 @@ public class MerchantWithStoreMiddleWare extends StoreMiddleWare {
     }
     public void redirect(Activity activity){
         activity.finish();
-        Intent intent = new Intent(activity, CreateStoreActivity.class);
+        Intent intent = new Intent(activity, CreateStoreActivityM.class);
         activity.startActivity(intent);
     }
 }

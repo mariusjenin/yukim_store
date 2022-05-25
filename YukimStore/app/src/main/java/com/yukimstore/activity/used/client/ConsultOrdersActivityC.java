@@ -8,14 +8,14 @@ import android.widget.TextView;
 
 import com.yukimstore.R;
 import com.yukimstore.activity.ConnectedClientActivity;
-import com.yukimstore.adapter.client.OrderListAdapter;
+import com.yukimstore.adapter.client.OrderListAdapterC;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Order;
 import com.yukimstore.manager.ConnectionManager;
 
 import java.util.List;
 
-public class ConsultOrdersActivity extends ConnectedClientActivity {
+public class ConsultOrdersActivityC extends ConnectedClientActivity {
     List<Order> orders;
 
     @SuppressLint("SetTextI18n")
@@ -33,7 +33,7 @@ public class ConsultOrdersActivity extends ConnectedClientActivity {
         orders = AppDatabase.getInstance(this).orderDAO().getWithUser(ConnectionManager.getInstance().getUtilisateur().id_user);
 
         if(orders.size()>0){
-            OrderListAdapter customAdapter = new OrderListAdapter(this, orders);
+            OrderListAdapterC customAdapter = new OrderListAdapterC(this, orders);
             list_products.setAdapter(customAdapter);
             no_result.setVisibility(View.GONE);
         } else {

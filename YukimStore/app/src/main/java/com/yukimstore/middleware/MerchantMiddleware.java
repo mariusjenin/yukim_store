@@ -3,11 +3,7 @@ package com.yukimstore.middleware;
 import android.app.Activity;
 import android.content.Intent;
 
-import com.yukimstore.activity.used.client.ClientMenuActivity;
-import com.yukimstore.activity.used.merchant.MerchantMenuActivity;
-import com.yukimstore.db.AppDatabase;
-import com.yukimstore.db.entity.Store;
-import com.yukimstore.db.entity.User;
+import com.yukimstore.activity.used.merchant.MerchantMenuActivityM;
 import com.yukimstore.manager.ConnectionManager;
 
 /**
@@ -25,7 +21,7 @@ public class MerchantMiddleware extends TypeUserMiddleware {
     }
     public void redirect(Activity activity){
         activity.finish();
-        Intent intent = new Intent(activity, MerchantMenuActivity.class);
+        Intent intent = new Intent(activity, MerchantMenuActivityM.class);
         activity.startActivity(intent);
     }
 }

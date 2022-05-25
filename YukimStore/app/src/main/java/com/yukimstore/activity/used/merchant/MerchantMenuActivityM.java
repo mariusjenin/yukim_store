@@ -7,7 +7,7 @@ import android.widget.Toast;
 import com.yukimstore.R;
 import com.yukimstore.activity.ConnectedMerchantWithStoreActivity;
 
-public class MerchantMenuActivity extends ConnectedMerchantWithStoreActivity {
+public class MerchantMenuActivityM extends ConnectedMerchantWithStoreActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
