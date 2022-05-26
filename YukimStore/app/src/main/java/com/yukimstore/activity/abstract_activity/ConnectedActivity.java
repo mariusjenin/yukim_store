@@ -1,9 +1,6 @@
-package com.yukimstore.activity.unused;
-
-import android.util.Log;
+package com.yukimstore.activity.abstract_activity;
 
 import com.yukimstore.middleware.ConnectedMiddleware;
-import com.yukimstore.middleware.ConnectionMiddleware;
 import com.yukimstore.middleware.TypeUserMiddleware;
 
 public abstract class ConnectedActivity extends MiddlewareActivity {

@@ -17,7 +17,7 @@ import com.yukimstore.R;
 
 import java.util.List;
 
-import com.yukimstore.activity.used.client.ConsultStoreActivityC;
+import com.yukimstore.activity.concrete_activity.client.ConsultStoreActivityC;
 import com.yukimstore.db.entity.Store;
 
 public class StoreListAdapterC extends ArrayAdapter<Store> {

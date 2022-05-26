@@ -1,8 +1,6 @@
 package com.yukimstore.middleware;
 
-import android.app.Activity;
-
-import com.yukimstore.activity.unused.MiddlewareActivity;
+import com.yukimstore.activity.abstract_activity.MiddlewareActivity;
 
 public interface YukimMiddleware {
     boolean verify_and_redirect(MiddlewareActivity activity);

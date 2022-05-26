@@ -12,7 +12,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
         <activity
-            android:name=".activity.used.IdentificationActivity"
+            android:name=".activity.concrete_activity.IdentificationActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,72 +23,72 @@
 
         <!-- MERCHANT ACTIVITIES -->
         <activity
-            android:name=".activity.used.merchant.CreateStoreActivityM"
+            android:name=".activity.concrete_activity.merchant.CreateStoreActivityM"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.merchant.MenuActivityM"
+            android:name=".activity.concrete_activity.merchant.MenuActivityM"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.merchant.ConsultCategoriesStoreActivityM"
+            android:name=".activity.concrete_activity.merchant.ConsultCategoriesStoreActivityM"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.merchant.ConsultListProductsActivityM"
+            android:name=".activity.concrete_activity.merchant.ConsultListProductsActivityM"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.merchant.ConsultProductActivityM"
+            android:name=".activity.concrete_activity.merchant.ConsultProductActivityM"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.merchant.AddCategoryActivityM"
+            android:name=".activity.concrete_activity.merchant.AddCategoryActivityM"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.merchant.AddProductActivityM"
+            android:name=".activity.concrete_activity.merchant.AddProductActivityM"
             android:exported="false" />
 
         <!-- CLIENT ACTIVITIES -->
         <activity
-            android:name=".activity.used.client.MenuActivityC"
+            android:name=".activity.concrete_activity.client.MenuActivityC"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.client.FindStoreActivityC"
+            android:name=".activity.concrete_activity.client.FindStoreActivityC"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.client.FindProductActivityC"
+            android:name=".activity.concrete_activity.client.FindProductActivityC"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.client.ConsultStoreActivityC"
+            android:name=".activity.concrete_activity.client.ConsultStoreActivityC"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.client.ConsultCategoriesStoreActivityC"
+            android:name=".activity.concrete_activity.client.ConsultCategoriesStoreActivityC"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.client.ConsultListProductsActivityC"
+            android:name=".activity.concrete_activity.client.ConsultListProductsActivityC"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.client.ConsultProductActivityC"
+            android:name=".activity.concrete_activity.client.ConsultProductActivityC"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.client.ConsultBasketActivityC"
+            android:name=".activity.concrete_activity.client.ConsultBasketActivityC"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.client.ConsultOrdersActivityC"
+            android:name=".activity.concrete_activity.client.ConsultOrdersActivityC"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.client.ConsultOrderActivityC"
+            android:name=".activity.concrete_activity.client.ConsultOrderActivityC"
             android:exported="false" />
 
     </application>

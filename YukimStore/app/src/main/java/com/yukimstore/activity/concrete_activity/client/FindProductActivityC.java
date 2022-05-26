@@ -1,4 +1,4 @@
-package com.yukimstore.activity.used.client;
+package com.yukimstore.activity.concrete_activity.client;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -9,33 +9,33 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.yukimstore.R;
-import com.yukimstore.activity.used.ConnectedClientActivity;
-import com.yukimstore.adapter.client.StoreListAdapterC;
+import com.yukimstore.activity.abstract_activity.ConnectedClientActivity;
+import com.yukimstore.adapter.client.ProductListAdapterC;
 import com.yukimstore.db.AppDatabase;
-import com.yukimstore.db.entity.Store;
+import com.yukimstore.db.entity.Product;
 
 import java.util.List;
 
-public class FindStoreActivityC extends ConnectedClientActivity {
+public class FindProductActivityC extends ConnectedClientActivity {
 
-    private ListView list_stores;
+    private ListView list_products;
     private TextView no_result;
-    private EditText store_name;
+    private EditText product_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if(is_redirected) return;
-        this.setContentView(R.layout.c_find_store);
+        this.setContentView(R.layout.c_find_product);
 
 
-        list_stores = findViewById(R.id.list_stores);
+        list_products = findViewById(R.id.list_products);
         no_result  = findViewById(R.id.no_result);
 
-        updateListStores("");
+        updateListProducts("");
 
-        store_name = findViewById(R.id.find_stores);
-        store_name.addTextChangedListener(new TextWatcher() {
+        product_name = findViewById(R.id.find_products);
+        product_name.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 //Nothing
@@ -48,7 +48,7 @@ public class FindStoreActivityC extends ConnectedClientActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                updateListStores(editable.toString());
+                updateListProducts(editable.toString());
             }
         });
     }
@@ -56,14 +56,14 @@ public class FindStoreActivityC extends ConnectedClientActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        updateListStores(store_name.getText().toString());
+        updateListProducts(product_name.getText().toString());
     }
 
-    public void updateListStores(String str){
-        List<Store> stores = AppDatabase.getInstance(FindStoreActivityC.this).storeDAO().getStoresLike(str);
-        StoreListAdapterC customAdapter = new StoreListAdapterC(this, stores);
-        list_stores.setAdapter(customAdapter);
-        if(stores.size()>0){
+    public void updateListProducts(String str){
+        List<Product> products = AppDatabase.getInstance(FindProductActivityC.this).productDAO().getProductsLike(str);
+        ProductListAdapterC customAdapter = new ProductListAdapterC(this, products);
+        list_products.setAdapter(customAdapter);
+        if(products.size()>0){
             no_result.setVisibility(View.GONE);
         } else {
             no_result.setVisibility(View.VISIBLE);

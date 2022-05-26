@@ -1,8 +1,7 @@
-package com.yukimstore.activity.used.merchant;
+package com.yukimstore.activity.concrete_activity.merchant;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -10,7 +9,7 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.yukimstore.R;
-import com.yukimstore.activity.used.ConnectedMerchantWithoutStoreActivity;
+import com.yukimstore.activity.abstract_activity.ConnectedMerchantWithoutStoreActivity;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Category;
 import com.yukimstore.db.entity.Store;

@@ -3,28 +3,22 @@ package com.yukimstore.adapter.merchant;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.yukimstore.R;
-import com.yukimstore.activity.used.client.ConsultStoreActivityC;
-import com.yukimstore.activity.used.merchant.AddProductActivityM;
-import com.yukimstore.activity.used.merchant.ConsultListProductsActivityM;
+import com.yukimstore.activity.concrete_activity.merchant.AddProductActivityM;
+import com.yukimstore.activity.concrete_activity.merchant.ConsultListProductsActivityM;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Category;
 import com.yukimstore.db.entity.Interest;
-import com.yukimstore.db.entity.InterestForCategory;
 import com.yukimstore.db.entity.Product;
-import com.yukimstore.db.entity.Store;
 
 import java.util.ArrayList;
 import java.util.List;

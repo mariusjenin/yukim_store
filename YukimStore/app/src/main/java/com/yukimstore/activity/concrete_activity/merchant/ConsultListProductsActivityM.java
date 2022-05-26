@@ -1,4 +1,4 @@
-package com.yukimstore.activity.used.merchant;
+package com.yukimstore.activity.concrete_activity.merchant;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.yukimstore.R;
-import com.yukimstore.activity.used.ConnectedMerchantWithStoreActivity;
+import com.yukimstore.activity.abstract_activity.ConnectedMerchantWithStoreActivity;
 import com.yukimstore.adapter.merchant.ProductListAdapterM;
 import com.yukimstore.db.entity.Category;
 import com.yukimstore.db.entity.Product;

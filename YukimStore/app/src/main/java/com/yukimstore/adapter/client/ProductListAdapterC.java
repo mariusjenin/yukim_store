@@ -17,7 +17,7 @@ import com.yukimstore.R;
 
 import java.util.List;
 
-import com.yukimstore.activity.used.client.ConsultProductActivityC;
+import com.yukimstore.activity.concrete_activity.client.ConsultProductActivityC;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Product;
 import com.yukimstore.db.entity.ProductInBasket;

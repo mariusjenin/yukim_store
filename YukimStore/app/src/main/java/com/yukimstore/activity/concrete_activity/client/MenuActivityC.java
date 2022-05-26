@@ -1,4 +1,4 @@
-package com.yukimstore.activity.used.client;
+package com.yukimstore.activity.concrete_activity.client;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.yukimstore.R;
-import com.yukimstore.activity.used.ConnectedClientActivity;
+import com.yukimstore.activity.abstract_activity.ConnectedClientActivity;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Product;
 import com.yukimstore.db.entity.User;

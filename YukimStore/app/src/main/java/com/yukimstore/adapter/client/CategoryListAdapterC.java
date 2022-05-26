@@ -12,7 +12,7 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.yukimstore.R;
-import com.yukimstore.activity.used.client.ConsultListProductsActivityC;
+import com.yukimstore.activity.concrete_activity.client.ConsultListProductsActivityC;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Category;
 import com.yukimstore.db.entity.Interest;

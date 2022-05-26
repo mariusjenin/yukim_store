@@ -1,12 +1,10 @@
 package com.yukimstore.middleware;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
-import android.util.Log;
 
-import com.yukimstore.activity.unused.MiddlewareActivity;
-import com.yukimstore.activity.used.merchant.CreateStoreActivityM;
+import com.yukimstore.activity.abstract_activity.MiddlewareActivity;
+import com.yukimstore.activity.concrete_activity.merchant.CreateStoreActivityM;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Store;
 import com.yukimstore.db.entity.User;

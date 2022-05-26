@@ -1,8 +1,6 @@
-package com.yukimstore.activity.used;
+package com.yukimstore.activity.concrete_activity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -12,8 +10,7 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.yukimstore.R;
-import com.yukimstore.activity.used.client.MenuActivityC;
-import com.yukimstore.activity.used.merchant.CreateStoreActivityM;
+import com.yukimstore.activity.abstract_activity.NotConnectedActivity;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.dao.UserDAO;
 import com.yukimstore.db.entity.User;

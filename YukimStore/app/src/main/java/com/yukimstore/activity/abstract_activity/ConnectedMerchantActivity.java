@@ -1,9 +1,7 @@
-package com.yukimstore.activity.unused;
+package com.yukimstore.activity.abstract_activity;
 
 import android.os.Bundle;
-import android.util.Log;
 
-import com.yukimstore.manager.ConnectionManager;
 import com.yukimstore.middleware.MerchantMiddleware;
 import com.yukimstore.middleware.StoreMiddleWare;
 

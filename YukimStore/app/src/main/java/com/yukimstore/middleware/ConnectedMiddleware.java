@@ -1,12 +1,9 @@
 package com.yukimstore.middleware;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.util.Log;
-import android.widget.Toast;
 
-import com.yukimstore.activity.unused.MiddlewareActivity;
-import com.yukimstore.activity.used.IdentificationActivity;
+import com.yukimstore.activity.abstract_activity.MiddlewareActivity;
+import com.yukimstore.activity.concrete_activity.IdentificationActivity;
 import com.yukimstore.manager.ConnectionManager;
 
 /**

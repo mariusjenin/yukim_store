@@ -1,11 +1,9 @@
 package com.yukimstore.middleware;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.util.Log;
 
-import com.yukimstore.activity.unused.MiddlewareActivity;
-import com.yukimstore.activity.used.merchant.MenuActivityM;
+import com.yukimstore.activity.abstract_activity.MiddlewareActivity;
+import com.yukimstore.activity.concrete_activity.merchant.MenuActivityM;
 import com.yukimstore.manager.ConnectionManager;
 
 /**

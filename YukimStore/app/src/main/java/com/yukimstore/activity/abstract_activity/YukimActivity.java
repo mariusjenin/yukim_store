@@ -1,4 +1,4 @@
-package com.yukimstore.activity.unused;
+package com.yukimstore.activity.abstract_activity;
 
 import android.app.ProgressDialog;
 import android.graphics.Color;
