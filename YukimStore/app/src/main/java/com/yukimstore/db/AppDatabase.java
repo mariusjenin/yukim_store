@@ -31,6 +31,7 @@ import com.yukimstore.db.entity.InterestForCategory;
 import com.yukimstore.db.entity.ProductInBasket;
 import com.yukimstore.db.entity.Order;
 import com.yukimstore.db.entity.ProductInOrder;
+import com.yukimstore.manager.TemplateManager;
 import com.yukimstore.utils.HashUtil;
 
 import java.util.ArrayList;
@@ -93,31 +94,18 @@ public abstract class AppDatabase extends RoomDatabase {
     public void fillUsers(){
         UserDAO userDAO = userDAO();
         ArrayList<User> users = new ArrayList<>();
+
         //Merchant
-        users.add(new User("m0@m0.m0", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
-        users.add(new User("m1@m1.m1", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
-        users.add(new User("m2@m2.m2", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
-        users.add(new User("m3@m3.m3", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
-        users.add(new User("m4@m4.m4", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
-        users.add(new User("m5@m5.m5", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
-        users.add(new User("m6@m6.m6", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
-        users.add(new User("m7@m7.m7", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
-        users.add(new User("m8@m8.m8", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
-        users.add(new User("m9@m9.m9", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
+        users.add(new User("store@zara.fr", HashUtil.getSHA256SecurePassword("password",""),true,"",""));
+        users.add(new User("store@decathlon.fr", HashUtil.getSHA256SecurePassword("password",""),true,"",""));
+        users.add(new User("store@carrefour.fr", HashUtil.getSHA256SecurePassword("password",""),true,"",""));
+        users.add(new User("store@naturea.fr", HashUtil.getSHA256SecurePassword("password",""),true,"",""));
+        users.add(new User("store@woodbrass.fr", HashUtil.getSHA256SecurePassword("password",""),true,"",""));
+        users.add(new User("store@fnac.fr", HashUtil.getSHA256SecurePassword("password",""),true,"",""));
+
         //Client
-        users.add(new User("c0@c0.c0", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c0","c0"));
-        users.add(new User("c1@c1.c1", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c1","c1"));
-        users.add(new User("c2@c2.c2", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c2","c2"));
-        users.add(new User("c3@c3.c3", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c3","c3"));
-        users.add(new User("c4@c4.c4", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c4","c4"));
-        users.add(new User("c5@c5.c5", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c5","c5"));
-        users.add(new User("c6@c6.c6", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c6","c6"));
-        users.add(new User("c7@c7.c7", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c7","c7"));
-        users.add(new User("c8@c8.c8", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c8","c8"));
-        users.add(new User("c9@c9.c9", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c9","c9"));
-        //Debug
-        users.add(new User("c@c.c", HashUtil.getSHA256SecurePassword("cccccc",""),false,"c","c"));
-        users.add(new User("m@m.m", HashUtil.getSHA256SecurePassword("mmmmmm",""),true,"m","m"));
+        users.add(new User("william.puech@lirmm.fr", HashUtil.getSHA256SecurePassword("password",""),false,"William","Puech"));
+
         int size_users = users.size();
         Log.i("","USER INITILIZATION");
         for(int i = 0 ; i < size_users; i++){
@@ -129,16 +117,14 @@ public abstract class AppDatabase extends RoomDatabase {
     public void fillStores(){
         StoreDAO storeDAO = storeDAO();
         ArrayList<Store> stores = new ArrayList<>();
-        stores.add(new Store(userDAO().get("m0@m0.m0").id_user,"Store abc", null));
-        stores.add(new Store(userDAO().get("m1@m1.m1").id_user,"Store bcd", null));
-        stores.add(new Store(userDAO().get("m2@m2.m2").id_user,"Store cde", null));
-        stores.add(new Store(userDAO().get("m3@m3.m3").id_user,"Store def", null));
-        stores.add(new Store(userDAO().get("m4@m4.m4").id_user,"Store efg", null));
-        stores.add(new Store(userDAO().get("m5@m5.m5").id_user,"Store fgh", null));
-        stores.add(new Store(userDAO().get("m6@m6.m6").id_user,"Store ghi", null));
-        stores.add(new Store(userDAO().get("m7@m7.m7").id_user,"Store hij", null));
-        stores.add(new Store(userDAO().get("m8@m8.m8").id_user,"Store ijk", null));
-        stores.add(new Store(userDAO().get("m9@m9.m9").id_user,"Store jkl", null));
+
+        stores.add(new Store(userDAO().get("store@zara.fr").id_user,"Zara", null));
+        stores.add(new Store(userDAO().get("store@decathlon.fr").id_user,"Decathlon", null));
+        stores.add(new Store(userDAO().get("store@woodbrass.fr").id_user,"Woodbrass", null));
+        stores.add(new Store(userDAO().get("store@fnac.fr").id_user,"Fnac", null));
+        stores.add(new Store(userDAO().get("store@carrefour.fr").id_user,"Carrefour", null));
+        stores.add(new Store(userDAO().get("store@naturea.fr").id_user,"Naturea", null));
+
         int size_stores = stores.size();
         Log.i("","STORE INITILIZATION");
         for(int i = 0 ; i < size_stores; i++){
@@ -147,103 +133,10 @@ public abstract class AppDatabase extends RoomDatabase {
         }
     }
 
-    public void fillCategories(){
-        CategoryDAO categoryDAO = categoryDAO();
-        ArrayList<Category> categories = new ArrayList<>();
-        categories.add(new Category("Cat 1", userDAO().get("m0@m0.m0").id_user));
-        categories.add(new Category("Cat 2", userDAO().get("m0@m0.m0").id_user));
-        categories.add(new Category("Cat 3", userDAO().get("m0@m0.m0").id_user));
-        categories.add(new Category("Cat 4", userDAO().get("m0@m0.m0").id_user));
-        categories.add(new Category("Cat 5", userDAO().get("m0@m0.m0").id_user));
-        categories.add(new Category("Cat 6", userDAO().get("m1@m1.m1").id_user));
-        categories.add(new Category("Cat 7", userDAO().get("m1@m1.m1").id_user));
-        categories.add(new Category("Cat 8", userDAO().get("m1@m1.m1").id_user));
-        categories.add(new Category("Cat 9", userDAO().get("m1@m1.m1").id_user));
-        categories.add(new Category("Cat 10", userDAO().get("m1@m1.m1").id_user));
-        int size_categories = categories.size();
-        Log.i("","CATEGORIES INITILIZATION");
-        for(int i = 0 ; i < size_categories; i++){
-            categoryDAO.insert(categories.get(i));
-            Log.i("",categories.get(i).name);
-        }
-    }
-
-    public void fillProducts(){
-        ProductDAO productDAO = productDAO();
-        ArrayList<Product> products = new ArrayList<>();
-        products.add(new Product("Prod 1","details prod 1", 0.99f, categoryDAO().getWithStoreAndName(userDAO().get("m0@m0.m0").id_user,"Cat 1").id_category,null));
-        products.add(new Product("Prod 2","details prod 2", 9.99f, categoryDAO().getWithStoreAndName(userDAO().get("m0@m0.m0").id_user,"Cat 1").id_category,null));
-        products.add(new Product("Prod 3","details prod 3", 19.99f, categoryDAO().getWithStoreAndName(userDAO().get("m0@m0.m0").id_user,"Cat 1").id_category,null));
-        products.add(new Product("Prod 4","details prod 4", 29.99f, categoryDAO().getWithStoreAndName(userDAO().get("m0@m0.m0").id_user,"Cat 1").id_category,null));
-        products.add(new Product("Prod 5","details prod 5", 39.99f, categoryDAO().getWithStoreAndName(userDAO().get("m0@m0.m0").id_user,"Cat 1").id_category,null));
-        products.add(new Product("Prod 6","details prod 6", 49.99f, categoryDAO().getWithStoreAndName(userDAO().get("m1@m1.m1").id_user,"Cat 6").id_category,null));
-        products.add(new Product("Prod 7","details prod 7", 59.99f, categoryDAO().getWithStoreAndName(userDAO().get("m1@m1.m1").id_user,"Cat 6").id_category,null));
-        products.add(new Product("Prod 8","details prod 8", 69.99f, categoryDAO().getWithStoreAndName(userDAO().get("m1@m1.m1").id_user,"Cat 6").id_category,null));
-        products.add(new Product("Prod 9","details prod 9", 79.99f, categoryDAO().getWithStoreAndName(userDAO().get("m1@m1.m1").id_user,"Cat 6").id_category,null));
-        products.add(new Product("Prod 10","details prod 10", 89.99f, categoryDAO().getWithStoreAndName(userDAO().get("m1@m1.m1").id_user,"Cat 6").id_category,null));
-        int size_products = products.size();
-        Log.i("","PRODUCTS INITILIZATION");
-        for(int i = 0 ; i < size_products; i++){
-            productDAO.insert(products.get(i));
-            Log.i("",products.get(i).name);
-        }
-    }
-
-    public void fillProductsInBaskets(){
-        ProductInBasketDAO productInBasketDAO = productInBasketDAO();
-        ArrayList<ProductInBasket> pibs = new ArrayList<>();
-        pibs.add(new ProductInBasket(productDAO().getProductsLike("Prod 1").get(0).id_product,userDAO().get("c@c.c").id_user,1));
-        pibs.add(new ProductInBasket(productDAO().getProductsLike("Prod 2").get(0).id_product,userDAO().get("c@c.c").id_user,4));
-        pibs.add(new ProductInBasket(productDAO().getProductsLike("Prod 4").get(0).id_product,userDAO().get("c@c.c").id_user,2));
-        pibs.add(new ProductInBasket(productDAO().getProductsLike("Prod 5").get(0).id_product,userDAO().get("c@c.c").id_user,1));
-        pibs.add(new ProductInBasket(productDAO().getProductsLike("Prod 6").get(0).id_product,userDAO().get("c@c.c").id_user,3));
-        int size_pibs = pibs.size();
-        Log.i("","PRODUCTS IN BASKET INITILIZATION");
-        for(int i = 0 ; i < size_pibs; i++){
-            productInBasketDAO.insert(pibs.get(i));
-            Log.i("",pibs.get(i).id_product+ " " + pibs.get(i).id_user+ " " + pibs.get(i).quantity);
-        }
-    }
-
-    public void fillOrders(){
-        OrderDAO orderDAO = orderDAO();
-        ArrayList<Order> orders = new ArrayList<>();
-        long time = System.currentTimeMillis();
-        long day_in_millis = 86400000;
-        orders.add(new Order(userDAO().get("m1@m1.m1").id_user,userDAO().get("c@c.c").id_user,new Date(time-day_in_millis*10)));
-        orders.add(new Order(userDAO().get("m0@m0.m0").id_user,userDAO().get("c@c.c").id_user,new Date(time-day_in_millis*5)));
-        int size_orders = orders.size();
-        Log.i("","ORDERS INITILIZATION");
-        for(int i = 0 ; i < size_orders; i++){
-            orderDAO.insert(orders.get(i));
-            Log.i("", orders.get(i).id_order+ " " + orders.get(i).id_user+ " " + orders.get(i).id_store);
-        }
-    }
-
-    public void fillProductsInOrders(){
-        ProductInOrderDAO productInOrderDAO = productInOrderDAO();
-        ArrayList<ProductInOrder> pios = new ArrayList<>();
-        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m0@m0.m0").id_user).get(0).id_order,productDAO().getProductsLike("Prod 1").get(0).id_product,1,10));
-        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m0@m0.m0").id_user).get(0).id_order,productDAO().getProductsLike("Prod 2").get(0).id_product,2,20));
-        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m0@m0.m0").id_user).get(0).id_order,productDAO().getProductsLike("Prod 3").get(0).id_product,3,30));
-        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m0@m0.m0").id_user).get(0).id_order,productDAO().getProductsLike("Prod 4").get(0).id_product,4,40));
-        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m0@m0.m0").id_user).get(0).id_order,productDAO().getProductsLike("Prod 5").get(0).id_product,5,50));
-        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m1@m1.m1").id_user).get(0).id_order,productDAO().getProductsLike("Prod 6").get(0).id_product,1,60));
-        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m1@m1.m1").id_user).get(0).id_order,productDAO().getProductsLike("Prod 7").get(0).id_product,2,70));
-        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m1@m1.m1").id_user).get(0).id_order,productDAO().getProductsLike("Prod 8").get(0).id_product,3,80));
-        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m1@m1.m1").id_user).get(0).id_order,productDAO().getProductsLike("Prod 9").get(0).id_product,4,90));
-        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m1@m1.m1").id_user).get(0).id_order,productDAO().getProductsLike("Prod 10").get(0).id_product,5,100));
-        int size_pios = pios.size();
-        Log.i("","PRODUCTS IN ORDER INITILIZATION");
-        for(int i = 0 ; i < size_pios; i++){
-            productInOrderDAO.insert(pios.get(i));
-            Log.i("", pios.get(i).id_pio+ " " + pios.get(i).id_order);
-        }
-    }
-
     public void fillInterests(){
         InterestDAO interestDAO = interestDAO();
         ArrayList<Interest> interests = new ArrayList<>();
+
         interests.add(new Interest("Extreme sports"));
         interests.add(new Interest("Classical sports"));
         interests.add(new Interest("Industrial food"));
@@ -256,6 +149,7 @@ public abstract class AppDatabase extends RoomDatabase {
         interests.add(new Interest("Entertainment tech"));
         interests.add(new Interest("Top garments"));
         interests.add(new Interest("Bottom garments"));
+
         int size_interests = interests.size();
         Log.i("","INTERESTS INITILIZATION");
         for(int i = 0 ; i < size_interests; i++){
@@ -264,26 +158,13 @@ public abstract class AppDatabase extends RoomDatabase {
         }
     }
 
-    public void fillInterestsForCategories(){
-        InterestForCategoryDAO interestForCategoryDAO = interestForCategoryDAO();
-        ArrayList<InterestForCategory> ifcs = new ArrayList<>();
-        ifcs.add(new InterestForCategory(interestDAO().get("Extreme sports").id_interest,categoryDAO().getWithStoreAndName(userDAO().get("m0@m0.m0").id_user,"Cat 1").id_category));
-        ifcs.add(new InterestForCategory(interestDAO().get("Classical sports").id_interest,categoryDAO().getWithStoreAndName(userDAO().get("m0@m0.m0").id_user,"Cat 1").id_category));
-        ifcs.add(new InterestForCategory(interestDAO().get("Entertainment tech").id_interest,categoryDAO().getWithStoreAndName(userDAO().get("m1@m1.m1").id_user,"Cat 6").id_category));
-        ifcs.add(new InterestForCategory(interestDAO().get("Capture tech").id_interest,categoryDAO().getWithStoreAndName(userDAO().get("m1@m1.m1").id_user,"Cat 6").id_category));
-        int size_ifcs = ifcs.size();
-        Log.i("","INTEREST FOR CATEGORY INITILIZATION");
-        for(int i = 0 ; i < size_ifcs; i++){
-            interestForCategoryDAO.insert(ifcs.get(i));
-            Log.i("", String.valueOf(ifcs.get(i).id_ifc));
-        }
-    }
-
     public void fillUsersHaveInterests(){
         UserHasInterestDAO userHasInterestDAO = userHasInterestDAO();
         ArrayList<UserHasInterest> uhis = new ArrayList<>();
-        uhis.add(new UserHasInterest(interestDAO().get("Extreme sports").id_interest,userDAO().get("c@c.c").id_user));
-        uhis.add(new UserHasInterest(interestDAO().get("Classical sports").id_interest,userDAO().get("c@c.c").id_user));
+
+        uhis.add(new UserHasInterest(interestDAO().get("Extreme sports").id_interest,userDAO().get("william.puech@lirmm.fr").id_user));
+        uhis.add(new UserHasInterest(interestDAO().get("Classical sports").id_interest,userDAO().get("william.puech@lirmm.fr").id_user));
+
         int size_uhis = uhis.size();
         Log.i("","USER HAS INTEREST INITILIZATION");
         for(int i = 0 ; i < size_uhis; i++){
@@ -292,17 +173,90 @@ public abstract class AppDatabase extends RoomDatabase {
         }
     }
 
+    public void fillCategories(){
+        TemplateManager tm = TemplateManager.getInstance();
+
+        tm.generateClothingTemplate(this,userDAO().get("store@zara.fr").id_user);
+        tm.generateSportTemplate(this,userDAO().get("store@decathlon.fr").id_user);
+        tm.generateMusicTemplate(this,userDAO().get("store@woodbrass.fr").id_user);
+        tm.generateTechnologyTemplate(this,userDAO().get("store@fnac.fr").id_user);
+        tm.generateFoodTemplate(this,userDAO().get("store@carrefour.fr").id_user);
+        tm.generateSelfcareTemplate(this,userDAO().get("store@naturea.fr").id_user);
+    }
+
+    public void fillProducts(){
+        ProductDAO productDAO = productDAO();
+        ArrayList<Product> products = new ArrayList<>();
+
+        products.add(new Product("Plain Tshirt","White, 100% Cotton, L", 29.99f, categoryDAO().getWithStoreAndName(userDAO().get("store@zara.fr").id_user,"Tops").id_category,null));
+        products.add(new Product("Oversize Tshirt","Black, 100% Cotton, M", 24.99f, categoryDAO().getWithStoreAndName(userDAO().get("store@zara.fr").id_user,"Tops").id_category,null));
+        products.add(new Product("Long Sleeve Button-down Shirt","Plaid red, 100% Cotton Flannel, S", 39.99f, categoryDAO().getWithStoreAndName(userDAO().get("store@zara.fr").id_user,"Shirts").id_category,null));
+        products.add(new Product("Sweatshirt","Grey, 90% Cotton 10% Polyester, M", 29.99f, categoryDAO().getWithStoreAndName(userDAO().get("store@zara.fr").id_user,"Sweaters").id_category,null));
+        products.add(new Product("Cocktail Dress","Black, 100% Polyester, 38", 29.99f, categoryDAO().getWithStoreAndName(userDAO().get("store@zara.fr").id_user,"Dresses").id_category,null));
+        products.add(new Product("Vintage Jeans","Bleached, 98% Cotton 2% Elastane, 40", 39.99f, categoryDAO().getWithStoreAndName(userDAO().get("store@zara.fr").id_user,"Jeans").id_category,null));
+        products.add(new Product("Flare Trousers","Purple, 90% Cotton 10% Polyester, 40", 24.99f, categoryDAO().getWithStoreAndName(userDAO().get("store@zara.fr").id_user,"Pants").id_category,null));
+        products.add(new Product("Cargo Short","Kaki, 100% Cotton, M", 19.99f, categoryDAO().getWithStoreAndName(userDAO().get("store@zara.fr").id_user,"Shorts").id_category,null));
+        products.add(new Product("Mini Skirt","Pale Pink, 100% Polyester, 36", 19.99f, categoryDAO().getWithStoreAndName(userDAO().get("store@zara.fr").id_user,"Skirts").id_category,null));
+        products.add(new Product("Trench Coat","Beige, 100% Wool, 40", 99.99f, categoryDAO().getWithStoreAndName(userDAO().get("store@zara.fr").id_user,"Coats").id_category,null));
+        products.add(new Product("Three Pieces Suit","Navy, 98% Wool 2% Polyester, 40", 149.99f, categoryDAO().getWithStoreAndName(userDAO().get("store@zara.fr").id_user,"Suits").id_category,null));
+        products.add(new Product("2-pack Trunks","Black, 100% Cotton, M", 29.99f, categoryDAO().getWithStoreAndName(userDAO().get("store@zara.fr").id_user,"Underwear").id_category,null));
+        products.add(new Product("Swimsuit","Blue/Orange Print, Unique", 29.99f, categoryDAO().getWithStoreAndName(userDAO().get("store@zara.fr").id_user,"Swimwear").id_category,null));
+
+        products.add(new Product("Running Shoes","Grey/White, 43", 19.99f, categoryDAO().getWithStoreAndName(userDAO().get("store@decathlon.fr").id_user,"Athletics").id_category,null));
+        products.add(new Product("Jersey","Red/Green, L", 19.99f, categoryDAO().getWithStoreAndName(userDAO().get("store@decathlon.fr").id_user,"Basketball").id_category,null));
+        products.add(new Product("Ropes","5m", 4.99f, categoryDAO().getWithStoreAndName(userDAO().get("store@decathlon.fr").id_user,"Climbing").id_category,null));
+        products.add(new Product("Ball","World Cup 2022", 9.99f, categoryDAO().getWithStoreAndName(userDAO().get("store@decathlon.fr").id_user,"Football").id_category,null));
+        products.add(new Product("Club set","3 Clubs (1 Driver, 1 Sand Wedge, 1 Putter), 3 balls", 199.99f, categoryDAO().getWithStoreAndName(userDAO().get("store@decathlon.fr").id_user,"Golf").id_category,null));
+        products.add(new Product("Kimono","White", 29.99f, categoryDAO().getWithStoreAndName(userDAO().get("store@decathlon.fr").id_user,"Karate").id_category,null));
+        products.add(new Product("Swim Goggles","Blue", 9.99f, categoryDAO().getWithStoreAndName(userDAO().get("store@decathlon.fr").id_user,"Swimming").id_category,null));
+        products.add(new Product("Tennis Racket","Standard", 29.99f, categoryDAO().getWithStoreAndName(userDAO().get("store@decathlon.fr").id_user,"Tennis").id_category,null));
+        products.add(new Product("Wing","Standard", 299.99f, categoryDAO().getWithStoreAndName(userDAO().get("store@decathlon.fr").id_user,"Paragliding").id_category,null));
+
+        products.add(new Product("Plain Bread","300g", 0.87f, categoryDAO().getWithStoreAndName(userDAO().get("store@carrefour.fr").id_user,"Bakery").id_category,null));
+        products.add(new Product("Croissants","6 pieces", 2.49f, categoryDAO().getWithStoreAndName(userDAO().get("store@carrefour.fr").id_user,"Breakfast").id_category,null));
+        products.add(new Product("Rib-eye Steak","900g", 24.90f, categoryDAO().getWithStoreAndName(userDAO().get("store@carrefour.fr").id_user,"Meat").id_category,null));
+        products.add(new Product("Apples","Granny Smith, 1kg", 2.10f, categoryDAO().getWithStoreAndName(userDAO().get("store@carrefour.fr").id_user,"Fruits & Vegetables").id_category,null));
+        products.add(new Product("Fresh Milk","1L", 0.80f, categoryDAO().getWithStoreAndName(userDAO().get("store@carrefour.fr").id_user,"Dairy").id_category,null));
+        products.add(new Product("Canned Tuna","200g", 1.75f, categoryDAO().getWithStoreAndName(userDAO().get("store@carrefour.fr").id_user,"Pantry").id_category,null));
+        products.add(new Product("Haribo Dragibus","150g", 1.37f, categoryDAO().getWithStoreAndName(userDAO().get("store@carrefour.fr").id_user,"Candy").id_category,null));
+        products.add(new Product("Lipton Ice Tea","1.5L", 1.89f, categoryDAO().getWithStoreAndName(userDAO().get("store@carrefour.fr").id_user,"Beverage").id_category,null));
+
+        products.add(new Product("Natural Soap","Lemon & Parsimon, 100g", 3.40f, categoryDAO().getWithStoreAndName(userDAO().get("store@naturea.fr").id_user,"Bath & Body").id_category,null));
+        products.add(new Product("Blue Hair Dye","Tumblr certified", 5.79f, categoryDAO().getWithStoreAndName(userDAO().get("store@naturea.fr").id_user,"Hair care").id_category,null));
+        products.add(new Product("Electric Trimmer","7 different caps, 25W", 29.99f, categoryDAO().getWithStoreAndName(userDAO().get("store@naturea.fr").id_user,"Shave").id_category,null));
+        products.add(new Product("Solar Cream","Sensitive skin, 125mL", 8.42f, categoryDAO().getWithStoreAndName(userDAO().get("store@naturea.fr").id_user,"Sun care & Tanning").id_category,null));
+        products.add(new Product("Indian Incenses","10 fragrances", 17.59f, categoryDAO().getWithStoreAndName(userDAO().get("store@naturea.fr").id_user,"Relaxation").id_category,null));
+
+        products.add(new Product("Fender Player Stratocaster PF Fiesta Red","Electric Guitar, Rightist, Maple, 3 mics (Alnico V)", 769.0f, categoryDAO().getWithStoreAndName(userDAO().get("store@woodbrass.fr").id_user,"Guitars").id_category,null));
+        products.add(new Product("Yamaha TRBX504 Trans Black","Bass, Leftist, Mahogany, 2 mics (Alnico V)", 569.0f, categoryDAO().getWithStoreAndName(userDAO().get("store@woodbrass.fr").id_user,"Basses").id_category,null));
+        products.add(new Product("Pearl Drums Export Standard 22","22\"x18\" Bass Drum, 12\"x8\" Tom, 13\"x9\" Tom, 16\"x16\" Floor Tom, 14\"x5.5\" Snare Drum", 825.0f, categoryDAO().getWithStoreAndName(userDAO().get("store@woodbrass.fr").id_user,"Drums").id_category,null));
+        products.add(new Product("Yamaha PSR-E473","Keyboard, 61 velocity-sensitive keys, 820 sounds, 290 models, 64 voice polyphony", 377.0f, categoryDAO().getWithStoreAndName(userDAO().get("store@woodbrass.fr").id_user,"Keys").id_category,null));
+        products.add(new Product("Eagltone Rimini 4/4","Violin, Spruce/Maple/Ebony", 149.0f, categoryDAO().getWithStoreAndName(userDAO().get("store@woodbrass.fr").id_user,"Strings").id_category,null));
+        products.add(new Product("Jupiter JAS500Q","Saxophone, Body yellow brass, High F# key, Gold lacquer finish, Key Eb", 860.0f, categoryDAO().getWithStoreAndName(userDAO().get("store@woodbrass.fr").id_user,"Winds").id_category,null));
+
+        products.add(new Product("ASUS Zephyrus M16","Laptop, i7 11800H, RTX 3060, 16GB", 1999.0f, categoryDAO().getWithStoreAndName(userDAO().get("store@fnac.fr").id_user,"Computers").id_category,null));
+        products.add(new Product("The Legend of Zelda : BOTW 2","Nintendo Switch, Action/Adventure, PEGI 12", 59.90f, categoryDAO().getWithStoreAndName(userDAO().get("store@fnac.fr").id_user,"Video Games").id_category,null));
+        products.add(new Product("Apple iPhone 13","Black, 256GB, Apple A15, 5G", 979.0f, categoryDAO().getWithStoreAndName(userDAO().get("store@fnac.fr").id_user,"Cell-phones").id_category,null));
+        products.add(new Product("LG OLED55C1","4K UHD, OLED, SmartTV, 4 HDMI / 3 USB", 1299.0f, categoryDAO().getWithStoreAndName(userDAO().get("store@fnac.fr").id_user,"TV").id_category,null));
+        products.add(new Product("Panasonic Lumix GH5","20,3Mpx, 3.2\" screen, OLED sensor, 2-axis stabilization, 4K, Wi-Fi", 1449.0f, categoryDAO().getWithStoreAndName(userDAO().get("store@fnac.fr").id_user,"Cameras").id_category,null));
+        products.add(new Product("Enclave EA1000THXUS CineHome Pro 5.1","Custom Drivers, 11 Class-D Digital Amplifiers, Full-Range Rears, 10 Subwoofer, Speaker Level Setup, Whole Room Stereo, Dolby and DTS Audio", 1840.0f, categoryDAO().getWithStoreAndName(userDAO().get("store@fnac.fr").id_user,"Home Studio").id_category,null));
+        products.add(new Product("Apple Watch Series 7","GPS, 41mm Starlight Aluminum Case with Starlight Sport Band, Regular", 389.0f, categoryDAO().getWithStoreAndName(userDAO().get("store@fnac.fr").id_user,"Wearables").id_category,null));
+
+        int size_products = products.size();
+        Log.i("","PRODUCTS INITILIZATION");
+        for(int i = 0 ; i < size_products; i++){
+            productDAO.insert(products.get(i));
+            Log.i("",products.get(i).name);
+        }
+    }
+
     public void init(){
         clear();
         fillUsers();
         fillStores();
+        fillInterests();
+        fillUsersHaveInterests();
         fillCategories();
         fillProducts();
-        fillProductsInBaskets();
-        fillOrders();
-        fillProductsInOrders();
-        fillInterests();
-        fillInterestsForCategories();
-        fillUsersHaveInterests();
     }
 }
