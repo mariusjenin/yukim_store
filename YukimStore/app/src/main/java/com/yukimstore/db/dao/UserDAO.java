@@ -25,7 +25,7 @@ public interface UserDAO {
     void clear();
 
     @Insert(onConflict = ABORT)
-    void insert(User user);
+    long insert(User user);
 
     @Insert(onConflict = REPLACE)
     void insertAll(User... users);

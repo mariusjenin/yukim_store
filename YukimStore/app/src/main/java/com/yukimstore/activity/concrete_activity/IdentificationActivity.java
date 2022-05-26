@@ -166,8 +166,10 @@ public class IdentificationActivity extends NotConnectedActivity {
                         }
                     }
                     user = new User(email,HashUtil.getSHA256SecurePassword(pwd,""), is_merchant, first_name, last_name);
-                    user_DAO.insert(user);
+                    user.id_user = (int) user_DAO.insert(user);
                     connect = true;
+                } else {
+                    Toast.makeText(this,"The passwords are not equal",Toast.LENGTH_SHORT).show();
                 }
             } else {
                 Toast.makeText(this,"This account already exists",Toast.LENGTH_SHORT).show();
@@ -195,12 +197,6 @@ public class IdentificationActivity extends NotConnectedActivity {
                 cm.removeTokenUserFromPrefs(this);
             }
             connection_middleware.redirect(this);
-//            if(user.is_merchant) {
-//                startActivity(new Intent(this, CreateStoreActivityM.class));
-//            }
-//            else {
-//                startActivity(new Intent(this, MenuActivityC.class));
-//            }
         }
 
     }

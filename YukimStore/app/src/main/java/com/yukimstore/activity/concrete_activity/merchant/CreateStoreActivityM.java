@@ -2,7 +2,9 @@ package com.yukimstore.activity.concrete_activity.merchant;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -12,6 +14,8 @@ import com.yukimstore.R;
 import com.yukimstore.activity.abstract_activity.ConnectedMerchantWithoutStoreActivity;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Category;
+import com.yukimstore.db.entity.Interest;
+import com.yukimstore.db.entity.InterestForCategory;
 import com.yukimstore.db.entity.Store;
 import com.yukimstore.db.entity.User;
 import com.yukimstore.manager.ConnectionManager;
@@ -39,6 +43,14 @@ public class CreateStoreActivityM extends ConnectedMerchantWithoutStoreActivity 
                 cm.disconnect();
                 cm.removeTokenUserFromPrefs(CreateStoreActivityM.this);
                 connection_middleware.redirect(CreateStoreActivityM.this);
+            }
+        });
+
+        Button create_my_store = findViewById(R.id.create_my_store);
+        create_my_store.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createStore();
             }
         });
     }
@@ -73,7 +85,7 @@ public class CreateStoreActivityM extends ConnectedMerchantWithoutStoreActivity 
         choice = Choice.TECHNOLOGY;
     }
 
-    public void createStore(View view) {
+    public void createStore() {
         EditText storeNameInput = findViewById(R.id.storeName);
         String storeName = storeNameInput.getText().toString();
 
@@ -85,8 +97,11 @@ public class CreateStoreActivityM extends ConnectedMerchantWithoutStoreActivity 
         ConnectionManager cm = ConnectionManager.getInstance();
         User user = cm.getUtilisateur();
 
+        Log.e("",""+user.id_user);
+
         Store store = new Store(user.id_user,storeName,null);
 
+        Log.e("",""+store.id_user_store);
         AppDatabase db = AppDatabase.getInstance(getApplicationContext());
         db.storeDAO().insert(store);
 
@@ -137,6 +152,7 @@ public class CreateStoreActivityM extends ConnectedMerchantWithoutStoreActivity 
         categories.add(new Category("Suits",user_id));
         categories.add(new Category("Underwear",user_id));
         categories.add(new Category("Swimwear",user_id));
+
 
         db.categoryDAO().insertAll(categories);
     }

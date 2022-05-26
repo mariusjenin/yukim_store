@@ -342,7 +342,6 @@
             android:layout_marginBottom="5dp"
             android:layout_weight="5"
             android:background="@drawable/button_round_salmon"
-            android:onClick="createStore"
             android:text="@string/create_my_store"
             android:textAllCaps="false"
             android:textColor="@color/white"
