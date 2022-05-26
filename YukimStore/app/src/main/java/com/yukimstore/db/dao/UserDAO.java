@@ -10,6 +10,8 @@ import androidx.room.Query;
 
 import com.yukimstore.db.entity.User;
 
+import java.util.List;
+
 @Dao
 public interface UserDAO {
     @Query("SELECT * FROM User where User.id_user = :id LIMIT 1")
@@ -27,8 +29,8 @@ public interface UserDAO {
     @Insert(onConflict = ABORT)
     long insert(User user);
 
-    @Insert(onConflict = REPLACE)
-    void insertAll(User... users);
+    @Insert(onConflict = ABORT)
+    void insertAll(List<User> users);
 
     @Delete
     void delete(User user);

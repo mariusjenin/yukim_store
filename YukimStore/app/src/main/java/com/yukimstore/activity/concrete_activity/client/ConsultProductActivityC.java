@@ -101,7 +101,7 @@ public class ConsultProductActivityC extends ConnectedClientActivity {
                     } else {
                         ProductInBasket new_pib = new ProductInBasket(product.id_product,user.id_user,quantity_int);
                         apd.productInBasketDAO().insert(new_pib);
-                        Toast.makeText(ConsultProductActivityC.this,"Quantity has been add in "+quantity_int+" cop"+(quantity_int>1?"ies":"y"),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ConsultProductActivityC.this,"The product has been added in "+quantity_int+" cop"+(quantity_int>1?"ies":"y"),Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(ConsultProductActivityC.this,"Quantity must be valid",Toast.LENGTH_SHORT).show();

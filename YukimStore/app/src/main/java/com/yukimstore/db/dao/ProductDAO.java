@@ -6,6 +6,7 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import com.yukimstore.db.entity.Order;
 import com.yukimstore.db.entity.Product;
 import com.yukimstore.db.entity.Store;
 
@@ -28,6 +29,9 @@ public interface ProductDAO {
 
     @Insert(onConflict = ABORT)
     void insert(Product product);
+
+    @Insert(onConflict = ABORT)
+    void insertAll(List<Product> products);
 
     @Query("DELETE FROM Product")
     void clear();

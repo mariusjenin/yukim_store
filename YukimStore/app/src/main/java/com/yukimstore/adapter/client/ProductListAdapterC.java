@@ -57,7 +57,7 @@ public class ProductListAdapterC extends ArrayAdapter<Product> {
             TextView name_product = v.findViewById(R.id.product_name);
             TextView details_product = v.findViewById(R.id.product_details);
             TextView price_product = v.findViewById(R.id.product_price);
-            Button add_to_basket = v.findViewById(R.id.add_to_basket);
+            final Button add_to_basket = v.findViewById(R.id.add_to_basket);
 
             ConstraintLayout btn_item = v.findViewById(R.id.btn_item);
             btn_item.setOnClickListener(new View.OnClickListener() {
@@ -73,18 +73,17 @@ public class ProductListAdapterC extends ArrayAdapter<Product> {
             ProductInBasket pib = AppDatabase.getInstance(getContext()).productInBasketDAO().getWithProductAndUser(p.id_product,user.id_user);
 
             if(pib==null){
+                add_to_basket.setVisibility(View.VISIBLE);
                 add_to_basket.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         ProductInBasket new_pib = new ProductInBasket(p.id_product,user.id_user,1);
                         AppDatabase.getInstance(getContext()).productInBasketDAO().insert(new_pib);
-                        Toast.makeText(getContext(),"Le produit a été ajouté en 1 exemplaire",Toast.LENGTH_SHORT).show();
-                        add_to_basket.setEnabled(false);
+                        Toast.makeText(getContext(),"The product has been added in the basket",Toast.LENGTH_SHORT).show();
                         add_to_basket.setVisibility(View.GONE);
                     }
                 });
             } else {
-                add_to_basket.setEnabled(false);
                 add_to_basket.setVisibility(View.GONE);
             }
 

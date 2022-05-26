@@ -7,6 +7,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 
 import com.yukimstore.db.entity.Product;
+import com.yukimstore.db.entity.ProductInBasket;
 import com.yukimstore.db.entity.ProductInOrder;
 
 import java.util.List;
@@ -27,6 +28,9 @@ public interface ProductInOrderDAO {
 
     @Insert(onConflict = ABORT)
     long insert(ProductInOrder pio);
+
+    @Insert(onConflict = ABORT)
+    void insertAll(List<ProductInOrder> pios);
 
     @Query("DELETE FROM ProductInOrder")
     void clear();

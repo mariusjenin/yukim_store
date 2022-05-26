@@ -6,9 +6,11 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import com.yukimstore.db.entity.InterestForCategory;
 import com.yukimstore.db.entity.Offer;
 
 import java.util.Date;
+import java.util.List;
 
 @Dao
 public interface OfferDAO {
@@ -20,6 +22,9 @@ public interface OfferDAO {
 
     @Insert(onConflict = ABORT)
     void insert(Offer offer);
+
+    @Insert(onConflict = ABORT)
+    void insertAll(List<Offer> offers);
 
     @Query("DELETE FROM Offer")
     void clear();

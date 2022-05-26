@@ -7,16 +7,15 @@ package User{
     mail
     hash_pwd
     is_merchant
+    token_connect
   }
   
   object Customer{
-    //**id_user**//
     first_name
     last_name
   }
   
   object Merchant{
-    //**id_user**//
     //id_store//
   }
 }
@@ -35,6 +34,7 @@ package Basket{
     //id_user//
     //id_store//
     date_order
+    total_price
   }
   
   object ProductInOrder{
@@ -45,21 +45,17 @@ package Basket{
   }
 }
 
+  
+
+
 package Store{
-  object TemplateStore{
-    **id_template**
+
+  object Store{
+    **id_user_store**
     name
-    [all the attributes needed for customizability]
+    img_store
   }
   
-  object Store{
-    **id_store**
-    name
-    [all the attributes needed for customizability]
-  }
-}
-
-package Product{
   object Category{
     **id_category**
     //id_store//
@@ -87,7 +83,6 @@ package Interest{
   object Interest{
     **id_interest**
     name
-    name
   }
   
   object UserHasInterest{
@@ -103,8 +98,8 @@ package Interest{
   }
 }
 
-User "1" -up-- "1" Customer
-User "1" -left-- "1" Merchant
+User  -up--  Customer
+User  -left--  Merchant
 User "1" --- "*" UserHasInterest
 User "1" --- "*" ProductInBasket
 User "1" --- "*" Order

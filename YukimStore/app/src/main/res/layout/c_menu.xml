@@ -163,7 +163,7 @@
             android:elevation="10dp"
             android:fontFamily="sans-serif"
             android:onClick="myOrders"
-            android:text="@string/my_orders2"
+            android:text="@string/my_orders"
             android:textAllCaps="false"
             android:textSize="16sp"
             tools:ignore="UsingOnClickInXml,TouchTargetSizeCheck" />

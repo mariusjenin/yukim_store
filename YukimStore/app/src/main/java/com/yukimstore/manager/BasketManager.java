@@ -33,6 +33,6 @@ public class BasketManager {
             sum_basket += pibs.get(i).quantity * price;
         }
 
-        return sum_basket;
+        return Math.round(sum_basket*100.0f)/100.0f;
     }
 }

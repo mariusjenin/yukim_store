@@ -6,6 +6,7 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import com.yukimstore.db.entity.Product;
 import com.yukimstore.db.entity.ProductInBasket;
 import com.yukimstore.db.entity.Store;
 
@@ -44,6 +45,9 @@ public interface ProductInBasketDAO {
 
     @Insert(onConflict = ABORT)
     void insert(ProductInBasket pib);
+
+    @Insert(onConflict = ABORT)
+    void insertAll(List<ProductInBasket> pibs);
 
     @Query("DELETE FROM ProductInBasket where ProductInBasket.id_user = :id_user")
     void clearBasket(int id_user);

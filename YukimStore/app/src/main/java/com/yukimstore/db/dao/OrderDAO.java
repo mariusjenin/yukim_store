@@ -6,6 +6,7 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import com.yukimstore.db.entity.Offer;
 import com.yukimstore.db.entity.Order;
 
 import java.util.List;
@@ -26,6 +27,9 @@ public interface OrderDAO {
 
     @Insert(onConflict = ABORT)
     long insert(Order order);
+
+    @Insert(onConflict = ABORT)
+    void insertAll(List<Order> orders);
 
     @Query("DELETE FROM OrderTable")
     void clear();

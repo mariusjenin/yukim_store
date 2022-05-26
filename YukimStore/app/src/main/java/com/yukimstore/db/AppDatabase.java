@@ -105,12 +105,7 @@ public abstract class AppDatabase extends RoomDatabase {
         //Client
         users.add(new User("william.puech@lirmm.fr", HashUtil.getSHA256SecurePassword("password",""),false,"William","Puech"));
 
-        int size_users = users.size();
-        Log.i("","USER INITILIZATION");
-        for(int i = 0 ; i < size_users; i++){
-            userDAO.insert(users.get(i));
-            Log.i("",users.get(i).mail);
-        }
+        userDAO.insertAll(users);
     }
 
     public void fillStores(){
@@ -124,12 +119,7 @@ public abstract class AppDatabase extends RoomDatabase {
         stores.add(new Store(userDAO().get("store@carrefour.fr").id_user,"Carrefour", null));
         stores.add(new Store(userDAO().get("store@naturea.fr").id_user,"Naturea", null));
 
-        int size_stores = stores.size();
-        Log.i("","STORE INITILIZATION");
-        for(int i = 0 ; i < size_stores; i++){
-            storeDAO.insert(stores.get(i));
-            Log.i("",stores.get(i).name);
-        }
+        storeDAO.insertAll(stores);
     }
 
     public void fillInterests(){
@@ -149,12 +139,7 @@ public abstract class AppDatabase extends RoomDatabase {
         interests.add(new Interest("Top garments"));
         interests.add(new Interest("Bottom garments"));
 
-        int size_interests = interests.size();
-        Log.i("","INTERESTS INITILIZATION");
-        for(int i = 0 ; i < size_interests; i++){
-            interestDAO.insert(interests.get(i));
-            Log.i("", interests.get(i).name);
-        }
+        interestDAO.insertAll(interests);
     }
 
     public void fillUsersHaveInterests(){
@@ -164,12 +149,7 @@ public abstract class AppDatabase extends RoomDatabase {
         uhis.add(new UserHasInterest(interestDAO().get("Extreme sports").id_interest,userDAO().get("william.puech@lirmm.fr").id_user));
         uhis.add(new UserHasInterest(interestDAO().get("Classical sports").id_interest,userDAO().get("william.puech@lirmm.fr").id_user));
 
-        int size_uhis = uhis.size();
-        Log.i("","USER HAS INTEREST INITILIZATION");
-        for(int i = 0 ; i < size_uhis; i++){
-            userHasInterestDAO.insert(uhis.get(i));
-            Log.i("", String.valueOf(uhis.get(i).id_uhi));
-        }
+        userHasInterestDAO.insertAll(uhis);
     }
 
     public void fillCategories(){
@@ -241,12 +221,7 @@ public abstract class AppDatabase extends RoomDatabase {
         products.add(new Product("Enclave EA1000THXUS CineHome Pro 5.1","Custom Drivers, 11 Class-D Digital Amplifiers, Full-Range Rears, 10 Subwoofer, Speaker Level Setup, Whole Room Stereo, Dolby and DTS Audio", 1840.0f, categoryDAO().getWithStoreAndName(userDAO().get("store@fnac.fr").id_user,"Home Studio").id_category,null));
         products.add(new Product("Apple Watch Series 7","GPS, 41mm Starlight Aluminum Case with Starlight Sport Band, Regular", 389.0f, categoryDAO().getWithStoreAndName(userDAO().get("store@fnac.fr").id_user,"Wearables").id_category,null));
 
-        int size_products = products.size();
-        Log.i("","PRODUCTS INITILIZATION");
-        for(int i = 0 ; i < size_products; i++){
-            productDAO.insert(products.get(i));
-            Log.i("",products.get(i).name);
-        }
+        productDAO.insertAll(products);
     }
 
     public void init(){

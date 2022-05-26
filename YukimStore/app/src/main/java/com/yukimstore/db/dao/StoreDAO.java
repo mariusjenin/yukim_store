@@ -26,8 +26,8 @@ public interface StoreDAO {
     @Insert(onConflict = ABORT)
     void insert(Store store);
 
-    @Insert(onConflict = REPLACE)
-    void insertAll(Store... stores);
+    @Insert(onConflict = ABORT)
+    void insertAll(List<Store> stores);
 
     @Delete
     void delete(Store store);

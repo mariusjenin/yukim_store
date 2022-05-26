@@ -22,9 +22,9 @@ public interface InterestForCategoryDAO {
 
     @Insert(onConflict = ABORT)
     void insert(InterestForCategory ifc);
-    
+
     @Insert(onConflict = ABORT)
-    void insertAll(ArrayList<InterestForCategory> ifcs);
+    void insertAll(List<InterestForCategory> ifcs);
 
     @Query("DELETE FROM InterestForCategory")
     void clear();

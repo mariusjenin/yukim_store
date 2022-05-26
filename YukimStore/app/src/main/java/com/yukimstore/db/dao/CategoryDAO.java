@@ -36,7 +36,7 @@ public interface CategoryDAO {
     long insert(Category category);
 
     @Insert(onConflict = ABORT)
-    void insertAll(ArrayList<Category> categories);
+    void insertAll(List<Category> categories);
 
     @Query("DELETE FROM Category")
     void clear();

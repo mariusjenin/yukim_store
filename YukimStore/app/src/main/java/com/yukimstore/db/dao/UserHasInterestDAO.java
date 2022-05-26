@@ -6,7 +6,10 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import com.yukimstore.db.entity.ProductInOrder;
 import com.yukimstore.db.entity.UserHasInterest;
+
+import java.util.List;
 
 @Dao
 public interface UserHasInterestDAO {
@@ -18,6 +21,9 @@ public interface UserHasInterestDAO {
 
     @Insert(onConflict = ABORT)
     void insert(UserHasInterest uhi);
+
+    @Insert(onConflict = ABORT)
+    void insertAll(List<UserHasInterest> uhis);
 
     @Query("DELETE FROM UserHasInterest")
     void clear();

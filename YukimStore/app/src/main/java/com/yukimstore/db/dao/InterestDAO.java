@@ -27,7 +27,7 @@ public interface InterestDAO {
     void insert(Interest interest);
 
     @Insert(onConflict = ABORT)
-    void insertAll(ArrayList<Interest> interests);
+    void insertAll(List<Interest> interests);
 
     @Query("DELETE FROM interest")
     void clear();

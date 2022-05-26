@@ -14,8 +14,6 @@
     <string name="stay_connected">Stay connected?</string>
     <string name="login">Login</string>
     <string name="create_store">Create a store</string>
-    <string name="choose_template">Choose a template</string>
-    <string name="customize_template">Customize your new store !</string>
     <string name="menu">Menu</string>
     <string name="categories">Categories</string>
     <string name="add_category">add category</string>
@@ -27,29 +25,14 @@
     <string name="product_name">Product name</string>
     <string name="details">Details</string>
     <string name="product_picture">Product picture</string>
-    <string name="add_product_to_store_name"><![CDATA[Add product to <store name>]]></string>
     <string name="price">Price</string>
     <string name="go_register">Create new account</string>
-    <string name="reset_db">Reset database</string>
     <string name="my_categories">My categories</string>
     <string name="my_products">My products</string>
     <string name="my_orders">My orders</string>
     <string name="orders">Orders</string>
     <string name="basket">Basket</string>
-    <string name="my_orders2">My orders</string>
-    <string name="template2">template2</string>
-    <string name="template1">template1</string>
-    <string name="template3">template3</string>
-    <string name="template4">template4</string>
-    <string name="template5">template5</string>
-    <string name="template6">template6</string>
-    <string name="mcs2_storename">Name of your store</string>
-    <string name="msc2_text1">First product to add :</string>
-    <string name="msc2_productname">Name</string>
-    <string name="msc2_productdetails">Details about the product</string>
-    <string name="msc2_productprice">Price</string>
-    <string name="sample">Sample</string>
-    <string name="all_products">All products</string>
+    <string name="name_of_your_store">Name of your store</string>
     <string name="DBCLEAR">dbclear</string>
     <string name="prod_interesting">Products that may be interesting for you</string>
     <string name="find_a_store">Find a store</string>
@@ -90,11 +73,4 @@
     <string name="new_price">New price</string>
     <string name="start_date">Start date</string>
     <string name="end_date">End date</string>
-    <string-array name="settings">
-        <item>Choice 1</item>
-        <item>Choice 2</item>
-        <item>Choice 3</item>
-        <item>Choice 4</item>
-        <item>Choice 5</item>
-    </string-array>
 </resources>

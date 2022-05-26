@@ -32,7 +32,7 @@
         android:background="@drawable/round_white"
         android:elevation="10dp"
         android:fontFamily="sans-serif"
-        android:hint="@string/mcs2_storename"
+        android:hint="@string/name_of_your_store"
         android:inputType="text"
         android:maxLines="1"
         android:minHeight="48dp"
