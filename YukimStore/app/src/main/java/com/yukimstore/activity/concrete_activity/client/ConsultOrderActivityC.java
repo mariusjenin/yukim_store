@@ -34,7 +34,8 @@ public class ConsultOrderActivityC extends ConnectedClientActivity {
         TextView total_price_order = findViewById(R.id.total_price_order);
         TextView no_result  = findViewById(R.id.no_result);
 
-        total_price_order.setText(AppDatabase.getInstance(this).productInOrderDAO().getSumOrder(order.id_order)+getResources().getString(R.string.euro));
+        float price = Math.round(AppDatabase.getInstance(this).productInOrderDAO().getSumOrder(order.id_order) * 100.0f)/100.0f;
+        total_price_order.setText(price+getResources().getString(R.string.euro));
 
         Store s = AppDatabase.getInstance(this).storeDAO().get(order.id_store);
         title_consult_products.setText(getResources().getString(R.string.order_at)+s.name);

@@ -76,6 +76,7 @@ public abstract class AppDatabase extends RoomDatabase {
     }
 
     public void clear(){
+        userHasInterestDAO().clear();
         interestForCategoryDAO().clear();
         interestDAO().clear();
         productInOrderDAO().clear();
@@ -87,7 +88,6 @@ public abstract class AppDatabase extends RoomDatabase {
         userDAO().clear();
 
 //        offerDAO().clear();
-//        userHasInterestDAO().clear();
     }
 
     public void fillUsers(){
@@ -223,7 +223,6 @@ public abstract class AppDatabase extends RoomDatabase {
     public void fillProductsInOrders(){
         ProductInOrderDAO productInOrderDAO = productInOrderDAO();
         ArrayList<ProductInOrder> pios = new ArrayList<>();
-        Log.i("", String.valueOf(productDAO().getProductsLike("Prod 1").get(0).id_product));
         pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m0@m0.m0").id_user).get(0).id_order,productDAO().getProductsLike("Prod 1").get(0).id_product,1,10));
         pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m0@m0.m0").id_user).get(0).id_order,productDAO().getProductsLike("Prod 2").get(0).id_product,2,20));
         pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m0@m0.m0").id_user).get(0).id_order,productDAO().getProductsLike("Prod 3").get(0).id_product,3,30));
@@ -245,7 +244,6 @@ public abstract class AppDatabase extends RoomDatabase {
     public void fillInterests(){
         InterestDAO interestDAO = interestDAO();
         ArrayList<Interest> interests = new ArrayList<>();
-        Log.i("", String.valueOf(productDAO().getProductsLike("Prod 1").get(0).id_product));
         interests.add(new Interest("Extreme sports"));
         interests.add(new Interest("Classical sports"));
         interests.add(new Interest("Street food"));
@@ -269,7 +267,6 @@ public abstract class AppDatabase extends RoomDatabase {
     public void fillInterestsForCategories(){
         InterestForCategoryDAO interestForCategoryDAO = interestForCategoryDAO();
         ArrayList<InterestForCategory> ifcs = new ArrayList<>();
-        Log.i("", String.valueOf(productDAO().getProductsLike("Prod 1").get(0).id_product));
         ifcs.add(new InterestForCategory(interestDAO().get("Extreme sports").id_interest,categoryDAO().getWithStoreAndName(userDAO().get("m0@m0.m0").id_user,"Cat 1").id_category));
         ifcs.add(new InterestForCategory(interestDAO().get("Classical sports").id_interest,categoryDAO().getWithStoreAndName(userDAO().get("m0@m0.m0").id_user,"Cat 1").id_category));
         ifcs.add(new InterestForCategory(interestDAO().get("Entertainment tech").id_interest,categoryDAO().getWithStoreAndName(userDAO().get("m1@m1.m1").id_user,"Cat 6").id_category));
@@ -279,6 +276,19 @@ public abstract class AppDatabase extends RoomDatabase {
         for(int i = 0 ; i < size_ifcs; i++){
             interestForCategoryDAO.insert(ifcs.get(i));
             Log.i("", String.valueOf(ifcs.get(i).id_ifc));
+        }
+    }
+
+    public void fillUsersHaveInterests(){
+        UserHasInterestDAO userHasInterestDAO = userHasInterestDAO();
+        ArrayList<UserHasInterest> uhis = new ArrayList<>();
+        uhis.add(new UserHasInterest(interestDAO().get("Extreme sports").id_interest,userDAO().get("c@c.c").id_user));
+        uhis.add(new UserHasInterest(interestDAO().get("Classical sports").id_interest,userDAO().get("c@c.c").id_user));
+        int size_uhis = uhis.size();
+        Log.i("","USER HAS INTEREST INITILIZATION");
+        for(int i = 0 ; i < size_uhis; i++){
+            userHasInterestDAO.insert(uhis.get(i));
+            Log.i("", String.valueOf(uhis.get(i).id_uhi));
         }
     }
 
@@ -293,5 +303,6 @@ public abstract class AppDatabase extends RoomDatabase {
         fillProductsInOrders();
         fillInterests();
         fillInterestsForCategories();
+        fillUsersHaveInterests();
     }
 }

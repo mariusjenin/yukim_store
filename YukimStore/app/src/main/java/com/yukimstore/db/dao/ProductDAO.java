@@ -22,6 +22,13 @@ public interface ProductDAO {
     @Query("SELECT * FROM Product where Product.name like '%' || :str || '%' or Product.details like '%' || :str || '%'")
     List<Product> getProductsLike(String str);
 
+    @Query("SELECT distinct Product.* FROM Product " +
+            "inner join Category on Product.id_category = Category.id_category " +
+            "inner join InterestForCategory on Category.id_category = InterestForCategory.id_category " +
+            "inner join UserHasInterest on InterestForCategory.id_interest = UserHasInterest.id_interest " +
+            "where UserHasInterest.id_user = :id_user")
+    List<Product> getProductsInterestingForUser(int id_user);
+
     @Insert(onConflict = ABORT)
     void insert(Product product);
 

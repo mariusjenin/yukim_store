@@ -111,6 +111,7 @@ public class ConsultBasketActivityC extends ConnectedClientActivity {
         } else {
             no_result.setVisibility(View.VISIBLE);
         }
-        total_price.setText(AppDatabase.getInstance(ConsultBasketActivityC.this).productInBasketDAO().getSumBasket(user.id_user) + getResources().getString(R.string.euro));
+        float price = Math.round(AppDatabase.getInstance(ConsultBasketActivityC.this).productInBasketDAO().getSumBasket(user.id_user) * 100.0f)/100.0f;
+        total_price.setText(price + getResources().getString(R.string.euro));
     }
 }

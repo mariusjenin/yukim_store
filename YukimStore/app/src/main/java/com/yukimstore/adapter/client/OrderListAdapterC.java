@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.yukimstore.R;
+import com.yukimstore.activity.concrete_activity.client.ConsultBasketActivityC;
 import com.yukimstore.activity.concrete_activity.client.ConsultOrderActivityC;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Order;
@@ -74,7 +75,8 @@ public class OrderListAdapterC extends ArrayAdapter<Order> {
             }
 
             if (total_price_order != null ) {
-                total_price_order.setText(String.valueOf(AppDatabase.getInstance(getContext()).productInOrderDAO().getSumOrder(o.id_order))+getContext().getResources().getString(R.string.euro));
+                float price = Math.round(AppDatabase.getInstance(getContext()).productInOrderDAO().getSumOrder(o.id_order) * 100.0f)/100.0f;
+                total_price_order.setText(price+getContext().getResources().getString(R.string.euro));
             }
         }
 

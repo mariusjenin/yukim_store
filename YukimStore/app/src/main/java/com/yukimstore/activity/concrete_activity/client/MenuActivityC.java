@@ -35,11 +35,11 @@ public class MenuActivityC extends ConnectedClientActivity {
     }
 
     public void prodInteresting(View view) {
-        //TODO remplace getAll by all interesting for user connected
         Intent intent;
         intent = new Intent(this, ConsultListProductsActivityC.class);
-        intent.putExtra("title","All products");
-        ArrayList<Product> products = (ArrayList<Product>) AppDatabase.getInstance(MenuActivityC.this).productDAO().getAll();
+        intent.putExtra("title",getResources().getString(R.string.prod_interesting));
+        User user = ConnectionManager.getInstance().getUtilisateur();
+        ArrayList<Product> products = (ArrayList<Product>) AppDatabase.getInstance(MenuActivityC.this).productDAO().getProductsInterestingForUser(user.id_user);
         intent.putExtra("products",products );
         this.startActivity(intent);
     }
