@@ -7,12 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.yukimstore.R;
 import com.yukimstore.activity.ConnectedClientActivity;
 import com.yukimstore.adapter.client.ProductInBasketAdapterC;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Order;
+import com.yukimstore.db.entity.Product;
 import com.yukimstore.db.entity.ProductInBasket;
 import com.yukimstore.db.entity.ProductInOrder;
 import com.yukimstore.db.entity.Store;
@@ -58,6 +60,10 @@ public class ConsultBasketActivityC extends ConnectedClientActivity {
                 //Get all stores concerned
                 List<Store> stores = apd.productInBasketDAO().getStoreWithProductsInBasket(user.id_user);
                 int size_stores = stores.size();
+                if(size_stores<=0){
+                    Toast.makeText(ConsultBasketActivityC.this,"Your basket is empty",Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 for(int i = 0; i < size_stores;i++){
                     //One order by store
                     Order o = new Order(stores.get(i).id_user_store,user.id_user,date);
@@ -67,13 +73,16 @@ public class ConsultBasketActivityC extends ConnectedClientActivity {
 
                     int size_pibs = pibs.size();
                     for(int j = 0; j < size_pibs;j++){
-                        ProductInOrder pio = new ProductInOrder(id_order,pibs.get(j).id_product,pibs.get(j).quantity);
+                        Product product = apd.productDAO().get(pibs.get(j).id_product);
+                        float total_price = pibs.get(j).quantity * product.price;
+                        ProductInOrder pio = new ProductInOrder(id_order,pibs.get(j).id_product,pibs.get(j).quantity,total_price);
                         apd.productInOrderDAO().insert(pio);
                     }
                 }
                 apd.productInBasketDAO().clearBasket(user.id_user);
 
 
+                finish();
                 Intent intent;
                 intent = new Intent(ConsultBasketActivityC.this, ConsultOrdersActivityC.class);
                 startActivity(intent);

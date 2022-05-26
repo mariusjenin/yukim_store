@@ -29,9 +29,13 @@ public class ProductInOrder implements Serializable {
     @ColumnInfo(name = "quantity")
     public int quantity;
 
-    public ProductInOrder(int id_order, int id_product, int quantity) {
+    @ColumnInfo(name = "total_price")
+    public float total_price;
+
+    public ProductInOrder(int id_order, int id_product, int quantity, float total_price) {
         this.id_order = id_order;
         this.id_product = id_product;
         this.quantity = quantity;
+        this.total_price = total_price;
     }
 }

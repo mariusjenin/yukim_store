@@ -22,8 +22,7 @@ public interface ProductInOrderDAO {
     @Query("SELECT * FROM ProductInOrder WHERE ProductInOrder.id_order = :id_order and ProductInOrder.id_product = :id_product LIMIT 1")
     ProductInOrder getWithOrderAndProduct(int id_order,int id_product);
 
-    @Query("SELECT sum(total_price_product) FROM (SELECT ProductInOrder.quantity * Product.price as total_price_product FROM ProductInOrder inner join Product on ProductInOrder.id_product = Product.id_product " +
-            "WHERE ProductInOrder.id_order = :id_order)")
+    @Query("SELECT sum(ProductInOrder.total_price) FROM ProductInOrder WHERE ProductInOrder.id_order = :id_order")
     float getSumOrder(int id_order);
 
     @Insert(onConflict = ABORT)

@@ -27,7 +27,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.merchant.MerchantMenuActivityM"
+            android:name=".activity.used.merchant.MenuActivityM"
             android:exported="false" />
 
         <activity
@@ -42,9 +42,17 @@
             android:name=".activity.used.merchant.ConsultProductActivityM"
             android:exported="false" />
 
+        <activity
+            android:name=".activity.used.merchant.AddCategoryActivityM"
+            android:exported="false" />
+
+        <activity
+            android:name=".activity.used.merchant.AddProductActivityM"
+            android:exported="false" />
+
         <!-- CLIENT ACTIVITIES -->
         <activity
-            android:name=".activity.used.client.MenuActivityClientC"
+            android:name=".activity.used.client.MenuActivityC"
             android:exported="false" />
 
         <activity

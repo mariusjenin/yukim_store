@@ -6,18 +6,18 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import com.yukimstore.db.entity.Interest;
 import com.yukimstore.db.entity.InterestForCategory;
+
+import java.util.List;
 
 @Dao
 public interface InterestForCategoryDAO {
     @Query("SELECT * FROM InterestForCategory WHERE InterestForCategory.id_ifc = :id LIMIT 1")
     InterestForCategory get(int id);
 
-    @Query("SELECT * FROM InterestForCategory WHERE InterestForCategory.id_category = :id_category")
-    InterestForCategory getWithCategory(int id_category);
-
-    @Query("SELECT * FROM InterestForCategory WHERE InterestForCategory.id_interest = :id_interest")
-    InterestForCategory getWithInterest(int id_interest);
+    @Query("SELECT Interest.* FROM InterestForCategory inner join Interest on InterestForCategory.id_interest = Interest.id_interest WHERE InterestForCategory.id_category = :id_category")
+    List<Interest> getInterestsWithCategory(int id_category);
 
     @Insert(onConflict = ABORT)
     void insert(InterestForCategory ifc);

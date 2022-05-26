@@ -78,12 +78,12 @@ public class ProductListAdapterC extends ArrayAdapter<Product> {
                         AppDatabase.getInstance(getContext()).productInBasketDAO().insert(new_pib);
                         Toast.makeText(getContext(),"Le produit a été ajouté en 1 exemplaire",Toast.LENGTH_SHORT).show();
                         add_to_basket.setEnabled(false);
-                        add_to_basket.setVisibility(View.INVISIBLE);
+                        add_to_basket.setVisibility(View.GONE);
                     }
                 });
             } else {
                 add_to_basket.setEnabled(false);
-                add_to_basket.setVisibility(View.INVISIBLE);
+                add_to_basket.setVisibility(View.GONE);
             }
 
             if (name_product != null ) {

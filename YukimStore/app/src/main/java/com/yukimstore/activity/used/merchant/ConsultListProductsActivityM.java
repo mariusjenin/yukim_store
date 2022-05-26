@@ -1,13 +1,18 @@
 package com.yukimstore.activity.used.merchant;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.yukimstore.R;
 import com.yukimstore.activity.ConnectedMerchantWithStoreActivity;
 import com.yukimstore.adapter.merchant.ProductListAdapterM;
+import com.yukimstore.db.entity.Category;
 import com.yukimstore.db.entity.Product;
 
 import java.util.List;
@@ -22,6 +27,22 @@ public class ConsultListProductsActivityM extends ConnectedMerchantWithStoreActi
 
         products = (List<Product>) getIntent().getSerializableExtra("products");
         String title = getIntent().getStringExtra("title");
+        boolean has_add_product = getIntent().getBooleanExtra("has_add_product",false);
+        Button add_product = findViewById(R.id.add_product);
+        if(has_add_product){
+            Category category = (Category) getIntent().getSerializableExtra("category");
+            add_product.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent;
+                    intent = new Intent(ConsultListProductsActivityM.this, AddProductActivityM.class);
+                    intent.putExtra("category",category);
+                    startActivity(intent);
+                }
+            });
+        } else {
+            add_product.setVisibility(View.GONE);
+        }
 
         ListView list_products = findViewById(R.id.list_products);
         TextView title_consult_products = findViewById(R.id.title_consult_products);

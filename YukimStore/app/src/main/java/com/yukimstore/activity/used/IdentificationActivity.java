@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.yukimstore.activity.unused.NotConnectedActivity;
 import com.yukimstore.R;
-import com.yukimstore.activity.used.client.MenuActivityClientC;
+import com.yukimstore.activity.used.client.MenuActivityC;
 import com.yukimstore.activity.used.merchant.CreateStoreActivityM;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.dao.UserDAO;
@@ -203,7 +203,7 @@ public class IdentificationActivity extends NotConnectedActivity {
                 startActivity(new Intent(this, CreateStoreActivityM.class));
             }
             else {
-                startActivity(new Intent(this, MenuActivityClientC.class));
+                startActivity(new Intent(this, MenuActivityC.class));
             }
         }
 

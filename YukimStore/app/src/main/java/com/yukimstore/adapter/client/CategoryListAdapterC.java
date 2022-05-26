@@ -15,6 +15,7 @@ import com.yukimstore.R;
 import com.yukimstore.activity.used.client.ConsultListProductsActivityC;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Category;
+import com.yukimstore.db.entity.Interest;
 import com.yukimstore.db.entity.Product;
 import com.yukimstore.db.entity.Store;
 
@@ -71,7 +72,19 @@ public class CategoryListAdapterC extends ArrayAdapter<Category> {
             }
 
             if (interests_category != null ) {
-                interests_category.setText("interests"); //TODO
+                List<Interest> interests = AppDatabase.getInstance(getContext()).interestForCategoryDAO().getInterestsWithCategory(c.id_category);
+                StringBuilder interest_str_builder = new StringBuilder();
+                int size_interests = interests.size();
+                if(size_interests>0){
+                    interests_category.setVisibility(View.VISIBLE);
+                    for(int i = 0 ; i < size_interests;i++){
+                        if(i!=0) interest_str_builder.append(" | ");
+                        interest_str_builder.append(interests.get(i).name);
+                    }
+                    interests_category.setText(interest_str_builder.toString());
+                } else {
+                    interests_category.setVisibility(View.GONE);
+                }
             }
         }
 

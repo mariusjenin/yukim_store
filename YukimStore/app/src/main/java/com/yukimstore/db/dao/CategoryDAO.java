@@ -33,7 +33,7 @@ public interface CategoryDAO {
     List<Product> getProductsOfCategory(int id_category);
 
     @Insert(onConflict = ABORT)
-    void insert(Category category);
+    long insert(Category category);
 
     @Insert(onConflict = REPLACE)
     void insertAll(ArrayList<Category> categories);

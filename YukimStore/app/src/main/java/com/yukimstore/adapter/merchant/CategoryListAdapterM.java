@@ -4,18 +4,25 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.yukimstore.R;
+import com.yukimstore.activity.used.client.ConsultStoreActivityC;
+import com.yukimstore.activity.used.merchant.AddProductActivityM;
 import com.yukimstore.activity.used.merchant.ConsultListProductsActivityM;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Category;
+import com.yukimstore.db.entity.Interest;
+import com.yukimstore.db.entity.InterestForCategory;
 import com.yukimstore.db.entity.Product;
 import com.yukimstore.db.entity.Store;
 
@@ -51,15 +58,27 @@ public class CategoryListAdapterM extends ArrayAdapter<Category> {
         if (c != null) {
             TextView name_category = v.findViewById(R.id.category_name);
             TextView interests_category = v.findViewById(R.id.interests_category);
+            Button add_product = v.findViewById(R.id.add_product);
+
+            add_product.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent;
+                    Context context = getContext();
+                    intent = new Intent(context, AddProductActivityM.class);
+                    intent.putExtra("category",c);
+                    context.startActivity(intent);
+                }
+            });
 
             ConstraintLayout btn_store = v.findViewById(R.id.btn_item);
             btn_store.setOnClickListener(view -> {
                 Intent intent;
                 Context context = getContext();
-                Resources resources = context.getResources();
                 intent = new Intent(context, ConsultListProductsActivityM.class);
-                Store store =  AppDatabase.getInstance(context).storeDAO().get(c.id_store);
                 intent.putExtra("title", c.name);
+                intent.putExtra("has_add_product", true);
+                intent.putExtra("category", c);
                 ArrayList<Product> products = (ArrayList<Product>) AppDatabase.getInstance(context).categoryDAO().getProductsOfCategory(c.id_category);
                 intent.putExtra("products",products);
                 context.startActivity(intent);
@@ -70,7 +89,19 @@ public class CategoryListAdapterM extends ArrayAdapter<Category> {
             }
 
             if (interests_category != null ) {
-                interests_category.setText("interests"); //TODO
+                List<Interest> interests = AppDatabase.getInstance(getContext()).interestForCategoryDAO().getInterestsWithCategory(c.id_category);
+                StringBuilder interest_str_builder = new StringBuilder();
+                int size_interests = interests.size();
+                if(size_interests>0){
+                    interests_category.setVisibility(View.VISIBLE);
+                    for(int i = 0 ; i < size_interests;i++){
+                        if(i!=0) interest_str_builder.append(" | ");
+                        interest_str_builder.append(interests.get(i).name);
+                    }
+                    interests_category.setText(interest_str_builder.toString());
+                } else {
+                    interests_category.setVisibility(View.GONE);
+                }
             }
         }
 

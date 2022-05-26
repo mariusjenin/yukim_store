@@ -3,7 +3,7 @@ package com.yukimstore.middleware;
 import android.app.Activity;
 import android.content.Intent;
 
-import com.yukimstore.activity.used.client.MenuActivityClientC;
+import com.yukimstore.activity.used.client.MenuActivityC;
 import com.yukimstore.manager.ConnectionManager;
 
 /**
@@ -21,7 +21,7 @@ public class ClientMiddleware extends TypeUserMiddleware {
     }
     public void redirect(Activity activity){
         activity.finish();
-        Intent intent = new Intent(activity, MenuActivityClientC.class);
+        Intent intent = new Intent(activity, MenuActivityC.class);
         activity.startActivity(intent);
     }
 }

@@ -76,7 +76,7 @@ public class CreateStoreActivityM extends ConnectedMerchantWithoutStoreActivity 
         EditText storeNameInput = findViewById(R.id.storeName);
         String storeName = storeNameInput.getText().toString();
 
-        if(storeName.equals("")) {
+        if(storeName.isEmpty()) {
             Toast.makeText(this,"Please enter a valid name",Toast.LENGTH_SHORT).show();
             return;
         }
@@ -118,7 +118,7 @@ public class CreateStoreActivityM extends ConnectedMerchantWithoutStoreActivity 
 
         Toast.makeText(this,"Your store is open !",Toast.LENGTH_SHORT).show();
 
-        startActivity(new Intent(this, MerchantMenuActivityM.class));
+        startActivity(new Intent(this, MenuActivityM.class));
     }
 
     private void generateClothingTemplate(AppDatabase db,int user_id) {

@@ -37,7 +37,6 @@
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="aa"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -52,8 +51,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="aa"
-                android:textAlignment="textStart"
+                android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 

@@ -80,8 +80,7 @@ public class ProductInOrderAdapterC extends ArrayAdapter<Product> {
             }
 
             if (total_price != null ) {
-                float total_price_product = Math.round(p.price * pio.quantity *100.0f)/100.0f;
-                total_price.setText(String.valueOf(total_price_product)+ getContext().getResources().getString(R.string.euro));
+                total_price.setText(String.valueOf(pio.total_price)+ getContext().getResources().getString(R.string.euro));
             }
         }
 
