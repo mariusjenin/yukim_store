@@ -82,6 +82,7 @@ public class AddCategoryActivityM extends ConnectedMerchantWithStoreActivity {
                 }
 
                 finish();
+                Toast.makeText(AddCategoryActivityM.this,"Your category have been saved",Toast.LENGTH_SHORT).show();
                 Intent intent;
                 intent = new Intent(AddCategoryActivityM.this, ConsultListProductsActivityM.class);
                 intent.putExtra("title", category.name);

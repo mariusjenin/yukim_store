@@ -93,26 +93,33 @@
         <TextView
             android:id="@+id/store_name"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="76dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:gravity="center"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/log_out"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/leave_btn2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:clickable="true"
             android:contentDescription="@string/content_description"
-            android:focusable="true"
+            android:focusable="auto"
             android:onClick="disconnect"
             app:backgroundTint="@color/lightTeal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/log_out"
-            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,ImageContrastCheck,ImageContrastCheck,UsingOnClickInXml" />
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </LinearLayout>
 

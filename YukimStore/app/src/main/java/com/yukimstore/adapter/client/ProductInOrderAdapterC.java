@@ -55,8 +55,8 @@ public class ProductInOrderAdapterC extends ArrayAdapter<Product> {
             TextView product_category_name = v.findViewById(R.id.product_category_name);
             TextView total_price = v.findViewById(R.id.total_price_item);
 
-            ConstraintLayout btn_store = v.findViewById(R.id.btn_item);
-            btn_store.setOnClickListener(new View.OnClickListener() {
+            ConstraintLayout btn_item = v.findViewById(R.id.btn_item);
+            btn_item.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent;

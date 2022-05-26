@@ -53,7 +53,7 @@ import java.util.List;
         ProductInBasket.class,
         Order.class,
         ProductInOrder.class
-},version = 4, exportSchema = false)
+},version = 1, exportSchema = false)
 @TypeConverters({DateConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase INSTANCE = null;
@@ -77,6 +77,7 @@ public abstract class AppDatabase extends RoomDatabase {
     }
 
     public void clear(){
+        offerDAO().clear();
         userHasInterestDAO().clear();
         interestForCategoryDAO().clear();
         interestDAO().clear();
@@ -87,8 +88,6 @@ public abstract class AppDatabase extends RoomDatabase {
         categoryDAO().clear();
         storeDAO().clear();
         userDAO().clear();
-
-//        offerDAO().clear();
     }
 
     public void fillUsers(){

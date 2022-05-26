@@ -51,8 +51,8 @@ public class CategoryListAdapterC extends ArrayAdapter<Category> {
             TextView name_category = v.findViewById(R.id.category_name);
             TextView interests_category = v.findViewById(R.id.interests_category);
 
-            ConstraintLayout btn_store = v.findViewById(R.id.btn_item);
-            btn_store.setOnClickListener(new View.OnClickListener() {
+            ConstraintLayout btn_item = v.findViewById(R.id.btn_item);
+            btn_item.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent;

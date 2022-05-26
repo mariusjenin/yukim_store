@@ -13,6 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.yukimstore.R;
 import com.yukimstore.activity.concrete_activity.client.ConsultProductActivityC;
+import com.yukimstore.activity.concrete_activity.merchant.ConsultProductActivityM;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Category;
 import com.yukimstore.db.entity.Order;
@@ -56,16 +57,16 @@ public class ProductInOrderAdapterM extends ArrayAdapter<Product> {
             TextView product_category_name = v.findViewById(R.id.product_category_name);
             TextView total_price = v.findViewById(R.id.total_price_item);
 
-            ConstraintLayout btn_store = v.findViewById(R.id.btn_item);
-//            btn_store.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Intent intent;
-//                    intent = new Intent(getContext(), ConsultProductActivityC.class);
-//                    intent.putExtra("product",p);
-//                    getContext().startActivity(intent);
-//                }
-//            });
+            ConstraintLayout btn_item = v.findViewById(R.id.btn_item);
+            btn_item.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent;
+                    intent = new Intent(getContext(), ConsultProductActivityM.class);
+                    intent.putExtra("product",p);
+                    getContext().startActivity(intent);
+                }
+            });
 
             if (product_name != null ) {
                 product_name.setText(p.name);

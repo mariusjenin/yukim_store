@@ -54,6 +54,7 @@ public class AddProductActivityM extends ConnectedMerchantWithStoreActivity {
                 AppDatabase.getInstance(AddProductActivityM.this).productDAO().insert(product);
 
                 finish();
+                Toast.makeText(AddProductActivityM.this,"Your product have been saved",Toast.LENGTH_SHORT).show();
             }
         });
     }
