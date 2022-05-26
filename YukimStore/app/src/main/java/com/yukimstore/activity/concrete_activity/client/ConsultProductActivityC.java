@@ -15,11 +15,14 @@ import com.yukimstore.R;
 import com.yukimstore.activity.abstract_activity.ConnectedClientActivity;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Category;
+import com.yukimstore.db.entity.Offer;
 import com.yukimstore.db.entity.Product;
 import com.yukimstore.db.entity.ProductInBasket;
 import com.yukimstore.db.entity.Store;
 import com.yukimstore.db.entity.User;
 import com.yukimstore.manager.ConnectionManager;
+
+import java.util.Date;
 
 public class ConsultProductActivityC extends ConnectedClientActivity {
     Product product;
@@ -56,7 +59,16 @@ public class ConsultProductActivityC extends ConnectedClientActivity {
         product_name.setText(product.name);
         category_name.setText(category.name);
         store_name.setText(store.name);
-        price_product.setText(String.valueOf(product.price)+getResources().getString(R.string.euro));
+
+        float price;
+        Offer offer = apd.offerDAO().get(product.id_product,new Date());
+        if(offer == null ){
+            price = product.price;
+        } else {
+            price = offer.price;
+        }
+
+        price_product.setText(String.valueOf(price)+getResources().getString(R.string.euro));
         details_product.setText(product.details);
         consult_store.setText(getResources().getString(R.string.consult) + store.name);
 
@@ -88,7 +100,7 @@ public class ConsultProductActivityC extends ConnectedClientActivity {
                 } else {
                     ProductInBasket new_pib = new ProductInBasket(product.id_product,user.id_user,quantity_int);
                     apd.productInBasketDAO().insert(new_pib);
-                    Toast.makeText(ConsultProductActivityC.this,"Le produit a été ajouté en "+quantity_int+"exemplaire"+(quantity_int>1?"s":""),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ConsultProductActivityC.this,"Le produit a été ajouté en "+quantity_int+" exemplaire"+(quantity_int>1?"s":""),Toast.LENGTH_SHORT).show();
                 }
             }
         });

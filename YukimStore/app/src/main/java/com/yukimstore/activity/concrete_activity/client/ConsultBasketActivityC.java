@@ -13,12 +13,14 @@ import com.yukimstore.R;
 import com.yukimstore.activity.abstract_activity.ConnectedClientActivity;
 import com.yukimstore.adapter.client.ProductInBasketAdapterC;
 import com.yukimstore.db.AppDatabase;
+import com.yukimstore.db.entity.Offer;
 import com.yukimstore.db.entity.Order;
 import com.yukimstore.db.entity.Product;
 import com.yukimstore.db.entity.ProductInBasket;
 import com.yukimstore.db.entity.ProductInOrder;
 import com.yukimstore.db.entity.Store;
 import com.yukimstore.db.entity.User;
+import com.yukimstore.manager.BasketManager;
 import com.yukimstore.manager.ConnectionManager;
 
 import java.util.Date;
@@ -75,7 +77,16 @@ public class ConsultBasketActivityC extends ConnectedClientActivity {
                     int size_pibs = pibs.size();
                     for(int j = 0; j < size_pibs;j++){
                         Product product = apd.productDAO().get(pibs.get(j).id_product);
-                        float total_price = pibs.get(j).quantity * product.price;
+
+                        float price;
+                        Offer offer = apd.offerDAO().get(product.id_product,new Date());
+                        if(offer == null ){
+                            price = product.price;
+                        } else {
+                            price = offer.price;
+                        }
+
+                        float total_price = pibs.get(j).quantity * price;
                         ProductInOrder pio = new ProductInOrder(id_order,pibs.get(j).id_product,pibs.get(j).quantity,total_price);
                         apd.productInOrderDAO().insert(pio);
                     }
@@ -111,7 +122,7 @@ public class ConsultBasketActivityC extends ConnectedClientActivity {
         } else {
             no_result.setVisibility(View.VISIBLE);
         }
-        float price = Math.round(AppDatabase.getInstance(ConsultBasketActivityC.this).productInBasketDAO().getSumBasket(user.id_user) * 100.0f)/100.0f;
+        float price = BasketManager.getSumBasket(this,user.id_user);
         total_price.setText(price + getResources().getString(R.string.euro));
     }
 }

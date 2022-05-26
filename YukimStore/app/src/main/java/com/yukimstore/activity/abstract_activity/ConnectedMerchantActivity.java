@@ -22,8 +22,6 @@ public abstract class ConnectedMerchantActivity extends ConnectedActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        ConnectionManager cm = ConnectionManager.getInstance();
-//        cm.removeTokenUserFromPrefs(this);
         verify_and_redirect();
     }
 

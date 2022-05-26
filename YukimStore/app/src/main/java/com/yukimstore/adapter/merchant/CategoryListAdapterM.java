@@ -65,8 +65,8 @@ public class CategoryListAdapterM extends ArrayAdapter<Category> {
                 }
             });
 
-            ConstraintLayout btn_store = v.findViewById(R.id.btn_item);
-            btn_store.setOnClickListener(view -> {
+            ConstraintLayout btn_item = v.findViewById(R.id.btn_item);
+            btn_item.setOnClickListener(view -> {
                 Intent intent;
                 Context context = getContext();
                 intent = new Intent(context, ConsultListProductsActivityM.class);

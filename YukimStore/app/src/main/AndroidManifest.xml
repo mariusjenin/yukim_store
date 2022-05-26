@@ -54,9 +54,12 @@
             android:name=".activity.concrete_activity.merchant.ConsultOrdersActivityM"
             android:exported="false" />
 
-
         <activity
             android:name=".activity.concrete_activity.merchant.ConsultOrderActivityM"
+            android:exported="false" />
+
+        <activity
+            android:name=".activity.concrete_activity.merchant.AddOfferActivityM"
             android:exported="false" />
 
         <!-- CLIENT ACTIVITIES -->

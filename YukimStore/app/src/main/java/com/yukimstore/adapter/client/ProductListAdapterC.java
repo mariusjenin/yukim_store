@@ -15,10 +15,12 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.yukimstore.R;
 
+import java.util.Date;
 import java.util.List;
 
 import com.yukimstore.activity.concrete_activity.client.ConsultProductActivityC;
 import com.yukimstore.db.AppDatabase;
+import com.yukimstore.db.entity.Offer;
 import com.yukimstore.db.entity.Product;
 import com.yukimstore.db.entity.ProductInBasket;
 import com.yukimstore.db.entity.User;
@@ -95,7 +97,14 @@ public class ProductListAdapterC extends ArrayAdapter<Product> {
             }
 
             if (price_product != null ) {
-                price_product.setText(String.valueOf(p.price)+getContext().getResources().getString(R.string.euro));
+                float price;
+                Offer offer = AppDatabase.getInstance(getContext()).offerDAO().get(p.id_product,new Date());
+                if(offer== null ){
+                    price = p.price;
+                } else {
+                    price = offer.price;
+                }
+                price_product.setText(String.valueOf(price)+getContext().getResources().getString(R.string.euro));
             }
         }
 

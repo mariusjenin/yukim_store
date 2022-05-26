@@ -14,11 +14,13 @@ package com.yukimstore.adapter.client;
 
         import com.yukimstore.R;
 
+        import java.util.Date;
         import java.util.List;
 
         import com.yukimstore.activity.concrete_activity.client.ConsultBasketActivityC;
         import com.yukimstore.activity.concrete_activity.client.ConsultProductActivityC;
         import com.yukimstore.db.AppDatabase;
+        import com.yukimstore.db.entity.Offer;
         import com.yukimstore.db.entity.Product;
         import com.yukimstore.db.entity.ProductInBasket;
 
@@ -92,7 +94,16 @@ public class ProductInBasketAdapterC extends ArrayAdapter<ProductInBasket> {
             }
 
             if (total_price != null) {
-                float total_price_product = Math.round(p.price * pib.quantity *100.0f)/100.0f;
+
+                float price;
+                Offer offer = AppDatabase.getInstance(getContext()).offerDAO().get(p.id_product,new Date());
+                if(offer== null ){
+                    price = p.price;
+                } else {
+                    price = offer.price;
+                }
+
+                float total_price_product = Math.round(price * pib.quantity *100.0f)/100.0f;
                 total_price.setText(String.valueOf(total_price_product) + getContext().getResources().getString(R.string.euro));
             }
 

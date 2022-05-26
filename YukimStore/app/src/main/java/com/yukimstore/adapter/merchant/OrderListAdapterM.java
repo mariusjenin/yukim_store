@@ -54,8 +54,8 @@ public class OrderListAdapterM extends ArrayAdapter<Order> {
             TextView date_order = v.findViewById(R.id.date_order);
             TextView total_price_order = v.findViewById(R.id.total_price_order);
 
-            ConstraintLayout btn_store = v.findViewById(R.id.btn_item);
-            btn_store.setOnClickListener(new View.OnClickListener() {
+            ConstraintLayout btn_item = v.findViewById(R.id.btn_item);
+            btn_item.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent;

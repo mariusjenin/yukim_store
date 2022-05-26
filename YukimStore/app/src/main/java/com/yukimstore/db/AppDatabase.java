@@ -52,7 +52,7 @@ import java.util.List;
         ProductInBasket.class,
         Order.class,
         ProductInOrder.class
-},version = 4, exportSchema = false)
+},version = 1, exportSchema = false)
 @TypeConverters({DateConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase INSTANCE = null;
@@ -76,6 +76,7 @@ public abstract class AppDatabase extends RoomDatabase {
     }
 
     public void clear(){
+        offerDAO().clear();
         userHasInterestDAO().clear();
         interestForCategoryDAO().clear();
         interestDAO().clear();
@@ -86,38 +87,36 @@ public abstract class AppDatabase extends RoomDatabase {
         categoryDAO().clear();
         storeDAO().clear();
         userDAO().clear();
-
-//        offerDAO().clear();
     }
 
     public void fillUsers(){
         UserDAO userDAO = userDAO();
         ArrayList<User> users = new ArrayList<>();
         //Merchant
-        users.add(new User("m0@m0.m0", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
-        users.add(new User("m1@m1.m1", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
-        users.add(new User("m2@m2.m2", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
-        users.add(new User("m3@m3.m3", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
-        users.add(new User("m4@m4.m4", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
-        users.add(new User("m5@m5.m5", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
-        users.add(new User("m6@m6.m6", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
-        users.add(new User("m7@m7.m7", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
-        users.add(new User("m8@m8.m8", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
-        users.add(new User("m9@m9.m9", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
+        users.add(new User("m0@m.com", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
+        users.add(new User("m1@m.com", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
+        users.add(new User("m2@m.com", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
+        users.add(new User("m3@m.com", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
+        users.add(new User("m4@m.com", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
+        users.add(new User("m5@m.com", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
+        users.add(new User("m6@m.com", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
+        users.add(new User("m7@m.com", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
+        users.add(new User("m8@m.com", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
+        users.add(new User("m9@m.com", HashUtil.getSHA256SecurePassword("aaaaaa",""),true,"",""));
         //Client
-        users.add(new User("c0@c0.c0", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c0","c0"));
-        users.add(new User("c1@c1.c1", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c1","c1"));
-        users.add(new User("c2@c2.c2", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c2","c2"));
-        users.add(new User("c3@c3.c3", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c3","c3"));
-        users.add(new User("c4@c4.c4", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c4","c4"));
-        users.add(new User("c5@c5.c5", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c5","c5"));
-        users.add(new User("c6@c6.c6", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c6","c6"));
-        users.add(new User("c7@c7.c7", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c7","c7"));
-        users.add(new User("c8@c8.c8", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c8","c8"));
-        users.add(new User("c9@c9.c9", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c9","c9"));
+        users.add(new User("c0@c.com", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c0","c0"));
+        users.add(new User("c1@c.com", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c1","c1"));
+        users.add(new User("c2@c.com", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c2","c2"));
+        users.add(new User("c3@c.com", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c3","c3"));
+        users.add(new User("c4@c.com", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c4","c4"));
+        users.add(new User("c5@c.com", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c5","c5"));
+        users.add(new User("c6@c.com", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c6","c6"));
+        users.add(new User("c7@c.com", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c7","c7"));
+        users.add(new User("c8@c.com", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c8","c8"));
+        users.add(new User("c9@c.com", HashUtil.getSHA256SecurePassword("aaaaaa",""),false,"c9","c9"));
         //Debug
-        users.add(new User("c@c.c", HashUtil.getSHA256SecurePassword("cccccc",""),false,"c","c"));
-        users.add(new User("m@m.m", HashUtil.getSHA256SecurePassword("mmmmmm",""),true,"m","m"));
+        users.add(new User("c@c.com", HashUtil.getSHA256SecurePassword("cccccc",""),false,"c","c"));
+        users.add(new User("m@m.com", HashUtil.getSHA256SecurePassword("mmmmmm",""),true,"m","m"));
         int size_users = users.size();
         Log.i("","USER INITILIZATION");
         for(int i = 0 ; i < size_users; i++){
@@ -129,16 +128,16 @@ public abstract class AppDatabase extends RoomDatabase {
     public void fillStores(){
         StoreDAO storeDAO = storeDAO();
         ArrayList<Store> stores = new ArrayList<>();
-        stores.add(new Store(userDAO().get("m0@m0.m0").id_user,"Store abc", null));
-        stores.add(new Store(userDAO().get("m1@m1.m1").id_user,"Store bcd", null));
-        stores.add(new Store(userDAO().get("m2@m2.m2").id_user,"Store cde", null));
-        stores.add(new Store(userDAO().get("m3@m3.m3").id_user,"Store def", null));
-        stores.add(new Store(userDAO().get("m4@m4.m4").id_user,"Store efg", null));
-        stores.add(new Store(userDAO().get("m5@m5.m5").id_user,"Store fgh", null));
-        stores.add(new Store(userDAO().get("m6@m6.m6").id_user,"Store ghi", null));
-        stores.add(new Store(userDAO().get("m7@m7.m7").id_user,"Store hij", null));
-        stores.add(new Store(userDAO().get("m8@m8.m8").id_user,"Store ijk", null));
-        stores.add(new Store(userDAO().get("m9@m9.m9").id_user,"Store jkl", null));
+        stores.add(new Store(userDAO().get("m0@m.com").id_user,"Store abc", null));
+        stores.add(new Store(userDAO().get("m1@m.com").id_user,"Store bcd", null));
+        stores.add(new Store(userDAO().get("m2@m.com").id_user,"Store cde", null));
+        stores.add(new Store(userDAO().get("m3@m.com").id_user,"Store def", null));
+        stores.add(new Store(userDAO().get("m4@m.com").id_user,"Store efg", null));
+        stores.add(new Store(userDAO().get("m5@m.com").id_user,"Store fgh", null));
+        stores.add(new Store(userDAO().get("m6@m.com").id_user,"Store ghi", null));
+        stores.add(new Store(userDAO().get("m7@m.com").id_user,"Store hij", null));
+        stores.add(new Store(userDAO().get("m8@m.com").id_user,"Store ijk", null));
+        stores.add(new Store(userDAO().get("m9@m.com").id_user,"Store jkl", null));
         int size_stores = stores.size();
         Log.i("","STORE INITILIZATION");
         for(int i = 0 ; i < size_stores; i++){
@@ -150,16 +149,16 @@ public abstract class AppDatabase extends RoomDatabase {
     public void fillCategories(){
         CategoryDAO categoryDAO = categoryDAO();
         ArrayList<Category> categories = new ArrayList<>();
-        categories.add(new Category("Cat 1", userDAO().get("m0@m0.m0").id_user));
-        categories.add(new Category("Cat 2", userDAO().get("m0@m0.m0").id_user));
-        categories.add(new Category("Cat 3", userDAO().get("m0@m0.m0").id_user));
-        categories.add(new Category("Cat 4", userDAO().get("m0@m0.m0").id_user));
-        categories.add(new Category("Cat 5", userDAO().get("m0@m0.m0").id_user));
-        categories.add(new Category("Cat 6", userDAO().get("m1@m1.m1").id_user));
-        categories.add(new Category("Cat 7", userDAO().get("m1@m1.m1").id_user));
-        categories.add(new Category("Cat 8", userDAO().get("m1@m1.m1").id_user));
-        categories.add(new Category("Cat 9", userDAO().get("m1@m1.m1").id_user));
-        categories.add(new Category("Cat 10", userDAO().get("m1@m1.m1").id_user));
+        categories.add(new Category("Cat 1", userDAO().get("m0@m.com").id_user));
+        categories.add(new Category("Cat 2", userDAO().get("m0@m.com").id_user));
+        categories.add(new Category("Cat 3", userDAO().get("m0@m.com").id_user));
+        categories.add(new Category("Cat 4", userDAO().get("m0@m.com").id_user));
+        categories.add(new Category("Cat 5", userDAO().get("m0@m.com").id_user));
+        categories.add(new Category("Cat 6", userDAO().get("m1@m.com").id_user));
+        categories.add(new Category("Cat 7", userDAO().get("m1@m.com").id_user));
+        categories.add(new Category("Cat 8", userDAO().get("m1@m.com").id_user));
+        categories.add(new Category("Cat 9", userDAO().get("m1@m.com").id_user));
+        categories.add(new Category("Cat 10", userDAO().get("m1@m.com").id_user));
         int size_categories = categories.size();
         Log.i("","CATEGORIES INITILIZATION");
         for(int i = 0 ; i < size_categories; i++){
@@ -171,16 +170,16 @@ public abstract class AppDatabase extends RoomDatabase {
     public void fillProducts(){
         ProductDAO productDAO = productDAO();
         ArrayList<Product> products = new ArrayList<>();
-        products.add(new Product("Prod 1","details prod 1", 0.99f, categoryDAO().getWithStoreAndName(userDAO().get("m0@m0.m0").id_user,"Cat 1").id_category,null));
-        products.add(new Product("Prod 2","details prod 2", 9.99f, categoryDAO().getWithStoreAndName(userDAO().get("m0@m0.m0").id_user,"Cat 1").id_category,null));
-        products.add(new Product("Prod 3","details prod 3", 19.99f, categoryDAO().getWithStoreAndName(userDAO().get("m0@m0.m0").id_user,"Cat 1").id_category,null));
-        products.add(new Product("Prod 4","details prod 4", 29.99f, categoryDAO().getWithStoreAndName(userDAO().get("m0@m0.m0").id_user,"Cat 1").id_category,null));
-        products.add(new Product("Prod 5","details prod 5", 39.99f, categoryDAO().getWithStoreAndName(userDAO().get("m0@m0.m0").id_user,"Cat 1").id_category,null));
-        products.add(new Product("Prod 6","details prod 6", 49.99f, categoryDAO().getWithStoreAndName(userDAO().get("m1@m1.m1").id_user,"Cat 6").id_category,null));
-        products.add(new Product("Prod 7","details prod 7", 59.99f, categoryDAO().getWithStoreAndName(userDAO().get("m1@m1.m1").id_user,"Cat 6").id_category,null));
-        products.add(new Product("Prod 8","details prod 8", 69.99f, categoryDAO().getWithStoreAndName(userDAO().get("m1@m1.m1").id_user,"Cat 6").id_category,null));
-        products.add(new Product("Prod 9","details prod 9", 79.99f, categoryDAO().getWithStoreAndName(userDAO().get("m1@m1.m1").id_user,"Cat 6").id_category,null));
-        products.add(new Product("Prod 10","details prod 10", 89.99f, categoryDAO().getWithStoreAndName(userDAO().get("m1@m1.m1").id_user,"Cat 6").id_category,null));
+        products.add(new Product("Prod 1","details prod 1", 0.99f, categoryDAO().getWithStoreAndName(userDAO().get("m0@m.com").id_user,"Cat 1").id_category,null));
+        products.add(new Product("Prod 2","details prod 2", 9.99f, categoryDAO().getWithStoreAndName(userDAO().get("m0@m.com").id_user,"Cat 1").id_category,null));
+        products.add(new Product("Prod 3","details prod 3", 19.99f, categoryDAO().getWithStoreAndName(userDAO().get("m0@m.com").id_user,"Cat 1").id_category,null));
+        products.add(new Product("Prod 4","details prod 4", 29.99f, categoryDAO().getWithStoreAndName(userDAO().get("m0@m.com").id_user,"Cat 1").id_category,null));
+        products.add(new Product("Prod 5","details prod 5", 39.99f, categoryDAO().getWithStoreAndName(userDAO().get("m0@m.com").id_user,"Cat 1").id_category,null));
+        products.add(new Product("Prod 6","details prod 6", 49.99f, categoryDAO().getWithStoreAndName(userDAO().get("m1@m.com").id_user,"Cat 6").id_category,null));
+        products.add(new Product("Prod 7","details prod 7", 59.99f, categoryDAO().getWithStoreAndName(userDAO().get("m1@m.com").id_user,"Cat 6").id_category,null));
+        products.add(new Product("Prod 8","details prod 8", 69.99f, categoryDAO().getWithStoreAndName(userDAO().get("m1@m.com").id_user,"Cat 6").id_category,null));
+        products.add(new Product("Prod 9","details prod 9", 79.99f, categoryDAO().getWithStoreAndName(userDAO().get("m1@m.com").id_user,"Cat 6").id_category,null));
+        products.add(new Product("Prod 10","details prod 10", 89.99f, categoryDAO().getWithStoreAndName(userDAO().get("m1@m.com").id_user,"Cat 6").id_category,null));
         int size_products = products.size();
         Log.i("","PRODUCTS INITILIZATION");
         for(int i = 0 ; i < size_products; i++){
@@ -192,11 +191,11 @@ public abstract class AppDatabase extends RoomDatabase {
     public void fillProductsInBaskets(){
         ProductInBasketDAO productInBasketDAO = productInBasketDAO();
         ArrayList<ProductInBasket> pibs = new ArrayList<>();
-        pibs.add(new ProductInBasket(productDAO().getProductsLike("Prod 1").get(0).id_product,userDAO().get("c@c.c").id_user,1));
-        pibs.add(new ProductInBasket(productDAO().getProductsLike("Prod 2").get(0).id_product,userDAO().get("c@c.c").id_user,4));
-        pibs.add(new ProductInBasket(productDAO().getProductsLike("Prod 4").get(0).id_product,userDAO().get("c@c.c").id_user,2));
-        pibs.add(new ProductInBasket(productDAO().getProductsLike("Prod 5").get(0).id_product,userDAO().get("c@c.c").id_user,1));
-        pibs.add(new ProductInBasket(productDAO().getProductsLike("Prod 6").get(0).id_product,userDAO().get("c@c.c").id_user,3));
+        pibs.add(new ProductInBasket(productDAO().getProductsLike("Prod 1").get(0).id_product,userDAO().get("c@c.com").id_user,1));
+        pibs.add(new ProductInBasket(productDAO().getProductsLike("Prod 2").get(0).id_product,userDAO().get("c@c.com").id_user,4));
+        pibs.add(new ProductInBasket(productDAO().getProductsLike("Prod 4").get(0).id_product,userDAO().get("c@c.com").id_user,2));
+        pibs.add(new ProductInBasket(productDAO().getProductsLike("Prod 5").get(0).id_product,userDAO().get("c@c.com").id_user,1));
+        pibs.add(new ProductInBasket(productDAO().getProductsLike("Prod 6").get(0).id_product,userDAO().get("c@c.com").id_user,3));
         int size_pibs = pibs.size();
         Log.i("","PRODUCTS IN BASKET INITILIZATION");
         for(int i = 0 ; i < size_pibs; i++){
@@ -210,8 +209,8 @@ public abstract class AppDatabase extends RoomDatabase {
         ArrayList<Order> orders = new ArrayList<>();
         long time = System.currentTimeMillis();
         long day_in_millis = 86400000;
-        orders.add(new Order(userDAO().get("m1@m1.m1").id_user,userDAO().get("c@c.c").id_user,new Date(time-day_in_millis*10)));
-        orders.add(new Order(userDAO().get("m0@m0.m0").id_user,userDAO().get("c@c.c").id_user,new Date(time-day_in_millis*5)));
+        orders.add(new Order(userDAO().get("m1@m.com").id_user,userDAO().get("c@c.com").id_user,new Date(time-day_in_millis*10)));
+        orders.add(new Order(userDAO().get("m0@m.com").id_user,userDAO().get("c@c.com").id_user,new Date(time-day_in_millis*5)));
         int size_orders = orders.size();
         Log.i("","ORDERS INITILIZATION");
         for(int i = 0 ; i < size_orders; i++){
@@ -223,16 +222,16 @@ public abstract class AppDatabase extends RoomDatabase {
     public void fillProductsInOrders(){
         ProductInOrderDAO productInOrderDAO = productInOrderDAO();
         ArrayList<ProductInOrder> pios = new ArrayList<>();
-        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m0@m0.m0").id_user).get(0).id_order,productDAO().getProductsLike("Prod 1").get(0).id_product,1,10));
-        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m0@m0.m0").id_user).get(0).id_order,productDAO().getProductsLike("Prod 2").get(0).id_product,2,20));
-        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m0@m0.m0").id_user).get(0).id_order,productDAO().getProductsLike("Prod 3").get(0).id_product,3,30));
-        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m0@m0.m0").id_user).get(0).id_order,productDAO().getProductsLike("Prod 4").get(0).id_product,4,40));
-        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m0@m0.m0").id_user).get(0).id_order,productDAO().getProductsLike("Prod 5").get(0).id_product,5,50));
-        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m1@m1.m1").id_user).get(0).id_order,productDAO().getProductsLike("Prod 6").get(0).id_product,1,60));
-        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m1@m1.m1").id_user).get(0).id_order,productDAO().getProductsLike("Prod 7").get(0).id_product,2,70));
-        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m1@m1.m1").id_user).get(0).id_order,productDAO().getProductsLike("Prod 8").get(0).id_product,3,80));
-        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m1@m1.m1").id_user).get(0).id_order,productDAO().getProductsLike("Prod 9").get(0).id_product,4,90));
-        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.c").id_user,userDAO().get("m1@m1.m1").id_user).get(0).id_order,productDAO().getProductsLike("Prod 10").get(0).id_product,5,100));
+        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.com").id_user,userDAO().get("m0@m.com").id_user).get(0).id_order,productDAO().getProductsLike("Prod 1").get(0).id_product,1,10));
+        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.com").id_user,userDAO().get("m0@m.com").id_user).get(0).id_order,productDAO().getProductsLike("Prod 2").get(0).id_product,2,20));
+        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.com").id_user,userDAO().get("m0@m.com").id_user).get(0).id_order,productDAO().getProductsLike("Prod 3").get(0).id_product,3,30));
+        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.com").id_user,userDAO().get("m0@m.com").id_user).get(0).id_order,productDAO().getProductsLike("Prod 4").get(0).id_product,4,40));
+        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.com").id_user,userDAO().get("m0@m.com").id_user).get(0).id_order,productDAO().getProductsLike("Prod 5").get(0).id_product,5,50));
+        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.com").id_user,userDAO().get("m1@m.com").id_user).get(0).id_order,productDAO().getProductsLike("Prod 6").get(0).id_product,1,60));
+        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.com").id_user,userDAO().get("m1@m.com").id_user).get(0).id_order,productDAO().getProductsLike("Prod 7").get(0).id_product,2,70));
+        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.com").id_user,userDAO().get("m1@m.com").id_user).get(0).id_order,productDAO().getProductsLike("Prod 8").get(0).id_product,3,80));
+        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.com").id_user,userDAO().get("m1@m.com").id_user).get(0).id_order,productDAO().getProductsLike("Prod 9").get(0).id_product,4,90));
+        pios.add(new ProductInOrder(orderDAO().get(userDAO().get("c@c.com").id_user,userDAO().get("m1@m.com").id_user).get(0).id_order,productDAO().getProductsLike("Prod 10").get(0).id_product,5,100));
         int size_pios = pios.size();
         Log.i("","PRODUCTS IN ORDER INITILIZATION");
         for(int i = 0 ; i < size_pios; i++){
@@ -267,10 +266,10 @@ public abstract class AppDatabase extends RoomDatabase {
     public void fillInterestsForCategories(){
         InterestForCategoryDAO interestForCategoryDAO = interestForCategoryDAO();
         ArrayList<InterestForCategory> ifcs = new ArrayList<>();
-        ifcs.add(new InterestForCategory(interestDAO().get("Extreme sports").id_interest,categoryDAO().getWithStoreAndName(userDAO().get("m0@m0.m0").id_user,"Cat 1").id_category));
-        ifcs.add(new InterestForCategory(interestDAO().get("Classical sports").id_interest,categoryDAO().getWithStoreAndName(userDAO().get("m0@m0.m0").id_user,"Cat 1").id_category));
-        ifcs.add(new InterestForCategory(interestDAO().get("Entertainment tech").id_interest,categoryDAO().getWithStoreAndName(userDAO().get("m1@m1.m1").id_user,"Cat 6").id_category));
-        ifcs.add(new InterestForCategory(interestDAO().get("Capture tech").id_interest,categoryDAO().getWithStoreAndName(userDAO().get("m1@m1.m1").id_user,"Cat 6").id_category));
+        ifcs.add(new InterestForCategory(interestDAO().get("Extreme sports").id_interest,categoryDAO().getWithStoreAndName(userDAO().get("m0@m.com").id_user,"Cat 1").id_category));
+        ifcs.add(new InterestForCategory(interestDAO().get("Classical sports").id_interest,categoryDAO().getWithStoreAndName(userDAO().get("m0@m.com").id_user,"Cat 1").id_category));
+        ifcs.add(new InterestForCategory(interestDAO().get("Entertainment tech").id_interest,categoryDAO().getWithStoreAndName(userDAO().get("m1@m.com").id_user,"Cat 6").id_category));
+        ifcs.add(new InterestForCategory(interestDAO().get("Capture tech").id_interest,categoryDAO().getWithStoreAndName(userDAO().get("m1@m.com").id_user,"Cat 6").id_category));
         int size_ifcs = ifcs.size();
         Log.i("","INTEREST FOR CATEGORY INITILIZATION");
         for(int i = 0 ; i < size_ifcs; i++){
@@ -282,13 +281,31 @@ public abstract class AppDatabase extends RoomDatabase {
     public void fillUsersHaveInterests(){
         UserHasInterestDAO userHasInterestDAO = userHasInterestDAO();
         ArrayList<UserHasInterest> uhis = new ArrayList<>();
-        uhis.add(new UserHasInterest(interestDAO().get("Extreme sports").id_interest,userDAO().get("c@c.c").id_user));
-        uhis.add(new UserHasInterest(interestDAO().get("Classical sports").id_interest,userDAO().get("c@c.c").id_user));
+        uhis.add(new UserHasInterest(interestDAO().get("Extreme sports").id_interest,userDAO().get("c@c.com").id_user));
+        uhis.add(new UserHasInterest(interestDAO().get("Classical sports").id_interest,userDAO().get("c@c.com").id_user));
         int size_uhis = uhis.size();
         Log.i("","USER HAS INTEREST INITILIZATION");
         for(int i = 0 ; i < size_uhis; i++){
             userHasInterestDAO.insert(uhis.get(i));
             Log.i("", String.valueOf(uhis.get(i).id_uhi));
+        }
+    }
+
+    public void fillOffers(){
+        OfferDAO offerDAO = offerDAO();
+        ArrayList<Offer> offers = new ArrayList<>();
+        long time = System.currentTimeMillis();
+        long day_in_millis = 86400000;
+        offers.add(new Offer(productDAO().getProductsLike("Prod 1").get(0).id_product,25,new Date(time - 11*day_in_millis),new Date(time + 11*day_in_millis)));
+        offers.add(new Offer(productDAO().getProductsLike("Prod 4").get(0).id_product,35,new Date(time - 12*day_in_millis),new Date(time + 12*day_in_millis)));
+        offers.add(new Offer(productDAO().getProductsLike("Prod 5").get(0).id_product,45,new Date(time - 13*day_in_millis),new Date(time + 13*day_in_millis)));
+        offers.add(new Offer(productDAO().getProductsLike("Prod 6").get(0).id_product,55,new Date(time - 14*day_in_millis),new Date(time + 14*day_in_millis)));
+        offers.add(new Offer(productDAO().getProductsLike("Prod 7").get(0).id_product,65,new Date(time - 15*day_in_millis),new Date(time + 15*day_in_millis)));
+        int size_offers = offers.size();
+        Log.i("","OFFER INITILIZATION");
+        for(int i = 0 ; i < size_offers; i++){
+            offerDAO.insert(offers.get(i));
+            Log.i("", String.valueOf(offers.get(i).id_offer));
         }
     }
 
@@ -304,5 +321,6 @@ public abstract class AppDatabase extends RoomDatabase {
         fillInterests();
         fillInterestsForCategories();
         fillUsersHaveInterests();
+        fillOffers();
     }
 }

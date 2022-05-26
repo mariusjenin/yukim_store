@@ -48,8 +48,8 @@ public class StoreListAdapterC extends ArrayAdapter<Store> {
         if (s != null) {
             ImageView image_store = v.findViewById(R.id.image_store);
             TextView name_store = v.findViewById(R.id.name_store);
-            ConstraintLayout btn_store = v.findViewById(R.id.btn_item);
-            btn_store.setOnClickListener(new View.OnClickListener() {
+            ConstraintLayout btn_item = v.findViewById(R.id.btn_item);
+            btn_item.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent;
