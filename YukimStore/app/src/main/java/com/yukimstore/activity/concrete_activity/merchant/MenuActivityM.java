@@ -50,6 +50,6 @@ public class MenuActivityM extends ConnectedMerchantWithStoreActivity {
     }
 
     public void orders(View view) {
-        Toast.makeText(this,"Not yet implemented",Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this,ConsultOrdersActivityM.class));
     }
 }

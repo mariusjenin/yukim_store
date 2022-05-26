@@ -50,6 +50,15 @@
             android:name=".activity.concrete_activity.merchant.AddProductActivityM"
             android:exported="false" />
 
+        <activity
+            android:name=".activity.concrete_activity.merchant.ConsultOrdersActivityM"
+            android:exported="false" />
+
+
+        <activity
+            android:name=".activity.concrete_activity.merchant.ConsultOrderActivityM"
+            android:exported="false" />
+
         <!-- CLIENT ACTIVITIES -->
         <activity
             android:name=".activity.concrete_activity.client.MenuActivityC"
