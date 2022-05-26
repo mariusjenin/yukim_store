@@ -13,15 +13,15 @@ public interface UserHasInterestDAO {
     @Query("SELECT * FROM UserHasInterest WHERE UserHasInterest.id_uhi = :id LIMIT 1")
     UserHasInterest get(int id);
 
-    @Query("SELECT * FROM UserHasInterest WHERE UserHasInterest.id_user = :id_user")
-    UserHasInterest getWithUser(int id_user);
-
-    @Query("SELECT * FROM UserHasInterest WHERE UserHasInterest.id_interest = :id_interest")
-    UserHasInterest getWithInterest(int id_interest);
+    @Query("SELECT * FROM UserHasInterest WHERE UserHasInterest.id_interest = :id_interest and UserHasInterest.id_user = :id_user")
+    UserHasInterest getWithUserAndInterest(int id_user,int id_interest);
 
     @Insert(onConflict = ABORT)
     void insert(UserHasInterest uhi);
 
     @Query("DELETE FROM UserHasInterest")
     void clear();
+
+    @Query("DELETE FROM UserHasInterest WHERE UserHasInterest.id_user = :id_user")
+    void clearForUser(int id_user);
 }
