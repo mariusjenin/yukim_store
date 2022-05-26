@@ -246,8 +246,8 @@ public abstract class AppDatabase extends RoomDatabase {
         ArrayList<Interest> interests = new ArrayList<>();
         interests.add(new Interest("Extreme sports"));
         interests.add(new Interest("Classical sports"));
-        interests.add(new Interest("Street food"));
-        interests.add(new Interest("Gastronomy"));
+        interests.add(new Interest("Industrial food"));
+        interests.add(new Interest("Natural food"));
         interests.add(new Interest("Skin wellness"));
         interests.add(new Interest("Hair wellness"));
         interests.add(new Interest("Urban music"));

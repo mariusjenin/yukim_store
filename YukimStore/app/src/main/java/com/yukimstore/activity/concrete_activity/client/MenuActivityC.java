@@ -62,6 +62,12 @@ public class MenuActivityC extends ConnectedClientActivity {
         this.startActivity(intent);
     }
 
+    public void chooseInterests(View view) {
+        Intent intent;
+        intent = new Intent(this, ChooseInterestsActivityC.class);
+        this.startActivity(intent);
+    }
+
     public void logOut(View view) {
         ConnectionManager cm = ConnectionManager.getInstance();
         cm.disconnect();

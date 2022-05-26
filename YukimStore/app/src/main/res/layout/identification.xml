@@ -47,7 +47,7 @@
                     android:elevation="10dp"
                     android:fontFamily="sans-serif"
                     android:hint="@string/mail"
-                    android:inputType="text"
+                    android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:minHeight="48dp"
                     android:padding="10dp"

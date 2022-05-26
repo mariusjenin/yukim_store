@@ -17,6 +17,9 @@ import com.yukimstore.db.entity.User;
 import com.yukimstore.manager.ConnectionManager;
 import com.yukimstore.utils.HashUtil;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class IdentificationActivity extends NotConnectedActivity {
 
     private boolean is_sign_up;
@@ -129,8 +132,10 @@ public class IdentificationActivity extends NotConnectedActivity {
         //Get the value of each input
         String email = et_email.getText().toString();
 
-        if(email.length() == 0){ //TODO Verify email form instead
-            Toast.makeText(this,"Email empty",Toast.LENGTH_SHORT).show();
+        Pattern regex = Pattern.compile("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b");
+
+        if(!regex.matcher(email).matches()){
+            Toast.makeText(this,"Email not valid",Toast.LENGTH_SHORT).show();
             return;
         }
 
