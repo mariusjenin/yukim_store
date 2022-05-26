@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.yukimstore.R;
-import com.yukimstore.activity.ConnectedClientActivity;
+import com.yukimstore.activity.used.ConnectedClientActivity;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Product;
 import com.yukimstore.db.entity.Store;
@@ -22,6 +22,7 @@ public class ConsultStoreActivityC extends ConnectedClientActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(is_redirected) return;
         setContentView(R.layout.c_consult_store);
         store = (Store) getIntent().getSerializableExtra("store");
         Button consult_categories = findViewById(R.id.consult_categories);

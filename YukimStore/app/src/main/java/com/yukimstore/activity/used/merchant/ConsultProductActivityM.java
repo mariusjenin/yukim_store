@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.yukimstore.R;
-import com.yukimstore.activity.ConnectedMerchantWithStoreActivity;
+import com.yukimstore.activity.used.ConnectedMerchantWithStoreActivity;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Category;
 import com.yukimstore.db.entity.Product;
@@ -24,6 +24,7 @@ public class ConsultProductActivityM extends ConnectedMerchantWithStoreActivity 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(is_redirected) return;
         setContentView(R.layout.m_consult_product);
         AppDatabase apd = AppDatabase.getInstance(this);
         product = (Product) getIntent().getSerializableExtra("product");

@@ -1,6 +1,7 @@
 package com.yukimstore.activity.unused;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.yukimstore.manager.ConnectionManager;
 import com.yukimstore.middleware.MerchantMiddleware;
@@ -14,26 +15,24 @@ public abstract class ConnectedMerchantActivity extends ConnectedActivity {
         type_user_middleware = new MerchantMiddleware();
     }
 
+    public boolean verify_and_redirect() {
+        boolean redirected = super.verify_and_redirect();
+        if(redirected) return true;
+        return store_middleWare.verify_and_redirect(this);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        ConnectionManager cm = ConnectionManager.getInstance();
 //        cm.removeTokenUserFromPrefs(this);
-        if(!connection_middleware.verify_and_redirect(this)){
-            if(!type_user_middleware.verify_and_redirect(this)){
-                store_middleWare.verify_and_redirect(this);
-            }
-        }
+        verify_and_redirect();
     }
 
 
     @Override
     protected void onResume() {
         super.onResume();
-        if(!connection_middleware.verify_and_redirect(this)){
-            if(!type_user_middleware.verify_and_redirect(this)){
-                store_middleWare.verify_and_redirect(this);
-            }
-        }
+        verify_and_redirect();
     }
 }

@@ -1,4 +1,4 @@
-package com.yukimstore.activity;
+package com.yukimstore.activity.used;
 
 import com.yukimstore.activity.unused.ConnectedMerchantActivity;
 import com.yukimstore.middleware.MerchantWithStoreMiddleWare;

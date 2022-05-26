@@ -2,7 +2,9 @@ package com.yukimstore.middleware;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 
+import com.yukimstore.activity.unused.MiddlewareActivity;
 import com.yukimstore.activity.used.client.MenuActivityC;
 import com.yukimstore.activity.used.merchant.MenuActivityM;
 import com.yukimstore.db.entity.User;
@@ -14,7 +16,7 @@ import com.yukimstore.manager.ConnectionManager;
  */
 public class NotConnectedMiddleware extends ConnectionMiddleware {
 
-    public boolean verify_and_redirect(Activity activity){
+    public boolean verify_and_redirect(MiddlewareActivity activity){
         ConnectionManager cm = ConnectionManager.getInstance();
         boolean isConnected = cm.isConnected();
         if(isConnected){
@@ -24,7 +26,7 @@ public class NotConnectedMiddleware extends ConnectionMiddleware {
         return false;
     }
 
-    public void redirect(Activity activity){
+    public void redirect(MiddlewareActivity activity){
         ConnectionManager cm = ConnectionManager.getInstance();
         User user = cm.getUtilisateur();
         activity.finish();
@@ -34,6 +36,7 @@ public class NotConnectedMiddleware extends ConnectionMiddleware {
         } else {
             intent = new Intent(activity, MenuActivityC.class);
         }
+        activity.setIsRedirected(true);
         activity.startActivity(intent);
     }
 }

@@ -22,6 +22,6 @@ public interface InterestForCategoryDAO {
     @Insert(onConflict = ABORT)
     void insert(InterestForCategory ifc);
 
-    @Query("DELETE FROM UserHasInterest")
+    @Query("DELETE FROM InterestForCategory")
     void clear();
 }

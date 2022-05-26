@@ -11,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.yukimstore.activity.unused.NotConnectedActivity;
 import com.yukimstore.R;
 import com.yukimstore.activity.used.client.MenuActivityC;
 import com.yukimstore.activity.used.merchant.CreateStoreActivityM;
@@ -40,6 +39,7 @@ public class IdentificationActivity extends NotConnectedActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(is_redirected) return;
         ConnectionManager cm =ConnectionManager.getInstance();
         if(!cm.isConnected()){
             String token = cm.getTokenUserFromPrefs(this);
@@ -197,14 +197,13 @@ public class IdentificationActivity extends NotConnectedActivity {
             } else {
                 cm.removeTokenUserFromPrefs(this);
             }
-            if(user.is_merchant) {
-
-                Log.e("test","TEST");
-                startActivity(new Intent(this, CreateStoreActivityM.class));
-            }
-            else {
-                startActivity(new Intent(this, MenuActivityC.class));
-            }
+            connection_middleware.redirect(this);
+//            if(user.is_merchant) {
+//                startActivity(new Intent(this, CreateStoreActivityM.class));
+//            }
+//            else {
+//                startActivity(new Intent(this, MenuActivityC.class));
+//            }
         }
 
     }

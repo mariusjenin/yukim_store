@@ -1,27 +1,19 @@
 package com.yukimstore.activity.used.merchant;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.yukimstore.R;
-import com.yukimstore.activity.ConnectedClientActivity;
-import com.yukimstore.activity.ConnectedMerchantWithStoreActivity;
-import com.yukimstore.adapter.client.CategoryListAdapterC;
+import com.yukimstore.activity.used.ConnectedMerchantWithStoreActivity;
 import com.yukimstore.adapter.merchant.CategoryListAdapterM;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Category;
-import com.yukimstore.db.entity.Product;
-import com.yukimstore.db.entity.Store;
 import com.yukimstore.manager.ConnectionManager;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ConsultCategoriesStoreActivityM extends ConnectedMerchantWithStoreActivity {
@@ -29,6 +21,7 @@ public class ConsultCategoriesStoreActivityM extends ConnectedMerchantWithStoreA
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(is_redirected) return;
         setContentView(R.layout.m_consult_categories_store);
 
         ConnectionManager cm = ConnectionManager.getInstance();

@@ -7,7 +7,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.yukimstore.R;
-import com.yukimstore.activity.ConnectedClientActivity;
+import com.yukimstore.activity.used.ConnectedClientActivity;
 import com.yukimstore.adapter.client.ProductInOrderAdapterC;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Order;
@@ -24,6 +24,7 @@ public class ConsultOrderActivityC extends ConnectedClientActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(is_redirected) return;
         this.setContentView(R.layout.c_consult_order);
         Order order = (Order) getIntent().getSerializableExtra("order");
 

@@ -7,10 +7,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.yukimstore.R;
-import com.yukimstore.activity.ConnectedClientActivity;
+import com.yukimstore.activity.used.ConnectedClientActivity;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Product;
-import com.yukimstore.db.entity.Store;
 import com.yukimstore.db.entity.User;
 import com.yukimstore.manager.ConnectionManager;
 
@@ -22,6 +21,7 @@ public class MenuActivityC extends ConnectedClientActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(is_redirected) return;
         setContentView(R.layout.c_menu);
         TextView name_user = findViewById(R.id.name_user);
         User user = ConnectionManager.getInstance().getUtilisateur();

@@ -7,7 +7,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.yukimstore.R;
-import com.yukimstore.activity.ConnectedClientActivity;
+import com.yukimstore.activity.used.ConnectedClientActivity;
 import com.yukimstore.adapter.client.ProductListAdapterC;
 import com.yukimstore.db.entity.Product;
 
@@ -20,6 +20,7 @@ public class ConsultListProductsActivityC extends ConnectedClientActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(is_redirected) return;
         this.setContentView(R.layout.c_list_products);
         products = (List<Product>) getIntent().getSerializableExtra("products");
         String title = getIntent().getStringExtra("title");

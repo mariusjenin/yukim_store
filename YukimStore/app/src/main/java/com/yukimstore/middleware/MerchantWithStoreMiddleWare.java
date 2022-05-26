@@ -1,8 +1,11 @@
 package com.yukimstore.middleware;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 
+import com.yukimstore.activity.unused.MiddlewareActivity;
 import com.yukimstore.activity.used.merchant.CreateStoreActivityM;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Store;
@@ -14,7 +17,7 @@ import com.yukimstore.manager.ConnectionManager;
  * si l'utilisateur marchand n'a pas de store
  */
 public class MerchantWithStoreMiddleWare extends StoreMiddleWare {
-    public boolean verify_and_redirect(Activity activity){
+    public boolean verify_and_redirect(MiddlewareActivity activity){
         ConnectionManager cm = ConnectionManager.getInstance();
 
         User user = cm.getUtilisateur();
@@ -25,9 +28,11 @@ public class MerchantWithStoreMiddleWare extends StoreMiddleWare {
         }
         return false;
     }
-    public void redirect(Activity activity){
+    @SuppressLint("LongLogTag")
+    public void redirect(MiddlewareActivity activity){
         activity.finish();
         Intent intent = new Intent(activity, CreateStoreActivityM.class);
+        activity.setIsRedirected(true);
         activity.startActivity(intent);
     }
 }

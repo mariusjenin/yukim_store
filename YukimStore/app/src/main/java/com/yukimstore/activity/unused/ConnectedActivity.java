@@ -1,15 +1,23 @@
 package com.yukimstore.activity.unused;
 
+import android.util.Log;
+
 import com.yukimstore.middleware.ConnectedMiddleware;
 import com.yukimstore.middleware.ConnectionMiddleware;
 import com.yukimstore.middleware.TypeUserMiddleware;
 
 public abstract class ConnectedActivity extends MiddlewareActivity {
-    protected ConnectionMiddleware connection_middleware;
     protected TypeUserMiddleware type_user_middleware;
 
     public ConnectedActivity(){
         super();
         connection_middleware = new ConnectedMiddleware();
+    }
+
+    @Override
+    public boolean verify_and_redirect() {
+        boolean redirected = super.verify_and_redirect();
+        if(redirected) return true;
+        return type_user_middleware.verify_and_redirect(this);
     }
 }

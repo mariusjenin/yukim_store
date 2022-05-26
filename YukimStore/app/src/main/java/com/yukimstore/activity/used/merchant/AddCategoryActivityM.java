@@ -1,22 +1,19 @@
 package com.yukimstore.activity.used.merchant;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yukimstore.InterestCheckbox;
 import com.yukimstore.R;
-import com.yukimstore.activity.ConnectedMerchantWithStoreActivity;
+import com.yukimstore.activity.used.ConnectedMerchantWithStoreActivity;
 import com.yukimstore.adapter.InterestCheckboxAdapter;
-import com.yukimstore.adapter.merchant.CategoryListAdapterM;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Category;
 import com.yukimstore.db.entity.Interest;
@@ -34,6 +31,7 @@ public class AddCategoryActivityM extends ConnectedMerchantWithStoreActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(is_redirected) return;
         setContentView(R.layout.m_add_category);
         List<Interest> interests = AppDatabase.getInstance(this).interestDAO().getAll();
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
@@ -79,7 +77,6 @@ public class AddCategoryActivityM extends ConnectedMerchantWithStoreActivity {
                 int size_interests = icbs.size();
                 for(int i = 0; i < size_interests;i++){
                     if(icbs.get(i).isSelected()){
-                        Log.i(String.valueOf(icbs.get(i).getInterest().id_interest),icbs.get(i).getInterest().name);
                         InterestForCategory ifc = new InterestForCategory(icbs.get(i).getInterest().id_interest,id_category);
                         AppDatabase.getInstance(AddCategoryActivityM.this).interestForCategoryDAO().insert(ifc);
                     }

@@ -7,7 +7,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.yukimstore.R;
-import com.yukimstore.activity.ConnectedClientActivity;
+import com.yukimstore.activity.used.ConnectedClientActivity;
 import com.yukimstore.adapter.client.CategoryListAdapterC;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Category;
@@ -22,6 +22,7 @@ public class ConsultCategoriesStoreActivityC extends ConnectedClientActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(is_redirected) return;
         this.setContentView(R.layout.c_consult_categories_store);
         store = (Store) getIntent().getSerializableExtra("store");
 

@@ -2,6 +2,7 @@ package com.yukimstore.activity.used.merchant;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -9,7 +10,7 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.yukimstore.R;
-import com.yukimstore.activity.ConnectedMerchantWithoutStoreActivity;
+import com.yukimstore.activity.used.ConnectedMerchantWithoutStoreActivity;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Category;
 import com.yukimstore.db.entity.Store;
@@ -27,6 +28,7 @@ public class CreateStoreActivityM extends ConnectedMerchantWithoutStoreActivity 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(is_redirected) return;
         setContentView(R.layout.m_create_store);
         templateChoice = findViewById(R.id.TemplateChoice);
         choice = Choice.CLOTHING;

@@ -1,16 +1,14 @@
 package com.yukimstore.activity.used.merchant;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.yukimstore.R;
-import com.yukimstore.activity.ConnectedMerchantWithStoreActivity;
+import com.yukimstore.activity.used.ConnectedMerchantWithStoreActivity;
 import com.yukimstore.adapter.merchant.ProductListAdapterM;
 import com.yukimstore.db.entity.Category;
 import com.yukimstore.db.entity.Product;
@@ -23,6 +21,7 @@ public class ConsultListProductsActivityM extends ConnectedMerchantWithStoreActi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(is_redirected) return;
         this.setContentView(R.layout.m_list_products);
 
         products = (List<Product>) getIntent().getSerializableExtra("products");

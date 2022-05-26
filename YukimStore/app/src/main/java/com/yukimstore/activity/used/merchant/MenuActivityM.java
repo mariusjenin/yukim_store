@@ -1,6 +1,5 @@
 package com.yukimstore.activity.used.merchant;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,9 +8,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yukimstore.R;
-import com.yukimstore.activity.ConnectedMerchantWithStoreActivity;
+import com.yukimstore.activity.used.ConnectedMerchantWithStoreActivity;
 import com.yukimstore.activity.used.IdentificationActivity;
-import com.yukimstore.activity.used.client.ConsultStoreActivityC;
 import com.yukimstore.db.AppDatabase;
 import com.yukimstore.db.entity.Product;
 import com.yukimstore.db.entity.Store;
@@ -25,6 +23,7 @@ public class MenuActivityM extends ConnectedMerchantWithStoreActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(is_redirected) return;
         setContentView(R.layout.m_menu);
         TextView store_name = findViewById(R.id.store_name);
         store = AppDatabase.getInstance(this).storeDAO().get(ConnectionManager.getInstance().getUtilisateur().id_user);
