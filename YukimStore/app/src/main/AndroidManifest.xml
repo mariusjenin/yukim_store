@@ -21,16 +21,30 @@
             </intent-filter>
         </activity>
 
+        <!-- MERCHANT ACTIVITIES -->
+        <activity
+            android:name=".activity.used.merchant.CreateStoreActivityM"
+            android:exported="false" />
+
         <activity
             android:name=".activity.used.merchant.MerchantMenuActivityM"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.client.MenuActivityClientC"
+            android:name=".activity.used.merchant.ConsultCategoriesStoreActivityM"
             android:exported="false" />
 
         <activity
-            android:name=".activity.used.merchant.CreateStoreActivityM"
+            android:name=".activity.used.merchant.ConsultListProductsActivityM"
+            android:exported="false" />
+
+        <activity
+            android:name=".activity.used.merchant.ConsultProductActivityM"
+            android:exported="false" />
+
+        <!-- CLIENT ACTIVITIES -->
+        <activity
+            android:name=".activity.used.client.MenuActivityClientC"
             android:exported="false" />
 
         <activity

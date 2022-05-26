@@ -3,66 +3,98 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background">
 
-    <TextView
-        android:id="@+id/textView5"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/leave_btn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:clickable="true"
+        android:contentDescription="@string/content_description"
+        android:focusable="true"
+        android:onClick="disconnect"
+        app:backgroundTint="@color/lightTeal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/log_out"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,ImageContrastCheck,ImageContrastCheck,UsingOnClickInXml" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="@string/menu"
-        android:textSize="24sp"
+        android:layout_marginBottom="100dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent">
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="40dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/menu"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <Button
-            android:id="@+id/my_orders"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="15dp"
             android:layout_weight="1"
-            android:background="#e1ffb1"
-            android:text="@string/my_orders"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:onClick="merchantOrders"
-            tools:ignore="UsingOnClickInXml" />
-
-        <Button
-            android:id="@+id/my_categories"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            android:background="#e1ffb1"
+            android:background="@drawable/button_round_white"
+            android:elevation="10dp"
+            android:fontFamily="sans-serif"
+            android:onClick="myCategories"
             android:text="@string/my_categories"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/my_orders"
-            android:onClick="merchantCategories"
-            tools:ignore="UsingOnClickInXml" />
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            tools:ignore="UsingOnClickInXml,TouchTargetSizeCheck" />
 
         <Button
-            android:id="@+id/my_products"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="15dp"
             android:layout_weight="1"
-            android:background="#e1ffb1"
+            android:background="@drawable/button_round_white"
+            android:elevation="10dp"
+            android:fontFamily="sans-serif"
+            android:onClick="myProducts"
             android:text="@string/my_products"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/my_categories"
-            android:onClick="merchantProducts"
-            tools:ignore="UsingOnClickInXml" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            tools:ignore="UsingOnClickInXml,TouchTargetSizeCheck" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_round_white"
+            android:elevation="10dp"
+            android:fontFamily="sans-serif"
+            android:onClick="orders"
+            android:text="@string/orders"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            tools:ignore="UsingOnClickInXml,TouchTargetSizeCheck" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -81,7 +81,8 @@
             android:layout_height="0dp"
             android:layout_marginTop="20dp"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -157,7 +158,8 @@
             android:layout_height="0dp"
             android:layout_marginTop="20dp"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -235,7 +237,8 @@
             android:layout_height="0dp"
             android:layout_marginTop="20dp"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -343,7 +346,7 @@
             android:text="@string/create_my_store"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck,DuplicateSpeakableTextCheck,UsingOnClickInXml" />
+            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck,DuplicateSpeakableTextCheck,UsingOnClickInXml,TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
     </LinearLayout>
 
@@ -354,9 +357,12 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:clickable="true"
+        android:contentDescription="@string/content_description"
+        android:focusable="true"
         app:backgroundTint="@color/salmonColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/log_out" />
+        app:srcCompat="@drawable/log_out"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,ImageContrastCheck,ImageContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
