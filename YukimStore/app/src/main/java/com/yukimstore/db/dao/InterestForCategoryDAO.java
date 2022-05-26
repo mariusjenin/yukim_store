@@ -9,6 +9,7 @@ import androidx.room.Query;
 import com.yukimstore.db.entity.Interest;
 import com.yukimstore.db.entity.InterestForCategory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Dao
@@ -21,6 +22,9 @@ public interface InterestForCategoryDAO {
 
     @Insert(onConflict = ABORT)
     void insert(InterestForCategory ifc);
+    
+    @Insert(onConflict = ABORT)
+    void insertAll(ArrayList<InterestForCategory> ifcs);
 
     @Query("DELETE FROM InterestForCategory")
     void clear();
