@@ -103,7 +103,7 @@ public abstract class AppDatabase extends RoomDatabase {
         users.add(new User("store@fnac.fr", HashUtil.getSHA256SecurePassword("password",""),true,"",""));
 
         //Client
-        users.add(new User("william.puech@lirmm.fr", HashUtil.getSHA256SecurePassword("password",""),false,"William","Puech"));
+        users.add(new User("william.puech@lirmm.fr", HashUtil.getSHA256SecurePassword("password",""),false,"John","Doe"));
 
         userDAO.insertAll(users);
     }
